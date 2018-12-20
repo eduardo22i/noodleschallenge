@@ -28,6 +28,7 @@
 		F92F5D5021CAE3330033D560 /* AAPLPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4A21CAE00A0033D560 /* AAPLPlayer.m */; };
 		F92F5D5121CAE3370033D560 /* AAPLMinmaxStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4721CAE00A0033D560 /* AAPLMinmaxStrategy.m */; };
 		F92F5D5221CAE33A0033D560 /* AAPLBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4921CAE00A0033D560 /* AAPLBoard.m */; };
+		F99E71F121CC204D0037098A /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E71EF21CC1FFE0037098A /* GameState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		F92F5D4A21CAE00A0033D560 /* AAPLPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLPlayer.m; sourceTree = "<group>"; };
 		F92F5D4B21CAE00A0033D560 /* AAPLBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLBoard.h; sourceTree = "<group>"; };
 		F92F5D4C21CAE00A0033D560 /* AAPLMinmaxStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLMinmaxStrategy.h; sourceTree = "<group>"; };
+		F99E71EF21CC1FFE0037098A /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				F92F5D4821CAE00A0033D560 /* AAPLPlayer.h */,
 				F92F5D4A21CAE00A0033D560 /* AAPLPlayer.m */,
 				F92F5D4621CAE0090033D560 /* Bridging-Header.h */,
+				F99E71EF21CC1FFE0037098A /* GameState.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F99E71F121CC204D0037098A /* GameState.swift in Sources */,
 				F92F5D3921CAD6760033D560 /* ViewController.swift in Sources */,
 				F92F5D5121CAE3370033D560 /* AAPLMinmaxStrategy.m in Sources */,
 				F92F5D3721CAD6760033D560 /* GameScene.swift in Sources */,

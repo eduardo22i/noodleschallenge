@@ -12,11 +12,12 @@ import GameplayKit
 class Chip: SKSpriteNode {
     var boxIndex: Int!
     var box: String!
-    
 }
 
 class GameScene: SKScene {
-     static let config = [3,2,4]
+    static let config = [3,2,4]
+    
+    var state = GameState.playing
     
     var chips = [[Chip]]()
     var board: AAPLBoard!
@@ -25,7 +26,6 @@ class GameScene: SKScene {
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     
-    var isThinking = false
     private var lastUpdateTime : TimeInterval = 0
     private var spinnyNode : SKShapeNode?
     
@@ -50,7 +50,6 @@ class GameScene: SKScene {
                                               SKAction.removeFromParent()]))
         }
         
-      
         
         let node = Chip(color: NSColor.green, size: CGSize(width: 150, height: 50))
         node.name = "button"
@@ -99,7 +98,7 @@ class GameScene: SKScene {
         
         self.strategist.gameModel = self.board
         
-        isThinking = false
+        state = .playing
 
     }
     
@@ -152,17 +151,17 @@ class GameScene: SKScene {
             self.addChild(n)
         }
         
-        if isThinking { return }
-        
         if let _ = self.nodes(at: pos).first(where: { $0.name == "reset"}) {
             self.resetBoard()
         }
         
+        if state == .thinking { return }
+        
         if let _ = self.nodes(at: pos).first(where: { $0.name == "button"}) {
-            self.isThinking = true
+            self.state = .thinking
             if self.removeSelectedChipsAndEvaluateWinner() {
                 print("You WON!")
-                self.isThinking = false
+                self.state = .ended
                 return
             }
             self.board.currentPlayer = self.board.currentPlayer.opponent
@@ -178,17 +177,19 @@ class GameScene: SKScene {
                 DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
                     if self.removeSelectedChipsAndEvaluateWinner() {
                         print("Machine WON!")
-                        self.isThinking = false
+                        self.state = .ended
                         return
                     }
                     self.board.currentPlayer = self.board.currentPlayer.opponent
-                    self.isThinking = false
+                    self.state = .playing
                 })
                 
             }
             
             return
         }
+        
+        if state != .playing { return }
         
         if let box = self.nodes(at: pos).first(where: { $0.name == "chip"}) as? Chip {
             if currentChips.contains(box) { return }
