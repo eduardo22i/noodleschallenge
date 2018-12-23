@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F902B91421D04D390076E2CD /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3621CAD6760033D560 /* GameScene.swift */; };
+		F902B91521D04E5D0076E2CD /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3A21CAD6790033D560 /* Resources.xcassets */; };
+		F902B91621D04E640076E2CD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3421CAD6760033D560 /* Actions.sks */; };
+		F902B91721D04E750076E2CD /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E71EF21CC1FFE0037098A /* GameState.swift */; };
+		F902B91921D04ED50076E2CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F902B91821D04ED50076E2CD /* Assets.xcassets */; };
 		F915136121CFED9800697C44 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915136021CFED9800697C44 /* Box.swift */; };
 		F915136221CFEDCB00697C44 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915136021CFED9800697C44 /* Box.swift */; };
 		F92F5D1321CA92AF0033D560 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D1221CA92AF0033D560 /* AppDelegate.swift */; };
-		F92F5D1521CA92AF0033D560 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D1421CA92AF0033D560 /* GameScene.sks */; };
-		F92F5D1721CA92AF0033D560 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D1621CA92AF0033D560 /* Actions.sks */; };
-		F92F5D1921CA92AF0033D560 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D1821CA92AF0033D560 /* GameScene.swift */; };
 		F92F5D1B21CA92AF0033D560 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D1A21CA92AF0033D560 /* GameViewController.swift */; };
 		F92F5D1E21CA92AF0033D560 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D1C21CA92AF0033D560 /* Main.storyboard */; };
 		F92F5D2021CA92B10033D560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D1F21CA92B10033D560 /* Assets.xcassets */; };
@@ -22,7 +24,7 @@
 		F92F5D3521CAD6760033D560 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3421CAD6760033D560 /* Actions.sks */; };
 		F92F5D3721CAD6760033D560 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3621CAD6760033D560 /* GameScene.swift */; };
 		F92F5D3921CAD6760033D560 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3821CAD6760033D560 /* ViewController.swift */; };
-		F92F5D3B21CAD6790033D560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3A21CAD6790033D560 /* Assets.xcassets */; };
+		F92F5D3B21CAD6790033D560 /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3A21CAD6790033D560 /* Resources.xcassets */; };
 		F92F5D3E21CAD6790033D560 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3C21CAD6790033D560 /* Main.storyboard */; };
 		F92F5D4D21CAE00A0033D560 /* AAPLMinmaxStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4721CAE00A0033D560 /* AAPLMinmaxStrategy.m */; };
 		F92F5D4E21CAE00A0033D560 /* AAPLBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4921CAE00A0033D560 /* AAPLBoard.m */; };
@@ -41,12 +43,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F902B91821D04ED50076E2CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F915136021CFED9800697C44 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
-		F92F5D0F21CA92AF0033D560 /* Noodles Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noodles Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F92F5D0F21CA92AF0033D560 /* Noodles Challenge iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noodles Challenge iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F92F5D1221CA92AF0033D560 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F92F5D1421CA92AF0033D560 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		F92F5D1621CA92AF0033D560 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		F92F5D1821CA92AF0033D560 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		F92F5D1A21CA92AF0033D560 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		F92F5D1D21CA92AF0033D560 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F92F5D1F21CA92B10033D560 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 		F92F5D3421CAD6760033D560 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		F92F5D3621CAD6760033D560 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		F92F5D3821CAD6760033D560 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F92F5D3A21CAD6790033D560 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F92F5D3A21CAD6790033D560 /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
 		F92F5D3D21CAD6790033D560 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F92F5D3F21CAD6790033D560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F92F5D4021CAD6790033D560 /* Tea_Challenge_Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tea_Challenge_Mac.entitlements; sourceTree = "<group>"; };
@@ -93,12 +93,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F902B91321D04D020076E2CD /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F92F5D3621CAD6760033D560 /* GameScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 		F92F5D0621CA92AF0033D560 = {
 			isa = PBXGroup;
 			children = (
 				F92F5D4421CAD6880033D560 /* Common */,
-				F92F5D1121CA92AF0033D560 /* Tea Challenge */,
-				F92F5D2F21CAD6760033D560 /* Tea Challenge Mac */,
+				F92F5D1121CA92AF0033D560 /* iOS */,
+				F92F5D2F21CAD6760033D560 /* Mac */,
 				F92F5D1021CA92AF0033D560 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -106,39 +114,36 @@
 		F92F5D1021CA92AF0033D560 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F92F5D0F21CA92AF0033D560 /* Noodles Challenge.app */,
+				F92F5D0F21CA92AF0033D560 /* Noodles Challenge iOS.app */,
 				F92F5D2E21CAD6760033D560 /* Noodles Challenge Mac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F92F5D1121CA92AF0033D560 /* Tea Challenge */ = {
+		F92F5D1121CA92AF0033D560 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
 				F92F5D1221CA92AF0033D560 /* AppDelegate.swift */,
-				F92F5D1421CA92AF0033D560 /* GameScene.sks */,
-				F92F5D1621CA92AF0033D560 /* Actions.sks */,
-				F92F5D1821CA92AF0033D560 /* GameScene.swift */,
 				F92F5D1A21CA92AF0033D560 /* GameViewController.swift */,
 				F92F5D1C21CA92AF0033D560 /* Main.storyboard */,
 				F92F5D1F21CA92B10033D560 /* Assets.xcassets */,
 				F92F5D2121CA92B10033D560 /* LaunchScreen.storyboard */,
 				F92F5D2421CA92B10033D560 /* Info.plist */,
 			);
-			path = "Tea Challenge";
+			path = iOS;
 			sourceTree = "<group>";
 		};
-		F92F5D2F21CAD6760033D560 /* Tea Challenge Mac */ = {
+		F92F5D2F21CAD6760033D560 /* Mac */ = {
 			isa = PBXGroup;
 			children = (
 				F92F5D3021CAD6760033D560 /* AppDelegate.swift */,
-				F92F5D3621CAD6760033D560 /* GameScene.swift */,
 				F92F5D3821CAD6760033D560 /* ViewController.swift */,
 				F92F5D3C21CAD6790033D560 /* Main.storyboard */,
+				F902B91821D04ED50076E2CD /* Assets.xcassets */,
 				F92F5D3F21CAD6790033D560 /* Info.plist */,
 				F92F5D4021CAD6790033D560 /* Tea_Challenge_Mac.entitlements */,
 			);
-			path = "Tea Challenge Mac";
+			path = Mac;
 			sourceTree = "<group>";
 		};
 		F92F5D4421CAD6880033D560 /* Common */ = {
@@ -146,8 +151,9 @@
 			children = (
 				F92F5D3221CAD6760033D560 /* GameScene.sks */,
 				F92F5D3421CAD6760033D560 /* Actions.sks */,
-				F92F5D3A21CAD6790033D560 /* Assets.xcassets */,
+				F92F5D3A21CAD6790033D560 /* Resources.xcassets */,
 				F97A662821CFDCED006FC613 /* Entities */,
+				F902B91321D04D020076E2CD /* Scenes */,
 				F92F5D4521CADFF60033D560 /* Logic */,
 			);
 			path = Common;
@@ -182,9 +188,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F92F5D0E21CA92AF0033D560 /* Noodles Challenge */ = {
+		F92F5D0E21CA92AF0033D560 /* Noodles Challenge iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F92F5D2721CA92B10033D560 /* Build configuration list for PBXNativeTarget "Noodles Challenge" */;
+			buildConfigurationList = F92F5D2721CA92B10033D560 /* Build configuration list for PBXNativeTarget "Noodles Challenge iOS" */;
 			buildPhases = (
 				F92F5D0B21CA92AF0033D560 /* Sources */,
 				F92F5D0C21CA92AF0033D560 /* Frameworks */,
@@ -194,9 +200,9 @@
 			);
 			dependencies = (
 			);
-			name = "Noodles Challenge";
+			name = "Noodles Challenge iOS";
 			productName = "Tea Challenge";
-			productReference = F92F5D0F21CA92AF0033D560 /* Noodles Challenge.app */;
+			productReference = F92F5D0F21CA92AF0033D560 /* Noodles Challenge iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F92F5D2D21CAD6760033D560 /* Noodles Challenge Mac */ = {
@@ -248,7 +254,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F92F5D0E21CA92AF0033D560 /* Noodles Challenge */,
+				F92F5D0E21CA92AF0033D560 /* Noodles Challenge iOS */,
 				F92F5D2D21CAD6760033D560 /* Noodles Challenge Mac */,
 			);
 		};
@@ -260,11 +266,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F92F5D1E21CA92AF0033D560 /* Main.storyboard in Resources */,
-				F92F5D1521CA92AF0033D560 /* GameScene.sks in Resources */,
+				F902B91621D04E640076E2CD /* Actions.sks in Resources */,
 				F92F5D2021CA92B10033D560 /* Assets.xcassets in Resources */,
 				F99E71F821CC31CD0037098A /* GameScene.sks in Resources */,
 				F92F5D2321CA92B10033D560 /* LaunchScreen.storyboard in Resources */,
-				F92F5D1721CA92AF0033D560 /* Actions.sks in Resources */,
+				F902B91521D04E5D0076E2CD /* Resources.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,9 +279,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F92F5D3321CAD6760033D560 /* GameScene.sks in Resources */,
-				F92F5D3B21CAD6790033D560 /* Assets.xcassets in Resources */,
+				F92F5D3B21CAD6790033D560 /* Resources.xcassets in Resources */,
 				F92F5D3521CAD6760033D560 /* Actions.sks in Resources */,
 				F92F5D3E21CAD6790033D560 /* Main.storyboard in Resources */,
+				F902B91921D04ED50076E2CD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,16 +293,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F902B91421D04D390076E2CD /* GameScene.swift in Sources */,
 				F915136121CFED9800697C44 /* Box.swift in Sources */,
 				F92F5D4E21CAE00A0033D560 /* AAPLBoard.m in Sources */,
 				F97A662D21CFDFBF006FC613 /* Chip.swift in Sources */,
-				F92F5D1921CA92AF0033D560 /* GameScene.swift in Sources */,
 				F92F5D4F21CAE00A0033D560 /* AAPLPlayer.m in Sources */,
 				F92F5D1B21CA92AF0033D560 /* GameViewController.swift in Sources */,
 				F948F8FC21D02D9100B0A4A3 /* Enemy.swift in Sources */,
 				F97A662A21CFDD01006FC613 /* Board.swift in Sources */,
 				F92F5D4D21CAE00A0033D560 /* AAPLMinmaxStrategy.m in Sources */,
 				F92F5D1321CA92AF0033D560 /* AppDelegate.swift in Sources */,
+				F902B91721D04E750076E2CD /* GameState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,14 +478,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KDY2FY8979;
-				INFOPLIST_FILE = "Tea Challenge/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.estamp.Tea-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/Logic/Tea Challenge-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Common/Logic/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -491,14 +499,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KDY2FY8979;
-				INFOPLIST_FILE = "Tea Challenge/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.estamp.Tea-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/Logic/Tea Challenge-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Common/Logic/Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -508,12 +516,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Tea Challenge Mac/Tea_Challenge_Mac.entitlements";
+				CODE_SIGN_ENTITLEMENTS = Mac/Tea_Challenge_Mac.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = KDY2FY8979;
-				INFOPLIST_FILE = "Tea Challenge Mac/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -531,12 +539,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Tea Challenge Mac/Tea_Challenge_Mac.entitlements";
+				CODE_SIGN_ENTITLEMENTS = Mac/Tea_Challenge_Mac.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = KDY2FY8979;
-				INFOPLIST_FILE = "Tea Challenge Mac/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -562,7 +570,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F92F5D2721CA92B10033D560 /* Build configuration list for PBXNativeTarget "Noodles Challenge" */ = {
+		F92F5D2721CA92B10033D560 /* Build configuration list for PBXNativeTarget "Noodles Challenge iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F92F5D2821CA92B10033D560 /* Debug */,

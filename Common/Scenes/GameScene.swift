@@ -22,13 +22,12 @@ class GameScene: SKScene {
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     
-    private var lastUpdateTime : TimeInterval = 0
-    private var spinnyNode : SKShapeNode?
-    
     var continueButton: SKSpriteNode!
     var resetButton: SKSpriteNode!
     
     var currentChips = [Chip]()
+    
+    private var lastUpdateTime : TimeInterval = 0
     
     override func sceneDidLoad() {
         
@@ -63,11 +62,6 @@ class GameScene: SKScene {
     
     func isWinner() -> Bool {
         if board.gameModel.isWin(for: board.gameModel.currentPlayer) {
-            if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-                n.position = CGPoint(x: 0, y: 0)
-                n.strokeColor = SKColor.systemPink
-                self.addChild(n)
-            }
             return true
         }
         return false
@@ -97,12 +91,6 @@ class GameScene: SKScene {
     func touchUp(atPoint pos : CGPoint) {
         continueButton.alpha = 1.0
         resetButton.alpha = 1.0
-        
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
         
         if let _ = self.nodes(at: pos).first(where: { $0.name == "resetButton"}) {
             self.resetBoard()
@@ -172,12 +160,28 @@ class GameScene: SKScene {
         }
     }
     
+    #if os(iOS)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+    }
+    
+    
+    #else
     override func mouseDown(with event: NSEvent) {
         self.touchDown(atPoint: event.location(in: self))
     }
     override func mouseUp(with event: NSEvent) {
         self.touchUp(atPoint: event.location(in: self))
     }
+    #endif
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
