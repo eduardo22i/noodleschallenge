@@ -46,8 +46,8 @@ class Board: SKSpriteNode {
         
         for (index, chipsCount) in self.config.enumerated() {
             
-            let x = index == 0 ? -200 : (index == 1 ? 200 : 0)
-            let y = index == 0 ? 140 : (index == 2 ? -80 : 140)
+            let x = index == 0 ? -160 : (index == 1 ? 200 : 0)
+            let y = index == 0 ? -40 : (index == 2 ? 200 : -40)
             
             let box = self.addBox(index: index, x: CGFloat(x), y: CGFloat(y))
             box.addCoins(count: chipsCount)
@@ -65,7 +65,21 @@ class Board: SKSpriteNode {
     
     private func addBox(index: Int, x: CGFloat, y: CGFloat) -> Box {
         
-        let box = Box(index: index)
+        let type: BoxType = {
+            switch index {
+            case 0:
+                return BoxType.leftBottom
+            case 1:
+                return BoxType.rightBottom
+            case 2:
+                return BoxType.centerTop
+            default:
+                return BoxType.elseB
+            }
+            
+        }()
+        
+        let box = Box(index: index, type: type)
         box.position.x = x
         box.position.y = y
         box.zPosition = 2

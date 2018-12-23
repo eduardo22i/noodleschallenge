@@ -21,8 +21,15 @@ class Chip: SKSpriteNode {
         super.init(texture: texture, color: NSColor.clear, size: texture.size())
         
         self.name = "coin"
-        self.normalTexture = SKTexture(imageNamed: "CoinNormal")
-
+        
+        let shadow = SKSpriteNode(imageNamed: "CoinShadow")
+        shadow.scale(to: CGSize(width: 38, height: 12))
+        shadow.alpha = 0.8
+        shadow.colorBlendFactor = 0.2
+        self.addChild(shadow)
+        shadow.position.y = -36
+        shadow.zPosition = 1
+        
     }
     
     required init(coder aDecoder: NSCoder) {

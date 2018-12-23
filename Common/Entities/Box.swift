@@ -8,15 +8,35 @@
 
 import SpriteKit
 
+enum BoxType: String {
+    case centerTop = "BoxCenterTop"
+    case leftBottom = "BoxLeftBottom"
+    case rightBottom = "BoxRightBottom"
+    case elseB = "Paper"
+    
+    var offsetX: Double {
+        switch self {
+        case .leftBottom:
+            return 10.0
+        case .rightBottom:
+            return -10.0
+        default:
+            return 0.0
+        }
+    }
+}
+
 class Box: SKSpriteNode {
     var index: Int!
     
+    var type: BoxType
     var chips = [Chip]()
     
-    init(index: Int) {
+    init(index: Int, type: BoxType = .elseB) {
+        self.type = type
         self.index = index
         
-        let texture = SKTexture(imageNamed: "Paper")
+        let texture = SKTexture(imageNamed: type.rawValue)
         super.init(texture: texture, color: NSColor.clear, size: texture.size())
         
         self.name = "box"
@@ -38,10 +58,10 @@ class Box: SKSpriteNode {
     
     func addCoins(count: Int) {
         for coinIndex in 0..<count {
-            let separation = 48.0
+            let separation = 52.0
             let offset = Double(coinIndex) / Double(count)
             let angle =  offset * Double.pi * 2.0
-            let x = sin(angle) * separation + 10.0
+            let x = sin(angle) * separation + self.type.offsetX
             let y = cos(angle) * separation + 30.0
             self.addCoin(x: CGFloat(x), y: CGFloat(y))
         }
@@ -49,21 +69,13 @@ class Box: SKSpriteNode {
     
     func addCoin(x: CGFloat, y: CGFloat) {
         
-        let node = Chip(boxIndex: index)
-        node.position.x = x
-        node.position.y = y
-        node.zPosition = 3
+        let coin = Chip(boxIndex: index)
+        coin.position.x = x
+        coin.position.y = y
+        coin.zPosition = 3
         
-        let shadow = SKShapeNode(ellipseOf: CGSize(width: 40, height: 10))
-        shadow.fillColor = NSColor.black
-        shadow.strokeColor = NSColor.black
-        shadow.alpha = 0.2
-        node.addChild(shadow)
-        shadow.position.y = -36
-        shadow.zPosition = 1
-        
-        self.addChild(node)
-        self.chips.append(node)
+        self.addChild(coin)
+        self.chips.append(coin)
     }
     
 }

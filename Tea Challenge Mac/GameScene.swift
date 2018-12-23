@@ -10,7 +10,7 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
-    static let config = [3,2,4]
+    static let config = [4,2,3]
     
     var state = GameState.playing
     
