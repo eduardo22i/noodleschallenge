@@ -9,18 +9,13 @@
 import SpriteKit
 import GameplayKit
 
-class Chip: SKSpriteNode {
-    var boxIndex: Int!
-    var box: String!
-}
-
 class GameScene: SKScene {
     static let config = [3,2,4]
     
     var state = GameState.playing
     
-    var chips = [[Chip]]()
-    var board: AAPLBoard!
+    let board = Board(config: GameScene.config)
+
     let strategist = GKMinmaxStrategist()
     
     var entities = [GKEntity]()
@@ -37,27 +32,21 @@ class GameScene: SKScene {
         
         self.strategist.maxLookAheadDepth = 100
         
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
+        let background = SKSpriteNode(imageNamed: "Background")
+        background.name = "Background"
+        self.addChild(background)
         
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
+        board.position.y = -80
+        board.zPosition = 1
+        self.addChild(board)
         
-        
-        let node = Chip(color: NSColor.green, size: CGSize(width: 150, height: 50))
+        let node = SKSpriteNode(color: NSColor.green, size: CGSize(width: 150, height: 50))
         node.name = "button"
         node.position.x = 100
         node.position.y = 100
         self.addChild(node)
         
-        let resetNode = Chip(color: NSColor.red, size: CGSize(width: 150, height: 50))
+        let resetNode = SKSpriteNode(color: NSColor.red, size: CGSize(width: 150, height: 50))
         resetNode.name = "reset"
         resetNode.position.x = -100
         resetNode.position.y = 100
@@ -70,51 +59,16 @@ class GameScene: SKScene {
         
         currentChips.removeAll()
         
-        for box in chips {
-            box.forEach({ (chip) in
-                chip.removeFromParent()
-            })
-        }
-        chips.removeAll()
+        board.reset()
         
-        board = AAPLBoard(chips: GameScene.config as [NSNumber])
-
-        let padding: CGFloat = 60
-        var mult: CGFloat = 1
-        var multY: CGFloat = 1
-        for (index, chip) in GameScene.config.enumerated() {
-            chips.append([])
-            if index == 2 {
-                multY *= -1
-            }
-            
-            var position: CGFloat = 40.0
-            for _ in 0..<chip {
-                self.addBox(x: position * mult, y: 40 * multY, box: index)
-                position += padding
-            }
-            mult *= -1
-        }
-        
-        self.strategist.gameModel = self.board
+        self.strategist.gameModel = board.gameModel
         
         state = .playing
 
     }
     
-    func addBox(x: CGFloat, y: CGFloat, box: Int) {
-        let node = Chip(color: NSColor.red, size: CGSize(width: 50, height: 50))
-        node.name = "chip"
-        node.boxIndex = box
-        node.box = "box\(index)"
-        node.position.x = x
-        node.position.y = y
-        self.addChild(node)
-        self.chips[box].append(node)
-    }
-    
     func isWinner() -> Bool {
-        if board.isWin(for: board.currentPlayer) {
+        if board.gameModel.isWin(for: board.gameModel.currentPlayer) {
             if let n = self.spinnyNode?.copy() as! SKShapeNode? {
                 n.position = CGPoint(x: 0, y: 0)
                 n.strokeColor = SKColor.systemPink
@@ -128,10 +82,10 @@ class GameScene: SKScene {
     func removeSelectedChips() {
         guard let index = currentChips.first?.boxIndex else { return }
         
-        self.chips[index].removeAll { (chip) -> Bool in
+        self.board.boxes[index].removeAll { (chip) -> Bool in
             return currentChips.contains(chip)
         }
-        board.removeChips(currentChips.count, inColumn: index)
+        board.gameModel.removeChips(currentChips.count, inColumn: index)
         
         for currentChip in currentChips {
             currentChip.removeFromParent()
@@ -164,13 +118,13 @@ class GameScene: SKScene {
                 self.state = .ended
                 return
             }
-            self.board.currentPlayer = self.board.currentPlayer.opponent
+            self.board.gameModel.currentPlayer = self.board.gameModel.currentPlayer.opponent
             
             DispatchQueue.global(qos: .default).async {
-                let aiMove : AAPLMove = self.strategist.bestMove(for: self.board.currentPlayer) as! AAPLMove
+                let aiMove : AAPLMove = self.strategist.bestMove(for: self.board.gameModel.currentPlayer) as! AAPLMove
                 
                 for index in 0..<aiMove.chipsCount {
-                    self.currentChips.append(self.chips[aiMove.column][index])
+                    self.currentChips.append(self.board.boxes[aiMove.column][index])
                 }
                 
                 let deadlineTime = DispatchTime.now() + .seconds(2)
@@ -180,7 +134,7 @@ class GameScene: SKScene {
                         self.state = .ended
                         return
                     }
-                    self.board.currentPlayer = self.board.currentPlayer.opponent
+                    self.board.gameModel.currentPlayer = self.board.gameModel.currentPlayer.opponent
                     self.state = .playing
                 })
                 
@@ -191,15 +145,15 @@ class GameScene: SKScene {
         
         if state != .playing { return }
         
-        if let box = self.nodes(at: pos).first(where: { $0.name == "chip"}) as? Chip {
+        if let box = self.nodes(at: pos).first(where: { $0.name == "coin"}) as? Chip {
             if currentChips.contains(box) { return }
             if box.boxIndex != currentChips.first?.boxIndex {
                 for currentChip in currentChips {
-                    currentChip.color = NSColor.red
+                    currentChip.alpha = 1.0
                 }
                 currentChips.removeAll()
             }
-            box.color = NSColor.gray
+            box.alpha = 0.4
             currentChips.append(box)
         }
     }
