@@ -13,16 +13,18 @@ class GameScene: SKScene {
     static let config = [4,2,3]
     
     var state = GameState.playing
+    let strategist = GKMinmaxStrategist()
     
     let board = Board(config: GameScene.config)
 
-    let strategist = GKMinmaxStrategist()
-    
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     
     private var lastUpdateTime : TimeInterval = 0
     private var spinnyNode : SKShapeNode?
+    
+    var continueButton: SKSpriteNode!
+    var resetButton: SKSpriteNode!
     
     var currentChips = [Chip]()
     
@@ -32,10 +34,8 @@ class GameScene: SKScene {
         
         self.strategist.maxLookAheadDepth = 100
         
-        
-        let background = SKSpriteNode(imageNamed: "Background")
-        background.name = "Background"
-        self.addChild(background)
+        continueButton = self.childNode(withName: "continueButton") as? SKSpriteNode
+        resetButton = self.childNode(withName: "resetButton") as? SKSpriteNode
         
         let enemy = SKSpriteNode(imageNamed: "Enemy")
         enemy.name = "Enemy"
@@ -84,7 +84,21 @@ class GameScene: SKScene {
         return isWinner()
     }
     
+    func touchDown(atPoint pos : CGPoint) {
+        if let continueButton = self.nodes(at: pos).first(where: { $0.name == "continueButton"}) {
+            continueButton.alpha = 0.2
+        }
+        
+        if let resetButton = self.nodes(at: pos).first(where: { $0.name == "resetButton"}) {
+            resetButton.alpha = 0.2
+        }
+        
+    }
+    
     func touchUp(atPoint pos : CGPoint) {
+        continueButton.alpha = 1.0
+        resetButton.alpha = 1.0
+        
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
             n.position = pos
             n.strokeColor = SKColor.red
@@ -144,6 +158,9 @@ class GameScene: SKScene {
         }
     }
     
+    override func mouseDown(with event: NSEvent) {
+        self.touchDown(atPoint: event.location(in: self))
+    }
     override func mouseUp(with event: NSEvent) {
         self.touchUp(atPoint: event.location(in: self))
     }
