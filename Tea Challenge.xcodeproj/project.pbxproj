@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F915136121CFED9800697C44 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915136021CFED9800697C44 /* Box.swift */; };
+		F915136221CFEDCB00697C44 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915136021CFED9800697C44 /* Box.swift */; };
 		F92F5D1321CA92AF0033D560 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D1221CA92AF0033D560 /* AppDelegate.swift */; };
 		F92F5D1521CA92AF0033D560 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D1421CA92AF0033D560 /* GameScene.sks */; };
 		F92F5D1721CA92AF0033D560 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D1621CA92AF0033D560 /* Actions.sks */; };
@@ -37,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F915136021CFED9800697C44 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		F92F5D0F21CA92AF0033D560 /* Tea Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tea Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F92F5D1221CA92AF0033D560 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F92F5D1421CA92AF0033D560 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -166,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				F97A662921CFDD01006FC613 /* Board.swift */,
+				F915136021CFED9800697C44 /* Box.swift */,
 				F97A662C21CFDFBF006FC613 /* Chip.swift */,
 			);
 			path = Entities;
@@ -278,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F915136121CFED9800697C44 /* Box.swift in Sources */,
 				F92F5D4E21CAE00A0033D560 /* AAPLBoard.m in Sources */,
 				F97A662D21CFDFBF006FC613 /* Chip.swift in Sources */,
 				F92F5D1921CA92AF0033D560 /* GameScene.swift in Sources */,
@@ -302,6 +307,7 @@
 				F92F5D5221CAE33A0033D560 /* AAPLBoard.m in Sources */,
 				F97A662B21CFDD36006FC613 /* Board.swift in Sources */,
 				F92F5D3121CAD6760033D560 /* AppDelegate.swift in Sources */,
+				F915136221CFEDCB00697C44 /* Box.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

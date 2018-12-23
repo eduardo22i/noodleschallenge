@@ -12,7 +12,7 @@ class Board: SKSpriteNode {
 
     var gameModel: AAPLBoard!
     
-    var boxes = [[Chip]]()
+    private (set) var boxes = [Box]()
     
     private var config = [Int]() {
         didSet {
@@ -35,75 +35,44 @@ class Board: SKSpriteNode {
     func reset() {
         
         for box in boxes {
-            box.forEach({ (chip) in
+            box.chips.forEach({ (chip) in
                 chip.removeFromParent()
             })
+            box.removeFromParent()
         }
         boxes.removeAll()
         
         gameModel = AAPLBoard(chips: config as [NSNumber])
         
-        for (index, chip) in GameScene.config.enumerated() {
-            boxes.append([])
+        for (index, chipsCount) in self.config.enumerated() {
             
             let x = index == 0 ? -200 : (index == 1 ? 200 : 0)
-            let y = index == 0 ? 100 : (index == 2 ? -100 : 100)
+            let y = index == 0 ? 140 : (index == 2 ? -80 : 140)
             
-            let box = self.addBox(x: CGFloat(x), y: CGFloat(y))
+            let box = self.addBox(index: index, x: CGFloat(x), y: CGFloat(y))
+            box.addCoins(count: chipsCount)
+            boxes.append(box)
             
-            for chipIndex in 0..<chip {
-                let separation = 48.0
-                let offset = Double(chipIndex) / Double(chip)
-                let angle =  offset * Double.pi * 2.0
-                let x = sin(angle) * separation + 10.0
-                let y = cos(angle) * separation + 30.0
-                self.addCoin(x: CGFloat(x), y: CGFloat(y), boxIndex: index, box: box)
-            }
         }
-        
     }
     
-    private func addBox(x: CGFloat, y: CGFloat) -> SKSpriteNode {
+    func remove(chips: [Chip]) {
+        guard let index = chips.first?.boxIndex else { return }
         
-        let node = SKSpriteNode(imageNamed: "Paper")
-        node.normalTexture = SKTexture(imageNamed: "PaperNormal")
-        node.name = "box"
-        node.position.x = x
-        node.position.y = y
-        node.zPosition = 2
-        //node.lightingBitMask = 1
-        self.addChild(node)
-        /*
-         let light = SKLightNode()
-         light.categoryBitMask = 1
-         light.falloff = 3.0
-         light.position.y = 0.0
-         light.lightColor = NSColor.white
-         light.shadowColor = NSColor.black
-         node.addChild(light)
-         */
-        return node
+        self.boxes[index].remove(chips: chips)
+        self.gameModel.removeChips(chips.count, inColumn: index)
     }
     
-    private func addCoin(x: CGFloat, y: CGFloat, boxIndex: Int, box: SKSpriteNode) {
+    private func addBox(index: Int, x: CGFloat, y: CGFloat) -> Box {
         
-        let node = Chip()
-        node.boxIndex = boxIndex
-        node.box = "box\(boxIndex)"
-        node.position.x = x
-        node.position.y = y
-        node.zPosition = 3
+        let box = Box(index: index)
+        box.position.x = x
+        box.position.y = y
+        box.zPosition = 2
+        self.addChild(box)
         
-        let shadow = SKShapeNode(ellipseOf: CGSize(width: 40, height: 10))
-        shadow.fillColor = NSColor.black
-        shadow.strokeColor = NSColor.black
-        shadow.alpha = 0.2
-        node.addChild(shadow)
-        shadow.position.y = -36
-        shadow.zPosition = 1
-        
-        box.addChild(node)
-        self.boxes[boxIndex].append(node)
+        return box
     }
+    
     
 }

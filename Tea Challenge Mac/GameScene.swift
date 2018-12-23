@@ -32,25 +32,20 @@ class GameScene: SKScene {
         
         self.strategist.maxLookAheadDepth = 100
         
+        
         let background = SKSpriteNode(imageNamed: "Background")
         background.name = "Background"
         self.addChild(background)
         
-        board.position.y = -80
-        board.zPosition = 1
+        let enemy = SKSpriteNode(imageNamed: "Enemy")
+        enemy.name = "Enemy"
+        enemy.position.y = self.size.height / 2.0 - enemy.size.height / 2.0 + 20
+        enemy.zPosition = 1
+        self.addChild(enemy)
+        
+        board.position.y = -100
+        board.zPosition = 2
         self.addChild(board)
-        
-        let node = SKSpriteNode(color: NSColor.green, size: CGSize(width: 150, height: 50))
-        node.name = "button"
-        node.position.x = 100
-        node.position.y = 100
-        self.addChild(node)
-        
-        let resetNode = SKSpriteNode(color: NSColor.red, size: CGSize(width: 150, height: 50))
-        resetNode.name = "reset"
-        resetNode.position.x = -100
-        resetNode.position.y = 100
-        self.addChild(resetNode)
         
         resetBoard()
     }
@@ -80,16 +75,7 @@ class GameScene: SKScene {
     }
     
     func removeSelectedChips() {
-        guard let index = currentChips.first?.boxIndex else { return }
-        
-        self.board.boxes[index].removeAll { (chip) -> Bool in
-            return currentChips.contains(chip)
-        }
-        board.gameModel.removeChips(currentChips.count, inColumn: index)
-        
-        for currentChip in currentChips {
-            currentChip.removeFromParent()
-        }
+        self.board.remove(chips: currentChips)
         currentChips.removeAll()
     }
     
@@ -105,13 +91,13 @@ class GameScene: SKScene {
             self.addChild(n)
         }
         
-        if let _ = self.nodes(at: pos).first(where: { $0.name == "reset"}) {
+        if let _ = self.nodes(at: pos).first(where: { $0.name == "resetButton"}) {
             self.resetBoard()
         }
         
         if state == .thinking { return }
         
-        if let _ = self.nodes(at: pos).first(where: { $0.name == "button"}) {
+        if let _ = self.nodes(at: pos).first(where: { $0.name == "continueButton"}) {
             self.state = .thinking
             if self.removeSelectedChipsAndEvaluateWinner() {
                 print("You WON!")
@@ -124,7 +110,7 @@ class GameScene: SKScene {
                 let aiMove : AAPLMove = self.strategist.bestMove(for: self.board.gameModel.currentPlayer) as! AAPLMove
                 
                 for index in 0..<aiMove.chipsCount {
-                    self.currentChips.append(self.board.boxes[aiMove.column][index])
+                    self.currentChips.append(self.board.boxes[aiMove.column].chips[index])
                 }
                 
                 let deadlineTime = DispatchTime.now() + .seconds(2)

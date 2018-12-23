@@ -9,15 +9,20 @@
 import SpriteKit
 
 class Chip: SKSpriteNode {
-    var boxIndex: Int!
-    var box: String!
+    let boxIndex: Int
+    let box: String
     
-    init() {
+    init(boxIndex: Int) {
         let texture = SKTexture(imageNamed: "Coin")
+        
+        self.boxIndex = boxIndex
+        self.box = "box\(boxIndex)"
+        
         super.init(texture: texture, color: NSColor.clear, size: texture.size())
         
         self.name = "coin"
         self.normalTexture = SKTexture(imageNamed: "CoinNormal")
+
     }
     
     required init(coder aDecoder: NSCoder) {
