@@ -17,6 +17,8 @@ class GameScene: SKScene {
     
     let board = Board(config: GameScene.config)
 
+    let enemy = Enemy(name: "Obinoby")
+    
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     
@@ -37,11 +39,11 @@ class GameScene: SKScene {
         continueButton = self.childNode(withName: "continueButton") as? SKSpriteNode
         resetButton = self.childNode(withName: "resetButton") as? SKSpriteNode
         
-        let enemy = SKSpriteNode(imageNamed: "Enemy")
-        enemy.name = "Enemy"
         enemy.position.y = self.size.height / 2.0 - enemy.size.height / 2.0 + 20
         enemy.zPosition = 1
         self.addChild(enemy)
+        
+        enemy.wakeUp()
         
         board.position.y = -100
         board.zPosition = 2
@@ -53,11 +55,8 @@ class GameScene: SKScene {
     func resetBoard() {
         
         currentChips.removeAll()
-        
         board.reset()
-        
         self.strategist.gameModel = board.gameModel
-        
         state = .playing
 
     }
@@ -116,9 +115,11 @@ class GameScene: SKScene {
             if self.removeSelectedChipsAndEvaluateWinner() {
                 print("You WON!")
                 self.state = .ended
+                self.enemy.state = .crying
                 return
             }
             self.board.gameModel.currentPlayer = self.board.gameModel.currentPlayer.opponent
+            enemy.state = .thinking
             
             DispatchQueue.global(qos: .default).async {
                 let aiMove : AAPLMove = self.strategist.bestMove(for: self.board.gameModel.currentPlayer) as! AAPLMove
@@ -132,10 +133,12 @@ class GameScene: SKScene {
                     if self.removeSelectedChipsAndEvaluateWinner() {
                         print("Machine WON!")
                         self.state = .ended
+                        self.enemy.state = .celebrating
                         return
                     }
                     self.board.gameModel.currentPlayer = self.board.gameModel.currentPlayer.opponent
                     self.state = .playing
+                    self.enemy.state = .waiting
                 })
                 
             }
@@ -144,6 +147,10 @@ class GameScene: SKScene {
         }
         
         if state != .playing { return }
+        
+        if enemy.state != .waiting {
+            enemy.wait()
+        }  
         
         if let box = self.nodes(at: pos).first(where: { $0.name == "coin"}) as? Chip {
             if currentChips.contains(box) { return }

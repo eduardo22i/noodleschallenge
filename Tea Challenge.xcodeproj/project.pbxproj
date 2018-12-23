@@ -30,6 +30,8 @@
 		F92F5D5021CAE3330033D560 /* AAPLPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4A21CAE00A0033D560 /* AAPLPlayer.m */; };
 		F92F5D5121CAE3370033D560 /* AAPLMinmaxStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4721CAE00A0033D560 /* AAPLMinmaxStrategy.m */; };
 		F92F5D5221CAE33A0033D560 /* AAPLBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4921CAE00A0033D560 /* AAPLBoard.m */; };
+		F948F8FC21D02D9100B0A4A3 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948F8FB21D02D9100B0A4A3 /* Enemy.swift */; };
+		F948F8FD21D02D9100B0A4A3 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948F8FB21D02D9100B0A4A3 /* Enemy.swift */; };
 		F97A662A21CFDD01006FC613 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662921CFDD01006FC613 /* Board.swift */; };
 		F97A662B21CFDD36006FC613 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662921CFDD01006FC613 /* Board.swift */; };
 		F97A662D21CFDFBF006FC613 /* Chip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662C21CFDFBF006FC613 /* Chip.swift */; };
@@ -67,6 +69,7 @@
 		F92F5D4A21CAE00A0033D560 /* AAPLPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLPlayer.m; sourceTree = "<group>"; };
 		F92F5D4B21CAE00A0033D560 /* AAPLBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLBoard.h; sourceTree = "<group>"; };
 		F92F5D4C21CAE00A0033D560 /* AAPLMinmaxStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLMinmaxStrategy.h; sourceTree = "<group>"; };
+		F948F8FB21D02D9100B0A4A3 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		F97A662921CFDD01006FC613 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		F97A662C21CFDFBF006FC613 /* Chip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chip.swift; sourceTree = "<group>"; };
 		F99E71EF21CC1FFE0037098A /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -171,6 +174,7 @@
 				F97A662921CFDD01006FC613 /* Board.swift */,
 				F915136021CFED9800697C44 /* Box.swift */,
 				F97A662C21CFDFBF006FC613 /* Chip.swift */,
+				F948F8FB21D02D9100B0A4A3 /* Enemy.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -288,6 +292,7 @@
 				F92F5D1921CA92AF0033D560 /* GameScene.swift in Sources */,
 				F92F5D4F21CAE00A0033D560 /* AAPLPlayer.m in Sources */,
 				F92F5D1B21CA92AF0033D560 /* GameViewController.swift in Sources */,
+				F948F8FC21D02D9100B0A4A3 /* Enemy.swift in Sources */,
 				F97A662A21CFDD01006FC613 /* Board.swift in Sources */,
 				F92F5D4D21CAE00A0033D560 /* AAPLMinmaxStrategy.m in Sources */,
 				F92F5D1321CA92AF0033D560 /* AppDelegate.swift in Sources */,
@@ -301,6 +306,7 @@
 				F99E71F121CC204D0037098A /* GameState.swift in Sources */,
 				F92F5D3921CAD6760033D560 /* ViewController.swift in Sources */,
 				F92F5D5121CAE3370033D560 /* AAPLMinmaxStrategy.m in Sources */,
+				F948F8FD21D02D9100B0A4A3 /* Enemy.swift in Sources */,
 				F92F5D3721CAD6760033D560 /* GameScene.swift in Sources */,
 				F97A662E21CFDFCF006FC613 /* Chip.swift in Sources */,
 				F92F5D5021CAE3330033D560 /* AAPLPlayer.m in Sources */,
