@@ -42,7 +42,7 @@
 
 /* Begin PBXFileReference section */
 		F915136021CFED9800697C44 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
-		F92F5D0F21CA92AF0033D560 /* Tea Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tea Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F92F5D0F21CA92AF0033D560 /* Noodles Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noodles Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F92F5D1221CA92AF0033D560 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F92F5D1421CA92AF0033D560 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		F92F5D1621CA92AF0033D560 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		F92F5D1F21CA92B10033D560 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F92F5D2221CA92B10033D560 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F92F5D2421CA92B10033D560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F92F5D2E21CAD6760033D560 /* Tea Challenge Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tea Challenge Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F92F5D2E21CAD6760033D560 /* Noodles Challenge Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noodles Challenge Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F92F5D3021CAD6760033D560 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F92F5D3221CAD6760033D560 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		F92F5D3421CAD6760033D560 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -106,8 +106,8 @@
 		F92F5D1021CA92AF0033D560 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F92F5D0F21CA92AF0033D560 /* Tea Challenge.app */,
-				F92F5D2E21CAD6760033D560 /* Tea Challenge Mac.app */,
+				F92F5D0F21CA92AF0033D560 /* Noodles Challenge.app */,
+				F92F5D2E21CAD6760033D560 /* Noodles Challenge Mac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,9 +182,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F92F5D0E21CA92AF0033D560 /* Tea Challenge */ = {
+		F92F5D0E21CA92AF0033D560 /* Noodles Challenge */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F92F5D2721CA92B10033D560 /* Build configuration list for PBXNativeTarget "Tea Challenge" */;
+			buildConfigurationList = F92F5D2721CA92B10033D560 /* Build configuration list for PBXNativeTarget "Noodles Challenge" */;
 			buildPhases = (
 				F92F5D0B21CA92AF0033D560 /* Sources */,
 				F92F5D0C21CA92AF0033D560 /* Frameworks */,
@@ -194,14 +194,14 @@
 			);
 			dependencies = (
 			);
-			name = "Tea Challenge";
+			name = "Noodles Challenge";
 			productName = "Tea Challenge";
-			productReference = F92F5D0F21CA92AF0033D560 /* Tea Challenge.app */;
+			productReference = F92F5D0F21CA92AF0033D560 /* Noodles Challenge.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F92F5D2D21CAD6760033D560 /* Tea Challenge Mac */ = {
+		F92F5D2D21CAD6760033D560 /* Noodles Challenge Mac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F92F5D4121CAD6790033D560 /* Build configuration list for PBXNativeTarget "Tea Challenge Mac" */;
+			buildConfigurationList = F92F5D4121CAD6790033D560 /* Build configuration list for PBXNativeTarget "Noodles Challenge Mac" */;
 			buildPhases = (
 				F92F5D2A21CAD6760033D560 /* Sources */,
 				F92F5D2B21CAD6760033D560 /* Frameworks */,
@@ -211,9 +211,9 @@
 			);
 			dependencies = (
 			);
-			name = "Tea Challenge Mac";
+			name = "Noodles Challenge Mac";
 			productName = "Tea Challenge Mac";
-			productReference = F92F5D2E21CAD6760033D560 /* Tea Challenge Mac.app */;
+			productReference = F92F5D2E21CAD6760033D560 /* Noodles Challenge Mac.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -235,7 +235,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F92F5D0A21CA92AF0033D560 /* Build configuration list for PBXProject "Tea Challenge" */;
+			buildConfigurationList = F92F5D0A21CA92AF0033D560 /* Build configuration list for PBXProject "Noodles Challenge" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -248,8 +248,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F92F5D0E21CA92AF0033D560 /* Tea Challenge */,
-				F92F5D2D21CAD6760033D560 /* Tea Challenge Mac */,
+				F92F5D0E21CA92AF0033D560 /* Noodles Challenge */,
+				F92F5D2D21CAD6760033D560 /* Noodles Challenge Mac */,
 			);
 		};
 /* End PBXProject section */
@@ -553,7 +553,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F92F5D0A21CA92AF0033D560 /* Build configuration list for PBXProject "Tea Challenge" */ = {
+		F92F5D0A21CA92AF0033D560 /* Build configuration list for PBXProject "Noodles Challenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F92F5D2521CA92B10033D560 /* Debug */,
@@ -562,7 +562,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F92F5D2721CA92B10033D560 /* Build configuration list for PBXNativeTarget "Tea Challenge" */ = {
+		F92F5D2721CA92B10033D560 /* Build configuration list for PBXNativeTarget "Noodles Challenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F92F5D2821CA92B10033D560 /* Debug */,
@@ -571,7 +571,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F92F5D4121CAD6790033D560 /* Build configuration list for PBXNativeTarget "Tea Challenge Mac" */ = {
+		F92F5D4121CAD6790033D560 /* Build configuration list for PBXNativeTarget "Noodles Challenge Mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F92F5D4221CAD6790033D560 /* Debug */,

@@ -4,15 +4,23 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Tea Challenge Mac.xcscheme_^#shared#^_</key>
+		<key>Noodles Challenge Mac.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>Tea Challenge.xcscheme_^#shared#^_</key>
+		<key>Noodles Challenge iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>F92F5D2D21CAD6760033D560</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
