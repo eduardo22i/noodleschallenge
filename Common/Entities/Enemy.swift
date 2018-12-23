@@ -85,6 +85,8 @@ class Enemy: SKSpriteNode {
                 self.texture = SKTexture(imageNamed: "\(self.name!)-CelebratingA1")
                 
                 let textures = [SKTexture(imageNamed: "\(self.name!)-CelebratingA1"), SKTexture(imageNamed: "\(self.name!)-CelebratingA2"),
+                                SKTexture(imageNamed: "\(self.name!)-CelebratingA3"),
+                                SKTexture(imageNamed: "\(self.name!)-CelebratingA2"),
                                 SKTexture(imageNamed: "\(self.name!)-CelebratingA3")]
                 
                 self.run(

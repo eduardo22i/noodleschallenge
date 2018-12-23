@@ -152,16 +152,23 @@ class GameScene: SKScene {
             enemy.wait()
         }  
         
-        if let box = self.nodes(at: pos).first(where: { $0.name == "coin"}) as? Chip {
-            if currentChips.contains(box) { return }
-            if box.boxIndex != currentChips.first?.boxIndex {
+        if let chip = self.nodes(at: pos).first(where: { $0.name == "coin"}) as? Chip {
+            
+            if currentChips.contains(chip) {
+                chip.isSelected = false
+                currentChips.removeAll(where: { $0 == chip})
+                return
+            }
+            
+            if chip.boxIndex != currentChips.first?.boxIndex {
                 for currentChip in currentChips {
-                    currentChip.alpha = 1.0
+                    currentChip.isSelected = false
                 }
                 currentChips.removeAll()
             }
-            box.alpha = 0.4
-            currentChips.append(box)
+            
+            chip.isSelected = true
+            currentChips.append(chip)
         }
     }
     

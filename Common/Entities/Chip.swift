@@ -12,6 +12,12 @@ class Chip: SKSpriteNode {
     let boxIndex: Int
     let box: String
     
+    var isSelected = false {
+        didSet {
+            self.alpha = isSelected ? 0.4 : 1.0
+        }
+    }
+    
     init(boxIndex: Int) {
         let texture = SKTexture(imageNamed: "Coin")
         
