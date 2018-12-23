@@ -25,9 +25,9 @@ class GameViewController: UIViewController {
                 // Copy gameplay related content over to the scene
                 sceneNode.entities = scene.entities
                 sceneNode.graphs = scene.graphs
-                
+                sceneNode.backgroundColor = UIColor.red
                 // Set the scale mode to scale to fit the window
-                sceneNode.scaleMode = .aspectFill
+                sceneNode.scaleMode = .aspectFit
                 
                 // Present the scene
                 if let view = self.view as! SKView? {

@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias NSColor = UIColor
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
