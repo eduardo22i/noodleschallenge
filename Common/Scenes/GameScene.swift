@@ -12,7 +12,16 @@ import GameplayKit
 class GameScene: SKScene {
     static let config = [4,2,3]
     
-    var state = GameState.playing
+    var state = GameState.playing {
+        didSet {
+            switch state {
+            case .ended:
+                self.continueButton.isHidden = true
+            default:
+                self.continueButton.isHidden = false
+            }
+        }
+    }
     let strategist = GKMinmaxStrategist()
     
     let board = Board(config: GameScene.config)
@@ -52,12 +61,10 @@ class GameScene: SKScene {
     }
     
     func resetBoard() {
-        
         currentChips.removeAll()
         board.reset()
         self.strategist.gameModel = board.gameModel
         state = .playing
-
     }
     
     func isWinner() -> Bool {
@@ -85,7 +92,6 @@ class GameScene: SKScene {
         if let resetButton = self.nodes(at: pos).first(where: { $0.name == "resetButton"}) {
             resetButton.alpha = 0.2
         }
-        
     }
     
     func touchUp(atPoint pos : CGPoint) {
@@ -98,7 +104,8 @@ class GameScene: SKScene {
         
         if state == .thinking { return }
         
-        if let _ = self.nodes(at: pos).first(where: { $0.name == "continueButton"}) {
+        if let _ = self.nodes(at: pos).first(where: { $0.name == "continueButton"}), !currentChips.isEmpty {
+            
             self.state = .thinking
             if self.removeSelectedChipsAndEvaluateWinner() {
                 print("You WON!")
@@ -136,11 +143,11 @@ class GameScene: SKScene {
         
         if state != .playing { return }
         
-        if enemy.state != .waiting {
-            enemy.wait()
-        }  
-        
         if let chip = self.nodes(at: pos).first(where: { $0.name == "coin"}) as? Chip {
+            
+            if enemy.state != .waiting {
+                enemy.wait()
+            }
             
             if currentChips.contains(chip) {
                 chip.isSelected = false
