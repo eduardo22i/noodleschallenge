@@ -52,7 +52,14 @@ class Box: SKSpriteNode {
         }
         
         for currentChip in chips {
-            currentChip.removeFromParent()
+            let actions = [
+                SKAction.wait(forDuration: 0.1),
+                SKAction.scale(by: 2.0, duration: 0.1),
+                SKAction.run {
+                    currentChip.removeFromParent()
+                }
+            ]
+            currentChip.run(SKAction.sequence(actions))
         }
     }
     

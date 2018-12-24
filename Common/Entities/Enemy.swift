@@ -19,14 +19,14 @@ class Enemy: SKSpriteNode {
             self.removeAllActions()
             
             if oldValue == .sleeping && state == .explaining {
-                self.run(SKAction.group([
-                    SKAction.wait(forDuration: 4.0),
-                    SKAction.animate(with: [SKTexture(imageNamed: "\(self.name!)-Sleeping"), SKTexture(imageNamed: "\(self.name!)-WakeUp")],
-                                     timePerFrame: 2.0,
-                                     resize: false,
-                                     restore: true),
-                    ])
+                self.texture = SKTexture(imageNamed: "\(self.name!)-WakeUp")
+                
+                self.run(SKAction.animate(with: [SKTexture(imageNamed: "\(self.name!)-Sleeping"), SKTexture(imageNamed: "\(self.name!)-WakeUp")],
+                                          timePerFrame: 4.0,
+                                          resize: false,
+                                          restore: true)
                 )
+                
             }
             
             if state == .thinking {

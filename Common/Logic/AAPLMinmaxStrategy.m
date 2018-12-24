@@ -66,16 +66,6 @@
     
     NSMutableArray<AAPLMove *> *moves = [NSMutableArray arrayWithCapacity:AAPLBoard.width];
     
-    
-    NSLog(@"EVALUATING");
-    NSLog(@"FOR Player: %@ ", player.name);
-
-    for (NSInteger column = 0; column < AAPLBoard.width; column++) {
-        NSLog(@"%ld", (long)[self chipsInColumn:column row:0]);
-    }
-    
-    NSLog(@"MOVES: ");
-    
     NSInteger totalRunCount = 0;
     for (NSInteger column = 0; column < AAPLBoard.width; column++) {
         totalRunCount += [self chipsInColumn:column row:0];
@@ -83,18 +73,17 @@
     
     for (NSInteger column = 0; column < AAPLBoard.width; column++) {
         NSInteger currentRunCount = totalRunCount;
-        for (NSInteger chipsCount = [self chipsInColumn:column row:0]; chipsCount > 0; chipsCount--) {
+        for (NSInteger chipsCount = 1; chipsCount <= [self chipsInColumn:column row:0]; chipsCount++) {
+
+//        for (NSInteger chipsCount = [self chipsInColumn:column row:0]; chipsCount > 0; chipsCount--) {
             
             if ([self canRemoveChips:chipsCount inColumn:column]  && ((currentRunCount - chipsCount) > 0)) {
                 AAPLMove* move = [AAPLMove moveInColumn:column withCount:chipsCount];
                 move.player = player;
-                NSLog(@"%ld - %ld", (long)column, (long)chipsCount);
                 [moves addObject:move];
             }
         }
     }
-
-    NSLog(@"end moves");
     
     // Will be empty if isFull.
     
@@ -103,23 +92,8 @@
 
 - (void)applyGameModelUpdate:(AAPLMove *)gameModelUpdate {
 
-    NSLog(@"perform moves");
-    
-    for (NSInteger column = 0; column < AAPLBoard.width; column++) {
-        NSLog(@"to: %ld", (long)[self chipsInColumn:column row:0]);
-    }
-    
-    NSLog(@"with Player: %@ ", gameModelUpdate.player.name);
-    NSLog(@"col: %ld - chips: %ld", (long)gameModelUpdate.column, (long)gameModelUpdate.chipsCount);
+   
     [self removeChips:gameModelUpdate.chipsCount inColumn:gameModelUpdate.column];
-    //self.currentPlayer = gameModelUpdate.player;
-    NSLog(@"finished moves");
-    
-    NSLog(@"result");
-    
-    for (NSInteger column = 0; column < AAPLBoard.width; column++) {
-        NSLog(@"to: %ld", (long)[self chipsInColumn:column row:0]);
-    }
     
     NSInteger totalRunCount = 0;
     for (NSInteger column = 0; column < AAPLBoard.width; column++) {
@@ -140,16 +114,12 @@
     for (NSInteger column = 0; column < AAPLBoard.width; column++) {
         totalRunCount += [self chipsInColumn:column row:0];
     }
-    if (totalRunCount == AAPLCountToWin && player == self.currentPlayer) {
-        NSLog(@"%@ win", player.name);
-        NSLog(@"%@ current: win", self.currentPlayer.name);
-    }
+    
     return totalRunCount == AAPLCountToWin && player == self.currentPlayer;
 }
 
 - (BOOL)isLossForPlayer:(AAPLPlayer *)player {
 	// This is a two-player game, so a win for the opponent is a loss for the player.
-    NSLog(@"evaluating from loss");
     return [self isWinForPlayer:player.opponent];
 }
 
@@ -181,18 +151,6 @@
     }
     
     return 0;
-    /*
-	// Use AAPLBoard's utility method to find all runs of the player's chip and sum their length.
-	NSArray<NSNumber *> *playerRunCounts = [self runCountsForPlayer:player];
-	NSNumber *playerTotal = [playerRunCounts valueForKeyPath:@"@sum.self"];
-
-	// Repeat for the opponent's chip.
-	NSArray<NSNumber *> *opponentRunCounts = [self runCountsForPlayer:player.opponent];
-	NSNumber *opponentTotal = [opponentRunCounts valueForKeyPath:@"@sum.self"];
-
-	// Return the sum of player runs minus the sum of opponent runs.
-	return playerRunCounts.count - opponentRunCounts.count;
-     */
 }
 
 @end

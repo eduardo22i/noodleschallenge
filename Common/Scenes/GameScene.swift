@@ -10,15 +10,21 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
-    static let config = [4,2,3]
+    static let config = [4,3,2]
     
     var state = GameState.playing {
         didSet {
             switch state {
-            case .ended:
-                self.continueButton.isHidden = true
-            default:
+            case .thinking:
+                self.continueButton.alpha = 0.4
                 self.continueButton.isHidden = false
+            case .playing:
+                self.continueButton.alpha = 1.0
+                self.continueButton.isHidden = false
+            case .ended:
+                self.continueButton.alpha = 1.0
+                self.continueButton.isHidden = true
+                
             }
         }
     }
@@ -99,6 +105,7 @@ class GameScene: SKScene {
         resetButton.alpha = 1.0
         
         if let _ = self.nodes(at: pos).first(where: { $0.name == "resetButton"}) {
+            self.enemy.state = .waiting
             self.resetBoard()
         }
         
@@ -113,6 +120,20 @@ class GameScene: SKScene {
                 self.enemy.state = .crying
                 return
             }
+            
+            var chipCount = 0
+            for box in board.boxes {
+                for _ in box.chips {
+                    chipCount += 1
+                }
+            }
+            if chipCount == 0 {
+                print("Machine WON!")
+                self.state = .ended
+                self.enemy.state = .celebrating
+                return
+            }
+            
             self.board.gameModel.currentPlayer = self.board.gameModel.currentPlayer.opponent
             enemy.state = .thinking
             
@@ -125,6 +146,11 @@ class GameScene: SKScene {
                 
                 let deadlineTime = DispatchTime.now() + .seconds(2)
                 DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
+                    
+                    for currentChip in self.currentChips {
+                        currentChip.isSelected = true
+                    }
+                    
                     if self.removeSelectedChipsAndEvaluateWinner() {
                         print("Machine WON!")
                         self.state = .ended
