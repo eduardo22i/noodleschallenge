@@ -9,5 +9,5 @@
 import GameKit
 
 enum GameState {
-    case playing, thinking, ended
+    case dialog, playing, thinking, ended
 }

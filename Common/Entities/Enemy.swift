@@ -22,7 +22,7 @@ class Enemy: SKSpriteNode {
                 self.texture = SKTexture(imageNamed: "\(self.name!)-WakeUp")
                 
                 self.run(SKAction.animate(with: [SKTexture(imageNamed: "\(self.name!)-Sleeping"), SKTexture(imageNamed: "\(self.name!)-WakeUp")],
-                                          timePerFrame: 4.0,
+                                          timePerFrame: 0.4,
                                           resize: false,
                                           restore: true)
                 )
@@ -64,7 +64,7 @@ class Enemy: SKSpriteNode {
                 
                 var speed = 0.5
                 let textures = { () -> [SKTexture] in
-                    switch Int.random(in: 0 ..< 2) {
+                    switch Int.random(in: 0 ..< 3) {
                     case 0:
                         return [SKTexture(imageNamed: "\(self.name!)-WaitingB1"), SKTexture(imageNamed: "\(self.name!)-WaitingB2")]
                     case 1:
@@ -125,7 +125,7 @@ class Enemy: SKSpriteNode {
     }
     
     init(name: String) {
-        let texture = SKTexture(imageNamed: "\(name)-Waiting")
+        let texture = SKTexture(imageNamed: "\(name)-Sleeping")
         super.init(texture: texture, color: NSColor.clear, size: texture.size())
         
         self.name = name

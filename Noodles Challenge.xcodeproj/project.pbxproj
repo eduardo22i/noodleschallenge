@@ -12,6 +12,7 @@
 		F902B91621D04E640076E2CD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3421CAD6760033D560 /* Actions.sks */; };
 		F902B91721D04E750076E2CD /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E71EF21CC1FFE0037098A /* GameState.swift */; };
 		F902B91921D04ED50076E2CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F902B91821D04ED50076E2CD /* Assets.xcassets */; };
+		F902B91B21D063AB0076E2CD /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B91A21D063AB0076E2CD /* Dialog.swift */; };
 		F915136121CFED9800697C44 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915136021CFED9800697C44 /* Box.swift */; };
 		F915136221CFEDCB00697C44 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915136021CFED9800697C44 /* Box.swift */; };
 		F92F5D1321CA92AF0033D560 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D1221CA92AF0033D560 /* AppDelegate.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		F902B91821D04ED50076E2CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F902B91A21D063AB0076E2CD /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		F915136021CFED9800697C44 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		F92F5D0F21CA92AF0033D560 /* Noodles Challenge iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noodles Challenge iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F92F5D1221CA92AF0033D560 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				F915136021CFED9800697C44 /* Box.swift */,
 				F97A662C21CFDFBF006FC613 /* Chip.swift */,
 				F948F8FB21D02D9100B0A4A3 /* Enemy.swift */,
+				F902B91A21D063AB0076E2CD /* Dialog.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				F99E71F121CC204D0037098A /* GameState.swift in Sources */,
 				F92F5D3921CAD6760033D560 /* ViewController.swift in Sources */,
 				F92F5D5121CAE3370033D560 /* AAPLMinmaxStrategy.m in Sources */,
+				F902B91B21D063AB0076E2CD /* Dialog.swift in Sources */,
 				F948F8FD21D02D9100B0A4A3 /* Enemy.swift in Sources */,
 				F92F5D3721CAD6760033D560 /* GameScene.swift in Sources */,
 				F97A662E21CFDFCF006FC613 /* Chip.swift in Sources */,
