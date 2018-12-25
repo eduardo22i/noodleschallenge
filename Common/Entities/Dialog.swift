@@ -21,7 +21,9 @@ enum DialogState {
             return ["The rules are simple. \nWe are going to take turns.",
                     "We have \(GameScene.config.count) boxes,\neach box have different amount of coins.",
                 "In your turn, \nremove all the coins you want \nbut only from 1 box.",
-                "The player who picks\n the LAST coin from ALL boxes, loses the game."]
+                "The player who picks\n the LAST coin from ALL boxes, loses the game.",
+                "Please, start!",
+            "..."]
         case .waiting:
             return [ "Let me think!",
                      "LOL! What was that move?",
