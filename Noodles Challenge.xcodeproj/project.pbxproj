@@ -76,6 +76,7 @@
 		F97A662921CFDD01006FC613 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		F97A662C21CFDFBF006FC613 /* Chip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chip.swift; sourceTree = "<group>"; };
 		F99E71EF21CC1FFE0037098A /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		F9CF525921D4045E000366E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +108,7 @@
 		F92F5D0621CA92AF0033D560 = {
 			isa = PBXGroup;
 			children = (
+				F9CF525921D4045E000366E7 /* README.md */,
 				F92F5D4421CAD6880033D560 /* Common */,
 				F92F5D1121CA92AF0033D560 /* iOS */,
 				F92F5D2F21CAD6760033D560 /* Mac */,
@@ -165,14 +167,14 @@
 		F92F5D4521CADFF60033D560 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				F99E71EF21CC1FFE0037098A /* GameState.swift */,
 				F92F5D4B21CAE00A0033D560 /* AAPLBoard.h */,
 				F92F5D4921CAE00A0033D560 /* AAPLBoard.m */,
-				F92F5D4C21CAE00A0033D560 /* AAPLMinmaxStrategy.h */,
-				F92F5D4721CAE00A0033D560 /* AAPLMinmaxStrategy.m */,
 				F92F5D4821CAE00A0033D560 /* AAPLPlayer.h */,
 				F92F5D4A21CAE00A0033D560 /* AAPLPlayer.m */,
+				F92F5D4C21CAE00A0033D560 /* AAPLMinmaxStrategy.h */,
+				F92F5D4721CAE00A0033D560 /* AAPLMinmaxStrategy.m */,
 				F92F5D4621CAE0090033D560 /* Bridging-Header.h */,
-				F99E71EF21CC1FFE0037098A /* GameState.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -489,7 +491,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.estamp.Tea-Challenge";
+				PRODUCT_BUNDLE_IDENTIFIER = com.estamp.challenge.NoodlesChallenge.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Common/Logic/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -510,7 +512,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.estamp.Tea-Challenge";
+				PRODUCT_BUNDLE_IDENTIFIER = com.estamp.challenge.NoodlesChallenge.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Common/Logic/Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
@@ -533,8 +535,9 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.estamp.Tea-Challenge-Mac";
+				PRODUCT_BUNDLE_IDENTIFIER = com.estamp.challenge.NoodlesChallenge.Mac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "Common/Logic/Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
@@ -556,8 +559,9 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.estamp.Tea-Challenge-Mac";
+				PRODUCT_BUNDLE_IDENTIFIER = com.estamp.challenge.NoodlesChallenge.Mac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "Common/Logic/Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
