@@ -95,9 +95,6 @@
 		F9CF525921D4045E000366E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F9CF525E21D40BE5000366E7 /* Noodles Challenge tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noodles Challenge tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9CF526021D40BE5000366E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F9CF526221D40BE5000366E7 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		F9CF526421D40BE5000366E7 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		F9CF526621D40BE5000366E7 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		F9CF526821D40BE5000366E7 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		F9CF526B21D40BE5000366E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9CF526D21D40BE9000366E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -144,7 +141,7 @@
 				F92F5D4421CAD6880033D560 /* Common */,
 				F92F5D1121CA92AF0033D560 /* iOS */,
 				F92F5D2F21CAD6760033D560 /* macOS */,
-				F9CF525F21D40BE5000366E7 /* Noodles Challenge tvOS */,
+				F9CF525F21D40BE5000366E7 /* tvOS */,
 				F92F5D1021CA92AF0033D560 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -225,19 +222,16 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		F9CF525F21D40BE5000366E7 /* Noodles Challenge tvOS */ = {
+		F9CF525F21D40BE5000366E7 /* tvOS */ = {
 			isa = PBXGroup;
 			children = (
 				F9CF526021D40BE5000366E7 /* AppDelegate.swift */,
-				F9CF526221D40BE5000366E7 /* GameScene.sks */,
-				F9CF526421D40BE5000366E7 /* Actions.sks */,
-				F9CF526621D40BE5000366E7 /* GameScene.swift */,
 				F9CF526821D40BE5000366E7 /* GameViewController.swift */,
 				F9CF526A21D40BE5000366E7 /* Main.storyboard */,
 				F9CF526D21D40BE9000366E7 /* Assets.xcassets */,
 				F9CF526F21D40BE9000366E7 /* Info.plist */,
 			);
-			path = "Noodles Challenge tvOS";
+			path = tvOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -683,7 +677,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KDY2FY8979;
-				INFOPLIST_FILE = "Noodles Challenge tvOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -705,7 +699,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KDY2FY8979;
-				INFOPLIST_FILE = "Noodles Challenge tvOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
