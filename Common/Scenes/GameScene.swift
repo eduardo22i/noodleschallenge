@@ -55,6 +55,7 @@ class GameScene: SKScene {
     var currentDialogIndex = 0
     
     var isScrollingInput = false
+    private var spinnyNode : SKShapeNode?
     private var lastUpdateTime : TimeInterval = 0
     
     // MARK: - Scene
@@ -88,20 +89,15 @@ class GameScene: SKScene {
         super.didMove(to: view)
         
         if isScrollingInput {
-            let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.swipe))
-            swipeRecognizer.direction = .right
-            self.view!.addGestureRecognizer(swipeRecognizer)
+            let w = (self.size.width + self.size.height) * 0.05
+            self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
             
-            let leftSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.swipe))
-            leftSwipeRecognizer.direction = .left
-            self.view!.addGestureRecognizer(leftSwipeRecognizer)
-            
-            let downSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.swipe))
-            downSwipeRecognizer.direction = .down
-            self.view!.addGestureRecognizer(downSwipeRecognizer)
-            
-            let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(GameScene.tap(_:)))
-            self.view!.addGestureRecognizer(tapRecognizer)
+            if let spinnyNode = self.spinnyNode {
+                spinnyNode.lineWidth = 2.5
+                
+                spinnyNode.zPosition = 100
+                self.addChild(spinnyNode)
+            }
         }
     }
     
@@ -180,8 +176,6 @@ class GameScene: SKScene {
             return
         }
         
-        if isScrollingInput { return }
-        
         continueButton.alpha = 1.0
         resetButton.alpha = 1.0
         
@@ -226,86 +220,10 @@ class GameScene: SKScene {
         }
     }
     
-    // MARk: Swie
-    @objc func tap(_ sender: Any?) {
-        if isBottonNavigationSelected {
-            
-            self.state = .dialog
-            
-            if self.removeSelectedChipsAndEvaluateWinner() {
-                self.dialogNode.state = .crying
-                self.enemy.state = .crying
-            } else {
-                
-                var chipCount = 0
-                for box in board.boxes {
-                    for _ in box.chips {
-                        chipCount += 1
-                    }
-                }
-                if chipCount == 0 {
-                    self.dialogNode.state = .celebrating
-                    self.enemy.state = .celebrating
-                } else {
-                    self.dialogNode.state = .waiting
-                }
-            }
-            self.currentDialogIndex = Int.random(in: 0..<self.dialogNode.state.texts.count)
-            self.renderDialog()
-            
-        } else {
-            if let currentTVSelectedChip = currentTVSelectedChip {
-                self.addToCurrentSelected(coin: currentTVSelectedChip)
-            }
-        }
+    func touchMoved(toPoint pos : CGPoint) {
+        self.spinnyNode?.position = pos
     }
     
-    @objc func swipe(_ sender: Any?) {
-        if state != .playing { return }
-        
-        guard let gesture = sender as? UISwipeGestureRecognizer else { return }
-        
-        currentTVSelectedChip?.setScale(1.0)
-        
-        if isBottonNavigationSelected && (gesture.direction == .right || gesture.direction == .left) {
-            continueButton.setScale(1.0)
-        }
-        
-        if gesture.direction == .down {
-            isBottonNavigationSelected = true
-            continueButton.setScale(1.4)
-            return
-        }
-        
-        if gesture.direction == .right {
-            currentChipIndex += 1
-        }else {
-            currentChipIndex -= 1
-        }
-        
-        if currentChipIndex == board.boxes[currentBoxIndex].chips.count {
-            currentBoxIndex += 1
-            currentChipIndex = 0
-        } else if currentChipIndex == -1 {
-            currentBoxIndex -= 1
-            if currentBoxIndex >= 0 {
-                currentChipIndex = board.boxes[currentBoxIndex].chips.count - 1
-            }
-        }
-        
-        if currentBoxIndex == board.boxes.count {
-            currentBoxIndex = 0
-            currentChipIndex = 0
-        } else if currentBoxIndex == -1 {
-            currentBoxIndex = board.boxes.count - 1
-            currentChipIndex = board.boxes[currentBoxIndex].chips.count - 1
-        }
-        if board.boxes[currentBoxIndex].chips.count >= currentChipIndex {
-            currentTVSelectedChip = board.boxes[currentBoxIndex].chips[currentChipIndex]
-        }
-        currentTVSelectedChip?.setScale(1.4)
-
-    }
     
     // MARK: - Targets
     
@@ -327,11 +245,6 @@ class GameScene: SKScene {
     // MARK: tvOS
     #elseif os(tvOS)
     
-    var currentBoxIndex = 0
-    var currentChipIndex = 0
-    var isBottonNavigationSelected = false
-    var currentTVSelectedChip: Chip?
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
@@ -345,21 +258,7 @@ class GameScene: SKScene {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-//
-//        let w = (self.size.width + self.size.height) * 0.05
-//        let spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-//
-//        spinnyNode.lineWidth = 2.5
-//
-//        spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-//        spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-//                                          SKAction.fadeOut(withDuration: 0.5),
-//                                          SKAction.removeFromParent()]))
-//
-//        spinnyNode.position = touches.first!.location(in: self)
-//        spinnyNode.zPosition = 100
-//        self.addChild(spinnyNode)
+        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
     }
     
     // MARK: macOS
@@ -368,6 +267,7 @@ class GameScene: SKScene {
     override func mouseDown(with event: NSEvent) {
         self.touchDown(atPoint: event.location(in: self))
     }
+    
     override func mouseUp(with event: NSEvent) {
         self.touchUp(atPoint: event.location(in: self))
     }
