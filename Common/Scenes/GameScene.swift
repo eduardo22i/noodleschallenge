@@ -52,10 +52,13 @@ class GameScene: SKScene {
     
     var currentChips = [Chip]()
     
-    
     var currentDialogIndex = 0
     
+    var isScrollingInput = false
+    private var spinnyNode : SKShapeNode?
     private var lastUpdateTime : TimeInterval = 0
+    
+    // MARK: - Scene
     
     override func sceneDidLoad() {
         
@@ -82,6 +85,24 @@ class GameScene: SKScene {
         renderDialog()
     }
     
+    override func didMove(to view: SKView) {
+        super.didMove(to: view)
+        
+        if isScrollingInput {
+            let w = (self.size.width + self.size.height) * 0.05
+            self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
+            
+            if let spinnyNode = self.spinnyNode {
+                spinnyNode.lineWidth = 2.5
+                
+                spinnyNode.zPosition = 100
+                self.addChild(spinnyNode)
+            }
+        }
+    }
+    
+    // MARK: - Logic
+    
     func resetBoard() {
         currentChips.removeAll()
         board.reset()
@@ -105,6 +126,30 @@ class GameScene: SKScene {
         removeSelectedChips()
         return isWinner()
     }
+    
+    func addToCurrentSelected(coin: Chip) {
+        if enemy.state != .waiting {
+            enemy.wait()
+        }
+        
+        if currentChips.contains(coin) {
+            coin.isSelected = false
+            currentChips.removeAll(where: { $0 == coin})
+            return
+        }
+        
+        if coin.boxIndex != currentChips.first?.boxIndex {
+            for currentChip in currentChips {
+                currentChip.isSelected = false
+            }
+            currentChips.removeAll()
+        }
+        
+        coin.isSelected = true
+        currentChips.append(coin)
+    }
+    
+    // MARK: - Touch Events
     
     func touchDown(atPoint pos : CGPoint) {
         if let continueButton = self.nodes(at: pos).first(where: { $0.name == "continueButton"}) {
@@ -171,30 +216,20 @@ class GameScene: SKScene {
         if state != .playing { return }
         
         if let chip = self.nodes(at: pos).first(where: { $0.name == "coin"}) as? Chip {
-            
-            if enemy.state != .waiting {
-                enemy.wait()
-            }
-            
-            if currentChips.contains(chip) {
-                chip.isSelected = false
-                currentChips.removeAll(where: { $0 == chip})
-                return
-            }
-            
-            if chip.boxIndex != currentChips.first?.boxIndex {
-                for currentChip in currentChips {
-                    currentChip.isSelected = false
-                }
-                currentChips.removeAll()
-            }
-            
-            chip.isSelected = true
-            currentChips.append(chip)
+            self.addToCurrentSelected(coin: chip)
         }
     }
     
+    func touchMoved(toPoint pos : CGPoint) {
+        self.spinnyNode?.position = pos
+    }
+    
+    
+    // MARK: - Targets
+    
+    // MARK: iOS
     #if os(iOS)
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
@@ -207,15 +242,39 @@ class GameScene: SKScene {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
+    // MARK: tvOS
+    #elseif os(tvOS)
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
+    }
+    
+    // MARK: macOS
     #else
+    
     override func mouseDown(with event: NSEvent) {
         self.touchDown(atPoint: event.location(in: self))
     }
+    
     override func mouseUp(with event: NSEvent) {
         self.touchUp(atPoint: event.location(in: self))
     }
+    
     #endif
+    
+    // MARK: - AI
     
     func aiPlay() {
         
@@ -262,6 +321,9 @@ class GameScene: SKScene {
             
         }
     }
+    
+    // MARK: - Update
+    
     func renderDialog() {
         dialogNode?.text = dialogNode.state.texts[currentDialogIndex]
 

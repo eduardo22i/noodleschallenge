@@ -6,11 +6,11 @@ Noodles Challenge is a Minimax game build with Swift and Gameplaykit written in 
 
 ### Build
 
-Xcode 10.0, OS X 10.14 SDK, iOS 12.0 SDK
+Xcode 10.0, OS X 10.14 SDK, iOS 12.0 SDK, tvOS 12.0 SDK
 
 ### Runtime
 
-OS X 10.14 SDK, iOS 12.0 SDK
+OS X 10.14, iOS 12.0, tvOS 12.0
 
 ## About Noodles Challenge
 
