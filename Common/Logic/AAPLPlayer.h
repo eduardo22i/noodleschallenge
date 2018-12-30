@@ -7,20 +7,19 @@
  */
 @import Foundation;
 
-typedef NS_ENUM(NSInteger, AAPLChip) {
-    AAPLChipNone = 0,
-    AAPLChipRed,
-    AAPLChipBlack
+typedef NS_ENUM(NSInteger, AAPLPlayerType) {
+    AAPLPlayerTypeNone = 0,
+    AAPLPlayerTypeHuman,
+    AAPLPlayerTypeComputer
 };
 
 @interface AAPLPlayer : NSObject
 
-+ (AAPLPlayer *)redPlayer;
-+ (AAPLPlayer *)blackPlayer;
++ (AAPLPlayer *)humanPlayer;
++ (AAPLPlayer *)aiPlayer;
 + (NSArray<AAPLPlayer *> *)allPlayers;
-+ (AAPLPlayer *)playerForChip:(AAPLChip)chip;
 
-@property (nonatomic, readonly) AAPLChip chip;
+@property (nonatomic, readonly) AAPLPlayerType type;
 @property (nonatomic, copy, readonly) NSString *name;
 
 @property (nonatomic, readonly) AAPLPlayer *opponent;

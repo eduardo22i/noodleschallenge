@@ -31,7 +31,7 @@ const static NSInteger AAPLBoardHeight = 1;
     }
     
     if (self) {
-		_currentPlayer = [AAPLPlayer redPlayer];
+		_currentPlayer = [AAPLPlayer humanPlayer];
 	}
 	
     return self;
@@ -41,7 +41,7 @@ const static NSInteger AAPLBoardHeight = 1;
 	memcpy(_cells, otherBoard->_cells, sizeof(_cells));
 }
 
-- (AAPLChip)chipsInColumn:(NSInteger)column row:(NSInteger)row {
+- (AAPLPlayerType)chipsInColumn:(NSInteger)column row:(NSInteger)row {
     return _cells[row + column];
 }
 
@@ -71,40 +71,6 @@ const static NSInteger AAPLBoardHeight = 1;
 
 - (BOOL)canRemoveChips:(NSInteger)count inColumn:(NSInteger)column {
     return _cells[column] >= count;
-}
-
-- (BOOL)isFull {
-    for (NSInteger column = 0; column < AAPLBoardWidth; column++) {
-        if ([self canRemoveChips:1 inColumn:column]) {
-            return NO;
-        }
-    }
-
-    return YES;
-}
-
-- (NSArray<NSNumber *> *)runCountsForPlayer:(AAPLPlayer *)player {
-    
-    NSMutableArray<NSNumber *> *counts = [NSMutableArray array];
-
-    NSInteger totalRunCount = 0;
-    for (NSInteger column = 0; column < AAPLBoard.width; column++) {
-        totalRunCount += [self chipsInColumn:column row:0];
-    }
-    
-    
-    for (NSInteger column = AAPLBoard.width - 1; column >= 0; column--) {
-        NSInteger currentRunCount = totalRunCount;
-        NSInteger chipsCount = [self chipsInColumn:column row:0];
-        
-        for (NSInteger colCount = chipsCount; colCount > 0; colCount--) {
-            if ((currentRunCount - colCount) == 1) {
-                [counts addObject:@(colCount)];
-            }
-        }
-    }
-    
-    return counts;
 }
 
 @end

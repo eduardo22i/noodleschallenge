@@ -30,7 +30,7 @@
 @implementation AAPLPlayer (MinmaxStrategy)
 
 - (NSInteger)playerId {
-    return self.chip;
+    return self.type;
 }
 
 @end
@@ -73,10 +73,7 @@
     
     for (NSInteger column = 0; column < AAPLBoard.width; column++) {
         NSInteger currentRunCount = totalRunCount;
-        for (NSInteger chipsCount = 1; chipsCount <= [self chipsInColumn:column row:0]; chipsCount++) {
-
-//        for (NSInteger chipsCount = [self chipsInColumn:column row:0]; chipsCount > 0; chipsCount--) {
-            
+        for (NSInteger chipsCount = 1; chipsCount <= [self chipsInColumn:column row:0]; chipsCount++) {            
             if ([self canRemoveChips:chipsCount inColumn:column]  && ((currentRunCount - chipsCount) > 0)) {
                 AAPLMove* move = [AAPLMove moveInColumn:column withCount:chipsCount];
                 move.player = player;
