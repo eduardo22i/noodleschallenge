@@ -9,37 +9,37 @@
 #import "AAPLPlayer.h"
 
 @interface AAPLPlayer ()
-@property (readwrite) AAPLChip chip;
+@property (readwrite) AAPLType type;
 @property (nonatomic, readwrite, copy) NSString *name;
 @end
 
 @implementation AAPLPlayer
 
-- (instancetype)initWithChip:(AAPLChip)chip {
+- (instancetype)initWithChip:(AAPLType)chip {
     self = [super init];
 
     if (self) {
-        _chip = chip;
+        _type = chip;
     }
     
     return self;
 }
 
-+ (AAPLPlayer *)redPlayer {
-    return [self playerForChip:AAPLChipRed];
++ (AAPLPlayer *)humanPlayer {
+    return [self playerForType:AAPLTypeHuman];
 }
 
-+ (AAPLPlayer *)blackPlayer {
-    return [self playerForChip:AAPLChipBlack];
++ (AAPLPlayer *)computerPlayer {
+    return [self playerForType:AAPLTypeComputer];
 }
 
-+ (AAPLPlayer *)playerForChip:(AAPLChip)chip {
-	if (chip == AAPLChipNone) {
++ (AAPLPlayer *)playerForType:(AAPLType)type {
+	if (type == AAPLTypeNone) {
 		return nil;
 	}
     
     // Chip enum is 0/1/2, array is 0/1.
-    return [self allPlayers][chip - 1];
+    return [self allPlayers][type - 1];
 }
 
 + (NSArray<AAPLPlayer *> *)allPlayers {
@@ -47,8 +47,8 @@
 
     if (allPlayers == nil) {
         allPlayers = @[
-           [[AAPLPlayer alloc] initWithChip:AAPLChipRed],
-           [[AAPLPlayer alloc] initWithChip:AAPLChipBlack],
+           [[AAPLPlayer alloc] initWithChip:AAPLTypeHuman],
+           [[AAPLPlayer alloc] initWithChip:AAPLTypeComputer],
         ];
     }
 
@@ -56,11 +56,11 @@
 }
 
 - (NSString *)name {
-    switch (self.chip) {
-        case AAPLChipRed:
+    switch (self.type) {
+        case AAPLTypeHuman:
             return @"Red";
 
-        case AAPLChipBlack:
+        case AAPLTypeComputer:
             return @"COMPUTER";
         
         default:
@@ -69,11 +69,11 @@
 }
 
 - (NSString *)debugDescription {
-    switch (self.chip) {
-        case AAPLChipRed:
+    switch (self.type) {
+        case AAPLTypeHuman:
             return @"X";
 
-        case AAPLChipBlack:
+        case AAPLTypeComputer:
             return @"O";
         
         default:
@@ -82,12 +82,12 @@
 }
 
 - (AAPLPlayer *)opponent {
-    switch (self.chip) {
-        case AAPLChipRed:
-            return [AAPLPlayer blackPlayer];
+    switch (self.type) {
+        case AAPLTypeHuman:
+            return [AAPLPlayer computerPlayer];
 
-        case AAPLChipBlack:
-            return [AAPLPlayer redPlayer];
+        case AAPLTypeComputer:
+            return [AAPLPlayer humanPlayer];
         
         default:
             return nil;

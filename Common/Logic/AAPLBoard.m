@@ -31,7 +31,7 @@ const static NSInteger AAPLBoardHeight = 1;
     }
     
     if (self) {
-		_currentPlayer = [AAPLPlayer redPlayer];
+		_currentPlayer = [AAPLPlayer humanPlayer];
 	}
 	
     return self;
@@ -41,7 +41,7 @@ const static NSInteger AAPLBoardHeight = 1;
 	memcpy(_cells, otherBoard->_cells, sizeof(_cells));
 }
 
-- (AAPLChip)chipsInColumn:(NSInteger)column row:(NSInteger)row {
+- (AAPLType)chipsInColumn:(NSInteger)column row:(NSInteger)row {
     return _cells[row + column];
 }
 

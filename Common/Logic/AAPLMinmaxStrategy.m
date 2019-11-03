@@ -30,7 +30,7 @@
 @implementation AAPLPlayer (MinmaxStrategy)
 
 - (NSInteger)playerId {
-    return self.chip;
+    return self.type;
 }
 
 @end

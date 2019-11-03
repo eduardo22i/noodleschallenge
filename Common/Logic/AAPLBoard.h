@@ -20,7 +20,7 @@ const static NSInteger AAPLCountToWin = 1;
 + (NSInteger)height;
 
 - (nonnull instancetype)initWithChips:(nonnull NSArray<NSNumber *> *) cells;
-- (AAPLChip)chipsInColumn:(NSInteger)column row:(NSInteger)row;
+- (AAPLType)chipsInColumn:(NSInteger)column row:(NSInteger)row;
 - (BOOL)canRemoveChips:(NSInteger)count inColumn:(NSInteger)column;
 - (void)removeChips:(NSInteger)count inColumn:(NSInteger)column;
 
