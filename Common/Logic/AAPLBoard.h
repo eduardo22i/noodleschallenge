@@ -14,7 +14,7 @@ const static NSInteger AAPLCountToWin = 1;
 
 @interface AAPLBoard : NSObject
 
-@property AAPLPlayer *currentPlayer;
+@property AAPLPlayer * _Nonnull currentPlayer;
 
 + (NSInteger)width;
 + (NSInteger)height;
@@ -26,8 +26,8 @@ const static NSInteger AAPLCountToWin = 1;
 
 - (BOOL)isFull;
 
-- (NSArray<NSNumber *> *)runCountsForPlayer:(AAPLPlayer *)player;
+- (NSArray<NSNumber *> *_Nonnull)runCountsForPlayer:(AAPLPlayer *_Nonnull)player;
 
-- (void)updateChipsFromBoard:(AAPLBoard *)otherBoard;
+- (void)updateChipsFromBoard:(AAPLBoard *_Nonnull)otherBoard;
 
 @end
