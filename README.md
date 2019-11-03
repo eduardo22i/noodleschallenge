@@ -26,5 +26,5 @@ Each player take turns, there are 3 boxes, each box have different amount of coi
 
 Contact me! :) 
 
-![alt text](https://duaw26jehqd4r.cloudfront.net/items/0K1O1l1o2W2O0y3g153C/Noodles%20Challenge.jpg?v=d7f31fb8)
+![alt text](https://i.imgur.com/TFDLO3h.jpg)
 
