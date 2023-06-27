@@ -9,9 +9,15 @@
 import SpriteKit
 import GameplayKit
 
+protocol GameSceneProtocol {
+    var state: GameState { get }
+}
+
 class GameScene: SKScene {
     static let config = [4,3,2]
-    
+
+    var gameSceneProtocol: GameSceneProtocol!
+
     var state = GameState.playing {
         didSet {
             switch state {
@@ -19,40 +25,35 @@ class GameScene: SKScene {
                 self.continueButton.alpha = 0.4
                 self.continueButton.isHidden = false
                 self.resetButton.isHidden = false
-                self.dialogNode.isHidden = true
+                dialogNode.hideDialog()
             case .playing:
                 self.continueButton.alpha = 1.0
                 self.continueButton.isHidden = false
                 self.resetButton.isHidden = false
-                self.dialogNode.isHidden = true
+                dialogNode.hideDialog()
             case .ended:
                 self.continueButton.alpha = 1.0
                 self.continueButton.isHidden = true
                 self.resetButton.isHidden = false
-                self.dialogNode.isHidden = true
+                dialogNode.hideDialog()
             case .dialog:
                 self.continueButton.isHidden = true
                 self.resetButton.isHidden = true
-                self.dialogNode.isHidden = false
+                dialogNode.showDialog()
             }
         }
     }
     let strategist = GKMinmaxStrategist()
     
     let board = Board(config: GameScene.config)
-    var dialogNode: Dialog!
+    var dialogNode: DialogProtocol!
 
     let enemy = Enemy(name: "Obinoby")
-    
-    var entities = [GKEntity]()
-    var graphs = [String : GKGraph]()
-    
+
     var continueButton: SKSpriteNode!
     var resetButton: SKSpriteNode!
     
     var currentChips = [Chip]()
-    
-    var currentDialogIndex = 0
     
     var isScrollingInput = false
     private var spinnyNode : SKShapeNode?
@@ -66,7 +67,7 @@ class GameScene: SKScene {
         
         self.strategist.maxLookAheadDepth = 100
         
-        dialogNode = self.childNode(withName: "dialog") as? Dialog
+        dialogNode = self.childNode(withName: "dialog") as? DialogSKNode
         continueButton = self.childNode(withName: "continueButton") as? SKSpriteNode
         resetButton = self.childNode(withName: "resetButton") as? SKSpriteNode
         
@@ -81,7 +82,7 @@ class GameScene: SKScene {
         resetBoard()
         
         self.state = .dialog
-        currentDialogIndex = 0
+        dialogNode.resetDialog()
         renderDialog()
     }
     
@@ -163,14 +164,15 @@ class GameScene: SKScene {
     
     func touchUp(atPoint pos : CGPoint) {
         if self.state == .dialog {
-            if dialogNode.state == .thinking {
-                self.state = .playing
-            } else if dialogNode.state == .waiting {
-                self.aiPlay()
-            } else if dialogNode.state == .celebrating || dialogNode.state == .crying {
-                self.state = .ended
-            } else {
-                currentDialogIndex += 1
+            switch dialogNode.state {
+            case .thinking:
+                state = .playing
+            case .waiting:
+                aiPlay()
+            case .celebrating, .crying:
+                state = .ended
+            case .instructions, .wakeUp:
+                dialogNode.nextDialogInQueue()
                 renderDialog()
             }
             return
@@ -202,13 +204,14 @@ class GameScene: SKScene {
                     }
                 }
                 if chipCount == 0 {
-                    self.dialogNode.state = .celebrating
+                    dialogNode.state = .celebrating
                     self.enemy.state = .celebrating
                 } else {
-                    self.dialogNode.state = .waiting
+                    dialogNode.state = .waiting
                 }
             }
-            self.currentDialogIndex = Int.random(in: 0..<self.dialogNode.state.texts.count)
+
+            dialogNode.setRandomDialogFromState()
             self.renderDialog()
             
         }
@@ -291,8 +294,8 @@ class GameScene: SKScene {
             }
             
             let deadlineTime = DispatchTime.now() + .seconds(2)
-            DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
-                
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: DispatchWorkItem(block: {
+
                 for currentChip in self.currentChips {
                     currentChip.isSelected = true
                 }
@@ -300,7 +303,7 @@ class GameScene: SKScene {
                 if self.removeSelectedChipsAndEvaluateWinner() {
                     
                     self.dialogNode.state = .celebrating
-                    self.currentDialogIndex = Int.random(in: 0..<self.dialogNode.state.texts.count)
+                    self.dialogNode.setRandomDialogFromState()
                     self.renderDialog()
                     
                     self.enemy.state = .celebrating
@@ -313,32 +316,32 @@ class GameScene: SKScene {
                 self.board.gameModel.currentPlayer = self.board.gameModel.currentPlayer.opponent
                 
                 self.dialogNode.state = .thinking
-                self.currentDialogIndex = Int.random(in: 0..<self.dialogNode.state.texts.count)
+                self.dialogNode.setRandomDialogFromState()
                 self.renderDialog()
                 self.state = .dialog
                 self.enemy.state = .waiting
-            })
-            
+
+            }))
         }
     }
     
     // MARK: - Update
     
     func renderDialog() {
-        dialogNode?.text = dialogNode.state.texts[currentDialogIndex]
+        dialogNode.render()
 
         if dialogNode.state == .wakeUp {
-            if enemy.state == .sleeping && currentDialogIndex > 0 {
+            if enemy.state == .sleeping && dialogNode.currentDialogIndex > 0 {
                 enemy.wakeUp()
             }
-            if currentDialogIndex == DialogState.wakeUp.texts.count - 1 {
+            if dialogNode.currentDialogIndex == DialogState.wakeUp.texts.count - 1 {
                 dialogNode.state = .instructions
-                currentDialogIndex = -1
+                dialogNode.resetDialog()
             }
         }
-        if dialogNode.state == .instructions && currentDialogIndex == DialogState.instructions.texts.count - 1 {
-            self.state = .playing
-            currentDialogIndex = 0
+        if dialogNode.state == .instructions && dialogNode.currentDialogIndex == DialogState.instructions.texts.count - 1 {
+            state = .playing
+            dialogNode.resetDialog()
         }
     }
     
@@ -346,18 +349,11 @@ class GameScene: SKScene {
         // Called before each frame is rendered
         
         // Initialize _lastUpdateTime if it has not already been
-        if (self.lastUpdateTime == 0) {
-            self.lastUpdateTime = currentTime
+        if (lastUpdateTime == 0) {
+            lastUpdateTime = currentTime
         }
+
         
-        // Calculate time since last update
-        let dt = currentTime - self.lastUpdateTime
-        
-        // Update entities
-        for entity in self.entities {
-            entity.update(deltaTime: dt)
-        }
-        
-        self.lastUpdateTime = currentTime
+        lastUpdateTime = currentTime
     }
 }

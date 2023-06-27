@@ -1,5 +1,5 @@
 //
-//  Dialog.swift
+//  DialogSKNode.swift
 //  Noodles Challenge Mac
 //
 //  Created by Eduardo Irias on 12/24/18.
@@ -43,19 +43,31 @@ enum DialogState {
     }
 }
 
-class Dialog: SKSpriteNode {
+protocol DialogProtocol {
+    var state: DialogState { get set }
+    var currentDialogIndex: Int { get }
+    func resetDialog()
+    func nextDialogInQueue()
+    func setRandomDialogFromState()
+
+    func render()
+    func showDialog()
+    func hideDialog()
+}
+
+class DialogSKNode: SKSpriteNode, DialogProtocol {
     
     var state: DialogState = .wakeUp
+    private(set) var currentDialogIndex = 0
     
-    var image: SKSpriteNode!
-    var text: String = "" {
+    private var image: SKSpriteNode!
+    private var text: String = "" {
         didSet {
             let labelNode = self.childNode(withName: "text") as? SKLabelNode
             labelNode?.text = text
         }
     }
-    
-    
+
     override init(texture: SKTexture?, color: SKColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
     }
@@ -64,6 +76,29 @@ class Dialog: SKSpriteNode {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
+    func render() {
+        text = state.texts[currentDialogIndex]
+    }
+
+    func resetDialog() {
+        currentDialogIndex = 0
+    }
+
+    func nextDialogInQueue() {
+        currentDialogIndex += 1
+    }
+
+    func setRandomDialogFromState() {
+        currentDialogIndex = Int.random(in: 0..<state.texts.count)
+    }
+
+    func showDialog() {
+        isHidden = false
+    }
+
+    func hideDialog() {
+        isHidden = true
+    }
 }
 
