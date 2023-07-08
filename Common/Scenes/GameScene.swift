@@ -11,12 +11,17 @@ import GameplayKit
 
 protocol GameSceneProtocol {
     var state: GameState { get }
+    var strategist: GKMinmaxStrategist { get }
+
+    var dialogNode: DialogProtocol! { get }
+
+    var enemy: Enemy { get }
+//    var continueButton: SKSpriteNode!
+//    var resetButton: SKSpriteNode!
 }
 
-class GameScene: SKScene {
+class GameScene: SKScene, GameSceneProtocol {
     static let config = [4,3,2]
-
-    var gameSceneProtocol: GameSceneProtocol!
 
     var state = GameState.playing {
         didSet {
@@ -48,7 +53,7 @@ class GameScene: SKScene {
     let board = Board(config: GameScene.config)
     var dialogNode: DialogProtocol!
 
-    let enemy = Enemy(name: "Obinoby")
+    var enemy: Enemy = EnemySK(name: "Obinoby")
 
     var continueButton: SKSpriteNode!
     var resetButton: SKSpriteNode!
@@ -70,10 +75,12 @@ class GameScene: SKScene {
         dialogNode = self.childNode(withName: "dialog") as? DialogSKNode
         continueButton = self.childNode(withName: "continueButton") as? SKSpriteNode
         resetButton = self.childNode(withName: "resetButton") as? SKSpriteNode
-        
-        enemy.position.y = self.size.height / 2.0 - enemy.size.height / 2.0 + 20
-        enemy.zPosition = 1
-        self.addChild(enemy)
+
+        if let enemy = enemy as? EnemySK {
+            enemy.position.y = self.size.height / 2.0 - enemy.size.height / 2.0 + 20
+            enemy.zPosition = 1
+            self.addChild(enemy)
+        }
         
         board.position.y = -100
         board.zPosition = 2

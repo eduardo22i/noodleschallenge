@@ -12,7 +12,14 @@ enum EnemyState {
     case sleeping, explaining, waiting, thinking, celebrating, crying
 }
 
-class Enemy: SKSpriteNode {
+protocol Enemy {
+    var state: EnemyState { get set }
+
+    func wakeUp()
+    func wait()
+}
+
+final class EnemySK: SKSpriteNode, Enemy {
     
     var state = EnemyState.sleeping {
         didSet {
