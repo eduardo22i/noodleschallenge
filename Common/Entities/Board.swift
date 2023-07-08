@@ -12,19 +12,17 @@ protocol Board {
 
     var gameModel: AAPLBoard! { get set }
 
-    // TODO: Cleanup Box
     var boxes: [Box] { get }
 
     func reset()
-    // TODO: Cleanup chip
     func remove(chips: [Chip])
 }
 
-class BoardSK: SKSpriteNode, Board {
+final class BoardSK: SKSpriteNode, Board {
 
     var gameModel: AAPLBoard!
     
-    private (set) var boxes = [Box]()
+    private (set) var boxes: [Box] = [BoxSK]()
     
     private var config = [Int]() {
         didSet {
@@ -91,7 +89,7 @@ class BoardSK: SKSpriteNode, Board {
             
         }()
         
-        let box = Box(index: index, type: type)
+        let box = BoxSK(index: index, type: type)
         box.position.x = x
         box.position.y = y
         box.zPosition = 2

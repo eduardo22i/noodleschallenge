@@ -8,6 +8,19 @@
 
 import SpriteKit
 
+protocol Box {
+    var index: Int { get }
+    var type: BoxType { get }
+    var chips: [Chip] { get }
+
+    func addCoins(count: Int)
+    func addCoin(x: CGFloat, y: CGFloat)
+    func remove(chips: [Chip])
+
+    // Remove from parent to clean up the scene
+    func removeFromParent()
+}
+
 enum BoxType: String {
     case centerTop = "BoxCenterTop"
     case leftBottom = "BoxLeftBottom"
@@ -26,8 +39,8 @@ enum BoxType: String {
     }
 }
 
-class Box: SKSpriteNode {
-    var index: Int!
+final class BoxSK: SKSpriteNode, Box {
+    var index: Int
     
     var type: BoxType
     var chips = [Chip]()
@@ -84,5 +97,4 @@ class Box: SKSpriteNode {
         self.addChild(coin)
         self.chips.append(coin)
     }
-    
 }
