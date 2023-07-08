@@ -15,13 +15,19 @@ protocol GameSceneProtocol {
 
     var board: Board { get }
     var enemy: Enemy { get }
+    var currentChips: [any Chip] { get }
+
 //    var continueButton: SKSpriteNode!
 //    var resetButton: SKSpriteNode!
 
     var dialogNode: DialogProtocol! { get }
+
+    
+    func addToCurrentSelected(coin: Chip)
 }
 
 class GameScene: SKScene, GameSceneProtocol {
+
     static let config = [4,3,2]
 
     var state = GameState.playing {
@@ -59,7 +65,7 @@ class GameScene: SKScene, GameSceneProtocol {
     var continueButton: SKSpriteNode!
     var resetButton: SKSpriteNode!
     
-    var currentChips = [Chip]()
+    var currentChips: [any Chip] = [ChipSK]()
     
     var isScrollingInput = false
     private var spinnyNode : SKShapeNode?
@@ -138,17 +144,17 @@ class GameScene: SKScene, GameSceneProtocol {
         return isWinner()
     }
     
-    func addToCurrentSelected(coin: Chip) {
+    func addToCurrentSelected(coin: any Chip) {
         if enemy.state != .waiting {
             enemy.wait()
         }
-        
-        if currentChips.contains(coin) {
+
+        if currentChips.contains (where: { $0.index == coin.index}) {
             coin.isSelected = false
-            currentChips.removeAll(where: { $0 == coin})
+            currentChips.removeAll(where: { $0.index == coin.index})
             return
         }
-        
+
         if coin.boxIndex != currentChips.first?.boxIndex {
             for currentChip in currentChips {
                 currentChip.isSelected = false
@@ -228,7 +234,7 @@ class GameScene: SKScene, GameSceneProtocol {
         
         if state != .playing { return }
         
-        if let chip = self.nodes(at: pos).first(where: { $0.name == "coin"}) as? Chip {
+        if let chip = self.nodes(at: pos).first(where: { $0.name == "coin"}) as? ChipSK {
             self.addToCurrentSelected(coin: chip)
         }
     }

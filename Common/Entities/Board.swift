@@ -12,17 +12,17 @@ protocol Board {
 
     var gameModel: AAPLBoard! { get set }
 
-    var boxes: [Box] { get }
+    var boxes: [any Box] { get }
 
     func reset()
-    func remove(chips: [Chip])
+    func remove(chips: [any Chip])
 }
 
 final class BoardSK: SKSpriteNode, Board {
 
     var gameModel: AAPLBoard!
     
-    private (set) var boxes: [Box] = [BoxSK]()
+    private (set) var boxes: [any Box] = [BoxSK]()
     
     private var config = [Int]() {
         didSet {
@@ -66,14 +66,14 @@ final class BoardSK: SKSpriteNode, Board {
         }
     }
     
-    func remove(chips: [Chip]) {
+    func remove(chips: [any Chip]) {
         guard let index = chips.first?.boxIndex else { return }
         
-        self.boxes[index].remove(chips: chips)
-        self.gameModel.removeChips(chips.count, inColumn: index)
+        boxes[index].remove(chips: chips)
+        gameModel.removeChips(chips.count, inColumn: index)
     }
     
-    private func addBox(index: Int, x: CGFloat, y: CGFloat) -> Box {
+    private func addBox(index: Int, x: CGFloat, y: CGFloat) -> any Box {
         
         let type: BoxType = {
             switch index {

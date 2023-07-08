@@ -8,25 +8,12 @@
 
 import SpriteKit
 
-protocol Box {
-    var index: Int { get }
-    var type: BoxType { get }
-    var chips: [Chip] { get }
-
-    func addCoins(count: Int)
-    func addCoin(x: CGFloat, y: CGFloat)
-    func remove(chips: [Chip])
-
-    // Remove from parent to clean up the scene
-    func removeFromParent()
-}
-
 enum BoxType: String {
     case centerTop = "BoxCenterTop"
     case leftBottom = "BoxLeftBottom"
     case rightBottom = "BoxRightBottom"
     case elseB = "Paper"
-    
+
     var offsetX: Double {
         switch self {
         case .leftBottom:
@@ -39,11 +26,23 @@ enum BoxType: String {
     }
 }
 
+protocol Box {
+    var index: Int { get }
+    var type: BoxType { get }
+    var chips: [any Chip] { get }
+
+    func addCoins(count: Int)
+    func remove(chips: [any Chip])
+
+    /// Remove from parent to clean up the scene
+    func removeFromParent()
+}
+
 final class BoxSK: SKSpriteNode, Box {
     var index: Int
     
     var type: BoxType
-    var chips = [Chip]()
+    var chips: [any Chip] = [ChipSK]()
     
     init(index: Int, type: BoxType = .elseB) {
         self.type = type
@@ -59,12 +58,14 @@ final class BoxSK: SKSpriteNode, Box {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func remove(chips: [Chip]) {        
-        self.chips.removeAll { (chip) -> Bool in
-            return chips.contains(chip)
+    func remove(chips: [any  Chip]) {
+        self.chips.removeAll { chip -> Bool in
+            return chips.contains { removeChip in
+                chip.index == removeChip.index
+            }
         }
         
-        for currentChip in chips {
+        for currentChip in (chips as? [ChipSK] ?? []) {
             let actions = [
                 SKAction.wait(forDuration: 0.1),
                 SKAction.scale(by: 2.0, duration: 0.1),
@@ -83,18 +84,18 @@ final class BoxSK: SKSpriteNode, Box {
             let angle =  offset * Double.pi * 2.0
             let x = sin(angle) * separation + self.type.offsetX
             let y = cos(angle) * separation + 30.0
-            self.addCoin(x: CGFloat(x), y: CGFloat(y))
+            self.addCoin(x: CGFloat(x), y: CGFloat(y), index: coinIndex)
         }
     }
     
-    func addCoin(x: CGFloat, y: CGFloat) {
+    private func addCoin(x: CGFloat, y: CGFloat, index: Int ) {
         
-        let coin = Chip(boxIndex: index)
+        let coin = ChipSK(boxIndex: self.index, index: index * 10 + index )
         coin.position.x = x
         coin.position.y = y
         coin.zPosition = 3
         
         self.addChild(coin)
-        self.chips.append(coin)
+        chips.append(coin)
     }
 }

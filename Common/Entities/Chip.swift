@@ -8,7 +8,20 @@
 
 import SpriteKit
 
-class Chip: SKSpriteNode {
+protocol Chip: AnyObject {
+    var index: UUID { get }
+    var boxIndex: Int { get }
+    var box: String { get }
+
+    var isSelected: Bool { get set }
+
+    /// Remove from parent to clean up the scene
+    func removeFromParent()
+
+}
+
+final class ChipSK: SKSpriteNode, Chip {
+    var index = UUID()
     let boxIndex: Int
     let box: String
     
@@ -18,9 +31,10 @@ class Chip: SKSpriteNode {
         }
     }
     
-    init(boxIndex: Int) {
+    init(boxIndex: Int, index: Int) {
         let texture = SKTexture(imageNamed: "Coin")
-        
+
+//        self.index = index
         self.boxIndex = boxIndex
         self.box = "box\(boxIndex)"
         
