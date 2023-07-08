@@ -242,8 +242,7 @@ class GameScene: SKScene, GameSceneProtocol {
     func touchMoved(toPoint pos : CGPoint) {
         self.spinnyNode?.position = pos
     }
-    
-    
+
     // MARK: - Targets
     
     // MARK: iOS
