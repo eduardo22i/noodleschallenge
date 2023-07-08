@@ -13,11 +13,12 @@ protocol GameSceneProtocol {
     var state: GameState { get }
     var strategist: GKMinmaxStrategist { get }
 
-    var dialogNode: DialogProtocol! { get }
-
+    var board: Board { get }
     var enemy: Enemy { get }
 //    var continueButton: SKSpriteNode!
 //    var resetButton: SKSpriteNode!
+
+    var dialogNode: DialogProtocol! { get }
 }
 
 class GameScene: SKScene, GameSceneProtocol {
@@ -50,7 +51,7 @@ class GameScene: SKScene, GameSceneProtocol {
     }
     let strategist = GKMinmaxStrategist()
     
-    let board = Board(config: GameScene.config)
+    let board: Board = BoardSK(config: GameScene.config)
     var dialogNode: DialogProtocol!
 
     var enemy: Enemy = EnemySK(name: "Obinoby")
@@ -81,10 +82,12 @@ class GameScene: SKScene, GameSceneProtocol {
             enemy.zPosition = 1
             self.addChild(enemy)
         }
-        
-        board.position.y = -100
-        board.zPosition = 2
-        self.addChild(board)
+
+        if let board = board as? BoardSK {
+            board.position.y = -100
+            board.zPosition = 2
+            self.addChild(board)
+        }
         
         resetBoard()
         
@@ -126,7 +129,7 @@ class GameScene: SKScene, GameSceneProtocol {
     }
     
     func removeSelectedChips() {
-        self.board.remove(chips: currentChips)
+        board.remove(chips: currentChips)
         currentChips.removeAll()
     }
     
@@ -189,8 +192,8 @@ class GameScene: SKScene, GameSceneProtocol {
         resetButton.alpha = 1.0
         
         if let _ = self.nodes(at: pos).first(where: { $0.name == "resetButton"}) {
-            self.enemy.state = .waiting
-            self.resetBoard()
+            enemy.state = .waiting
+            resetBoard()
         }
         
         if state == .thinking { return }
@@ -288,9 +291,9 @@ class GameScene: SKScene, GameSceneProtocol {
     
     func aiPlay() {
         
-        self.state = .thinking
+        state = .thinking
         
-        self.board.gameModel.currentPlayer = self.board.gameModel.currentPlayer.opponent
+        board.gameModel.currentPlayer = self.board.gameModel.currentPlayer.opponent
         enemy.state = .thinking
         
         DispatchQueue.global(qos: .default).async {

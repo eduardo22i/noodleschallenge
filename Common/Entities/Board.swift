@@ -8,7 +8,19 @@
 
 import SpriteKit
 
-class Board: SKSpriteNode {
+protocol Board {
+
+    var gameModel: AAPLBoard! { get set }
+
+    // TODO: Cleanup Box
+    var boxes: [Box] { get }
+
+    func reset()
+    // TODO: Cleanup chip
+    func remove(chips: [Chip])
+}
+
+class BoardSK: SKSpriteNode, Board {
 
     var gameModel: AAPLBoard!
     
@@ -87,6 +99,5 @@ class Board: SKSpriteNode {
         
         return box
     }
-    
     
 }
