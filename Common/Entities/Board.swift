@@ -44,7 +44,7 @@ final class BoardLogic: Board {
             box.chips.forEach({ (chip) in
                 chip.removeFromParent()
             })
-            box.removeFromParent()
+            box.view.removeFromParent()
         }
         boxes.removeAll()
 
@@ -78,9 +78,7 @@ protocol BoardView: AnyObject {
 final class BoardSK: SKSpriteNode, BoardView {
 
     var gameModel: AAPLBoard!
-    
-    private (set) var boxes: [any Box] = [BoxSK]()
-    
+        
     init() {
         let texture = SKTexture(imageNamed: "Board")
         super.init(texture: texture, color: NSColor.clear, size: texture.size())
@@ -114,7 +112,7 @@ final class BoardSK: SKSpriteNode, BoardView {
         box.zPosition = 2
         self.addChild(box)
         
-        return box
+        return BoxLogic(view: box, index: index)
     }
     
 }

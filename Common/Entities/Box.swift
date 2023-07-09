@@ -27,23 +27,68 @@ enum BoxType: String {
 }
 
 protocol Box {
+    var view: any BoxView { get }
+
     var index: Int { get }
     var type: BoxType { get }
     var chips: [any Chip] { get }
 
     func addCoins(count: Int)
     func remove(chips: [any Chip])
+}
+
+final class BoxLogic: Box {
+
+    var view: any BoxView
+
+    var index: Int
+
+    var type: BoxType
+    var chips: [any Chip] = [ChipSK]()
+
+    init(view: any BoxView, index: Int, type: BoxType = .elseB) {
+        self.view = view
+        self.type = type
+        self.index = index
+    }
+
+    func remove(chips: [any  Chip]) {
+        self.chips.removeAll { chip -> Bool in
+            return chips.contains { removeChip in
+                chip.index == removeChip.index
+            }
+        }
+
+        view.remove(chips: chips)
+    }
+
+    func addCoins(count: Int) {
+        for coinIndex in 0..<count {
+            let separation = 52.0
+            let offset = Double(coinIndex) / Double(count)
+            let angle =  offset * Double.pi * 2.0
+            let x = sin(angle) * separation + self.type.offsetX
+            let y = cos(angle) * separation + 30.0
+
+            let chip = view.addChip(x: CGFloat(x), y: CGFloat(y), index: coinIndex)
+            chips.append(chip)
+        }
+    }
+}
+
+protocol BoxView: AnyObject {
+    func remove(chips: [any Chip])
+    func addChip(x: CGFloat, y: CGFloat, index: Int) -> Chip
 
     /// Remove from parent to clean up the scene
     func removeFromParent()
 }
 
-final class BoxSK: SKSpriteNode, Box {
+final class BoxSK: SKSpriteNode, BoxView {
     var index: Int
     
     var type: BoxType
-    var chips: [any Chip] = [ChipSK]()
-    
+
     init(index: Int, type: BoxType = .elseB) {
         self.type = type
         self.index = index
@@ -58,13 +103,8 @@ final class BoxSK: SKSpriteNode, Box {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func remove(chips: [any  Chip]) {
-        self.chips.removeAll { chip -> Bool in
-            return chips.contains { removeChip in
-                chip.index == removeChip.index
-            }
-        }
-        
+    func remove(chips: [any Chip]) {
+
         for currentChip in (chips as? [ChipSK] ?? []) {
             let actions = [
                 SKAction.wait(forDuration: 0.1),
@@ -76,19 +116,8 @@ final class BoxSK: SKSpriteNode, Box {
             currentChip.run(SKAction.sequence(actions))
         }
     }
-    
-    func addCoins(count: Int) {
-        for coinIndex in 0..<count {
-            let separation = 52.0
-            let offset = Double(coinIndex) / Double(count)
-            let angle =  offset * Double.pi * 2.0
-            let x = sin(angle) * separation + self.type.offsetX
-            let y = cos(angle) * separation + 30.0
-            self.addCoin(x: CGFloat(x), y: CGFloat(y), index: coinIndex)
-        }
-    }
-    
-    private func addCoin(x: CGFloat, y: CGFloat, index: Int ) {
+
+    func addChip(x: CGFloat, y: CGFloat, index: Int) -> Chip {
         
         let coin = ChipSK(boxIndex: self.index, index: index * 10 + index )
         coin.position.x = x
@@ -96,6 +125,6 @@ final class BoxSK: SKSpriteNode, Box {
         coin.zPosition = 3
         
         self.addChild(coin)
-        chips.append(coin)
+        return coin
     }
 }
