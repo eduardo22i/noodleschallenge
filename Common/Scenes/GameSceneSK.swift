@@ -59,7 +59,7 @@ class GameSceneSK: SKScene {
     }
     let strategist = GKMinmaxStrategist()
     
-    let board: Board = BoardSK(config: GameSceneSK.config)
+    let board: Board = BoardLogic(view: BoardSK(), config: GameSceneSK.config)
     var dialogNode: (any Dialog)!
 
     var enemy: Enemy = EnemySK(name: "Obinoby")
@@ -94,7 +94,7 @@ class GameSceneSK: SKScene {
             self.addChild(enemy)
         }
 
-        if let board = board as? BoardSK {
+        if let board = board.view as? BoardSK {
             board.position.y = -100
             board.zPosition = 2
             self.addChild(board)
