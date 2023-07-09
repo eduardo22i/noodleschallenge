@@ -1,5 +1,5 @@
 //
-//  DialogSKNode.swift
+//  Dialog.swift
 //  Noodles Challenge Mac
 //
 //  Created by Eduardo Irias on 12/24/18.
@@ -19,7 +19,7 @@ enum DialogState {
                     "Win to me and I'll give you the best NOODLES!"]
         case .instructions:
             return ["The rules are simple. \nWe are going to take turns.",
-                    "We have \(GameScene.config.count) boxes,\neach box have different amount of coins.",
+                    "We have \(GameSceneSK.config.count) boxes,\neach box have different amount of coins.",
                 "In your turn, \nremove all the coins you want \nbut only from 1 box.",
                 "The player who picks\n the LAST coin from ALL boxes, loses the game.",
                 "Please, start!",
@@ -43,7 +43,9 @@ enum DialogState {
     }
 }
 
-protocol DialogProtocol {
+protocol Dialog {
+    var view: any DialogView { get set }
+
     var state: DialogState { get set }
     var currentDialogIndex: Int { get }
     func resetDialog()
@@ -55,31 +57,18 @@ protocol DialogProtocol {
     func hideDialog()
 }
 
-class DialogSKNode: SKSpriteNode, DialogProtocol {
-    
+final class DialogLogic: Dialog {
+    internal init(view: any DialogView, state: DialogState = .wakeUp, currentDialogIndex: Int = 0) {
+        self.view = view
+        self.state = state
+        self.currentDialogIndex = currentDialogIndex
+    }
+
+
+    var view: any DialogView
+
     var state: DialogState = .wakeUp
-    private(set) var currentDialogIndex = 0
-    
-    private var image: SKSpriteNode!
-    private var text: String = "" {
-        didSet {
-            let labelNode = self.childNode(withName: "text") as? SKLabelNode
-            labelNode?.text = text
-        }
-    }
-
-    override init(texture: SKTexture?, color: SKColor, size: CGSize) {
-        super.init(texture: texture, color: color, size: size)
-    }
-    
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    func render() {
-        text = state.texts[currentDialogIndex]
-    }
+    var currentDialogIndex = 0
 
     func resetDialog() {
         currentDialogIndex = 0
@@ -93,12 +82,43 @@ class DialogSKNode: SKSpriteNode, DialogProtocol {
         currentDialogIndex = Int.random(in: 0..<state.texts.count)
     }
 
+    func render() {
+        view.text = state.texts[currentDialogIndex]
+    }
+
     func showDialog() {
-        isHidden = false
+        view.isHidden = false
     }
 
     func hideDialog() {
-        isHidden = true
+        view.isHidden = true
+    }
+}
+
+protocol DialogView: AnyObject {
+    associatedtype Image
+
+    var image: Image! { get }
+    var text: String { get set }
+    var isHidden: Bool { get set }
+}
+
+class DialogSKNode: SKSpriteNode, DialogView {
+
+    internal var image: SKSpriteNode!
+    internal var text: String = "" {
+        didSet {
+            let labelNode = self.childNode(withName: "text") as? SKLabelNode
+            labelNode?.text = text
+        }
+    }
+
+    override init(texture: SKTexture?, color: SKColor, size: CGSize) {
+        super.init(texture: texture, color: color, size: size)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 }
 

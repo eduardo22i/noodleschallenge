@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-protocol GameSceneProtocol {
+protocol GameScene {
     var state: GameState { get }
     var strategist: GKMinmaxStrategist { get }
 
@@ -20,13 +20,15 @@ protocol GameSceneProtocol {
 //    var continueButton: SKSpriteNode!
 //    var resetButton: SKSpriteNode!
 
-    var dialogNode: DialogProtocol! { get }
+    var dialogNode: any Dialog { get }
 
     
     func addToCurrentSelected(coin: Chip)
+
+    func aiPlay()
 }
 
-class GameScene: SKScene, GameSceneProtocol {
+class GameSceneSK: SKScene {
 
     static let config = [4,3,2]
 
@@ -57,8 +59,8 @@ class GameScene: SKScene, GameSceneProtocol {
     }
     let strategist = GKMinmaxStrategist()
     
-    let board: Board = BoardSK(config: GameScene.config)
-    var dialogNode: DialogProtocol!
+    let board: Board = BoardSK(config: GameSceneSK.config)
+    var dialogNode: (any Dialog)!
 
     var enemy: Enemy = EnemySK(name: "Obinoby")
 
@@ -78,8 +80,11 @@ class GameScene: SKScene, GameSceneProtocol {
         self.lastUpdateTime = 0
         
         self.strategist.maxLookAheadDepth = 100
-        
-        dialogNode = self.childNode(withName: "dialog") as? DialogSKNode
+
+        if let dialogSKNode = self.childNode(withName: "dialog") as? SKSpriteNode,
+           let dialogNode = dialogSKNode as? (any DialogView) {
+            self.dialogNode = DialogLogic(view: dialogNode)
+        }
         continueButton = self.childNode(withName: "continueButton") as? SKSpriteNode
         resetButton = self.childNode(withName: "resetButton") as? SKSpriteNode
 
@@ -206,11 +211,11 @@ class GameScene: SKScene, GameSceneProtocol {
         
         if let _ = self.nodes(at: pos).first(where: { $0.name == "continueButton"}), !currentChips.isEmpty {
             
-            self.state = .dialog
+            state = .dialog
             
-            if self.removeSelectedChipsAndEvaluateWinner() {
-                self.dialogNode.state = .crying
-                self.enemy.state = .crying
+            if removeSelectedChipsAndEvaluateWinner() {
+                dialogNode.state = .crying
+                enemy.state = .crying
             } else {
                 
                 var chipCount = 0
@@ -221,14 +226,14 @@ class GameScene: SKScene, GameSceneProtocol {
                 }
                 if chipCount == 0 {
                     dialogNode.state = .celebrating
-                    self.enemy.state = .celebrating
+                    enemy.state = .celebrating
                 } else {
                     dialogNode.state = .waiting
                 }
             }
 
             dialogNode.setRandomDialogFromState()
-            self.renderDialog()
+            renderDialog()
             
         }
         

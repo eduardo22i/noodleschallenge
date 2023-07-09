@@ -14,9 +14,16 @@ enum EnemyState {
 
 protocol Enemy {
     var state: EnemyState { get set }
+}
 
-    func wakeUp()
-    func wait()
+extension Enemy {
+    mutating func wakeUp() {
+         state = .explaining
+    }
+
+    mutating func wait() {
+        state = .waiting
+    }
 }
 
 final class EnemySK: SKSpriteNode, Enemy {
@@ -141,12 +148,5 @@ final class EnemySK: SKSpriteNode, Enemy {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func wakeUp() {
-         self.state = .explaining
-    }
-    
-    func wait() {
-        self.state = .waiting
-    }
+
 }

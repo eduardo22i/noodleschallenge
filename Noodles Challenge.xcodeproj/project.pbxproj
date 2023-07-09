@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F902B91421D04D390076E2CD /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3621CAD6760033D560 /* GameScene.swift */; };
+		F902B91421D04D390076E2CD /* GameSceneSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3621CAD6760033D560 /* GameSceneSK.swift */; };
 		F902B91521D04E5D0076E2CD /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3A21CAD6790033D560 /* Resources.xcassets */; };
 		F902B91621D04E640076E2CD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3421CAD6760033D560 /* Actions.sks */; };
 		F902B91721D04E750076E2CD /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E71EF21CC1FFE0037098A /* GameState.swift */; };
 		F902B91921D04ED50076E2CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F902B91821D04ED50076E2CD /* Assets.xcassets */; };
-		F902B91B21D063AB0076E2CD /* DialogSKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B91A21D063AB0076E2CD /* DialogSKNode.swift */; };
+		F902B91B21D063AB0076E2CD /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B91A21D063AB0076E2CD /* Dialog.swift */; };
 		F915136121CFED9800697C44 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915136021CFED9800697C44 /* Box.swift */; };
 		F915136221CFEDCB00697C44 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915136021CFED9800697C44 /* Box.swift */; };
 		F92F5D1321CA92AF0033D560 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D1221CA92AF0033D560 /* AppDelegate.swift */; };
@@ -23,7 +23,7 @@
 		F92F5D3121CAD6760033D560 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3021CAD6760033D560 /* AppDelegate.swift */; };
 		F92F5D3321CAD6760033D560 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3221CAD6760033D560 /* GameScene.sks */; };
 		F92F5D3521CAD6760033D560 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3421CAD6760033D560 /* Actions.sks */; };
-		F92F5D3721CAD6760033D560 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3621CAD6760033D560 /* GameScene.swift */; };
+		F92F5D3721CAD6760033D560 /* GameSceneSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3621CAD6760033D560 /* GameSceneSK.swift */; };
 		F92F5D3921CAD6760033D560 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3821CAD6760033D560 /* ViewController.swift */; };
 		F92F5D3B21CAD6790033D560 /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3A21CAD6790033D560 /* Resources.xcassets */; };
 		F92F5D3E21CAD6790033D560 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3C21CAD6790033D560 /* Main.storyboard */; };
@@ -51,18 +51,18 @@
 		F9CF527621D40D04000366E7 /* AAPLPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4A21CAE00A0033D560 /* AAPLPlayer.m */; };
 		F9CF527721D40D04000366E7 /* AAPLMinmaxStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4721CAE00A0033D560 /* AAPLMinmaxStrategy.m */; };
 		F9CF527821D40D07000366E7 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E71EF21CC1FFE0037098A /* GameState.swift */; };
-		F9CF527921D40D09000366E7 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3621CAD6760033D560 /* GameScene.swift */; };
+		F9CF527921D40D09000366E7 /* GameSceneSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3621CAD6760033D560 /* GameSceneSK.swift */; };
 		F9CF527A21D40D0D000366E7 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662921CFDD01006FC613 /* Board.swift */; };
 		F9CF527B21D40D0D000366E7 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915136021CFED9800697C44 /* Box.swift */; };
 		F9CF527C21D40D0D000366E7 /* Chip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662C21CFDFBF006FC613 /* Chip.swift */; };
 		F9CF527D21D40D0D000366E7 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948F8FB21D02D9100B0A4A3 /* Enemy.swift */; };
-		F9CF527E21D40D0D000366E7 /* DialogSKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B91A21D063AB0076E2CD /* DialogSKNode.swift */; };
-		F9DCEBD021D0ECF800D266C5 /* DialogSKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B91A21D063AB0076E2CD /* DialogSKNode.swift */; };
+		F9CF527E21D40D0D000366E7 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B91A21D063AB0076E2CD /* Dialog.swift */; };
+		F9DCEBD021D0ECF800D266C5 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B91A21D063AB0076E2CD /* Dialog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F902B91821D04ED50076E2CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F902B91A21D063AB0076E2CD /* DialogSKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogSKNode.swift; sourceTree = "<group>"; };
+		F902B91A21D063AB0076E2CD /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		F915136021CFED9800697C44 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		F92F5D0F21CA92AF0033D560 /* Noodles Challenge iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noodles Challenge iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F92F5D1221CA92AF0033D560 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 		F92F5D3021CAD6760033D560 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F92F5D3221CAD6760033D560 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		F92F5D3421CAD6760033D560 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		F92F5D3621CAD6760033D560 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		F92F5D3621CAD6760033D560 /* GameSceneSK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneSK.swift; sourceTree = "<group>"; };
 		F92F5D3821CAD6760033D560 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F92F5D3A21CAD6790033D560 /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
 		F92F5D3D21CAD6790033D560 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 		F902B91321D04D020076E2CD /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				F92F5D3621CAD6760033D560 /* GameScene.swift */,
+				F92F5D3621CAD6760033D560 /* GameSceneSK.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -217,7 +217,7 @@
 				F915136021CFED9800697C44 /* Box.swift */,
 				F97A662C21CFDFBF006FC613 /* Chip.swift */,
 				F948F8FB21D02D9100B0A4A3 /* Enemy.swift */,
-				F902B91A21D063AB0076E2CD /* DialogSKNode.swift */,
+				F902B91A21D063AB0076E2CD /* Dialog.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -376,10 +376,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F902B91421D04D390076E2CD /* GameScene.swift in Sources */,
+				F902B91421D04D390076E2CD /* GameSceneSK.swift in Sources */,
 				F915136121CFED9800697C44 /* Box.swift in Sources */,
 				F92F5D4E21CAE00A0033D560 /* AAPLBoard.m in Sources */,
-				F9DCEBD021D0ECF800D266C5 /* DialogSKNode.swift in Sources */,
+				F9DCEBD021D0ECF800D266C5 /* Dialog.swift in Sources */,
 				F97A662D21CFDFBF006FC613 /* Chip.swift in Sources */,
 				F92F5D4F21CAE00A0033D560 /* AAPLPlayer.m in Sources */,
 				F92F5D1B21CA92AF0033D560 /* GameViewController.swift in Sources */,
@@ -398,9 +398,9 @@
 				F99E71F121CC204D0037098A /* GameState.swift in Sources */,
 				F92F5D3921CAD6760033D560 /* ViewController.swift in Sources */,
 				F92F5D5121CAE3370033D560 /* AAPLMinmaxStrategy.m in Sources */,
-				F902B91B21D063AB0076E2CD /* DialogSKNode.swift in Sources */,
+				F902B91B21D063AB0076E2CD /* Dialog.swift in Sources */,
 				F948F8FD21D02D9100B0A4A3 /* Enemy.swift in Sources */,
-				F92F5D3721CAD6760033D560 /* GameScene.swift in Sources */,
+				F92F5D3721CAD6760033D560 /* GameSceneSK.swift in Sources */,
 				F97A662E21CFDFCF006FC613 /* Chip.swift in Sources */,
 				F92F5D5021CAE3330033D560 /* AAPLPlayer.m in Sources */,
 				F92F5D5221CAE33A0033D560 /* AAPLBoard.m in Sources */,
@@ -417,13 +417,13 @@
 				F9CF527B21D40D0D000366E7 /* Box.swift in Sources */,
 				F9CF526921D40BE5000366E7 /* GameViewController.swift in Sources */,
 				F9CF527721D40D04000366E7 /* AAPLMinmaxStrategy.m in Sources */,
-				F9CF527E21D40D0D000366E7 /* DialogSKNode.swift in Sources */,
+				F9CF527E21D40D0D000366E7 /* Dialog.swift in Sources */,
 				F9CF527D21D40D0D000366E7 /* Enemy.swift in Sources */,
 				F9CF527C21D40D0D000366E7 /* Chip.swift in Sources */,
 				F9CF527521D40D04000366E7 /* AAPLBoard.m in Sources */,
 				F9CF527821D40D07000366E7 /* GameState.swift in Sources */,
 				F9CF527621D40D04000366E7 /* AAPLPlayer.m in Sources */,
-				F9CF527921D40D09000366E7 /* GameScene.swift in Sources */,
+				F9CF527921D40D09000366E7 /* GameSceneSK.swift in Sources */,
 				F9CF527A21D40D0D000366E7 /* Board.swift in Sources */,
 				F9CF526121D40BE5000366E7 /* AppDelegate.swift in Sources */,
 			);
