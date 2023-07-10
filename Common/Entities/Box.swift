@@ -121,7 +121,7 @@ final class BoxSK: SKSpriteNode, BoxView {
 
     func addChip(x: CGFloat, y: CGFloat, index: Int) -> ChipView {
         
-        let coin = ChipSK(boxIndex: self.index, index: index * 10 + index )
+        let coin = ChipSK()
         coin.position.x = x
         coin.position.y = y
         coin.zPosition = 3

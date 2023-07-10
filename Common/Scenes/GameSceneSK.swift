@@ -62,7 +62,7 @@ class GameSceneSK: SKScene {
     let board: Board = BoardLogic(view: BoardSK(), config: GameSceneSK.config)
     var dialogNode: (any Dialog)!
 
-    var enemy: Enemy = EnemySK(name: "Obinoby")
+    var enemy: Enemy = EnemyLogic(view: EnemySK(name: "Obinoby"))
 
     var continueButton: SKSpriteNode!
     var resetButton: SKSpriteNode!
@@ -88,7 +88,7 @@ class GameSceneSK: SKScene {
         continueButton = self.childNode(withName: "continueButton") as? SKSpriteNode
         resetButton = self.childNode(withName: "resetButton") as? SKSpriteNode
 
-        if let enemy = enemy as? EnemySK {
+        if let enemy = enemy.view as? EnemySK {
             enemy.position.y = self.size.height / 2.0 - enemy.size.height / 2.0 + 20
             enemy.zPosition = 1
             self.addChild(enemy)

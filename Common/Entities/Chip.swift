@@ -48,7 +48,7 @@ protocol ChipView: AnyObject {
 final class ChipSK: SKSpriteNode, ChipView {
     weak var logic: Chip?
 
-    init(boxIndex: Int, index: Int) {
+    init() {
         let texture = SKTexture(imageNamed: "Coin")
 
         super.init(texture: texture, color: NSColor.clear, size: texture.size())
