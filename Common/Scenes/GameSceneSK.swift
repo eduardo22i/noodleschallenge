@@ -9,65 +9,282 @@
 import SpriteKit
 import GameplayKit
 
-protocol GameScene {
+protocol GameScene: AnyObject {
+    var view: GameSceneView { get }
+
     var state: GameState { get }
     var strategist: GKMinmaxStrategist { get }
 
-    var board: Board { get }
-    var enemy: Enemy { get }
+    var board: Board { get set }
+    var enemy: Enemy { get set }
     var currentChips: [any Chip] { get }
 
-//    var continueButton: SKSpriteNode!
-//    var resetButton: SKSpriteNode!
+    var dialogNode: (any Dialog)! { get set }
 
-    var dialogNode: any Dialog { get }
-
-    
+    func start()
     func addToCurrentSelected(coin: Chip)
 
-    func aiPlay()
+    func pressResetButton()
+    func pressContinueButton()
+    func pressChip(chipView: ChipView)
+    func pressScreen() -> Bool
 }
 
-class GameSceneSK: SKScene {
-
+final class GameSceneLogic: GameScene {
     static let config = [4,3,2]
+
+    var view: GameSceneView
 
     var state = GameState.playing {
         didSet {
             switch state {
             case .thinking:
-                self.continueButton.alpha = 0.4
-                self.continueButton.isHidden = false
-                self.resetButton.isHidden = false
-                dialogNode.hideDialog()
+                view.disableContinueButton()
+                dialogNode?.hideDialog()
             case .playing:
-                self.continueButton.alpha = 1.0
-                self.continueButton.isHidden = false
-                self.resetButton.isHidden = false
-                dialogNode.hideDialog()
+                view.showButtons()
+                dialogNode?.hideDialog()
             case .ended:
-                self.continueButton.alpha = 1.0
-                self.continueButton.isHidden = true
-                self.resetButton.isHidden = false
-                dialogNode.hideDialog()
+                view.hideContinueButton()
+                dialogNode?.hideDialog()
             case .dialog:
-                self.continueButton.isHidden = true
-                self.resetButton.isHidden = true
-                dialogNode.showDialog()
+                view.hideButtons()
+                dialogNode?.showDialog()
             }
         }
     }
-    let strategist = GKMinmaxStrategist()
-    
-    let board: Board = BoardLogic(view: BoardSK(), config: GameSceneSK.config)
-    var dialogNode: (any Dialog)!
 
-    var enemy: Enemy = EnemyLogic(view: EnemySK(name: "Obinoby"))
+    let strategist = GKMinmaxStrategist()
+
+    var board: Board
+    var enemy: Enemy
+
+    var currentChips: [any Chip] = [Chip]()
+
+    var dialogNode: (any Dialog)! = nil
+
+    init(view: GameSceneView, state: GameState = GameState.playing, board: Board, enemy: Enemy) {
+        self.view = view
+        self.state = state
+        self.board = board
+        self.enemy = enemy
+
+        self.view.addBoardView(board.view)
+        self.view.addEnemyView(enemy.view)
+        
+        self.strategist.maxLookAheadDepth = 100
+    }
+
+    func start() {
+        resetBoard()
+
+        state = .dialog
+        dialogNode.resetDialog()
+        renderDialog()
+    }
+
+    func addToCurrentSelected(coin: any Chip) {
+        if enemy.state != .waiting {
+            enemy.wait()
+        }
+
+        if currentChips.contains (where: { $0.index == coin.index}) {
+            coin.isSelected = false
+            currentChips.removeAll(where: { $0.index == coin.index})
+            return
+        }
+
+        if coin.boxIndex != currentChips.first?.boxIndex {
+            for currentChip in currentChips {
+                currentChip.isSelected = false
+            }
+            currentChips.removeAll()
+        }
+
+        coin.isSelected = true
+        currentChips.append(coin)
+    }
+
+    func removeSelectedChips() {
+        board.remove(chips: currentChips)
+        currentChips.removeAll()
+    }
+
+    private func isWinner() -> Bool {
+        if board.gameModel.isWin(for: board.gameModel.currentPlayer) {
+            return true
+        }
+        return false
+    }
+
+    func removeSelectedChipsAndEvaluateWinner() -> Bool {
+        removeSelectedChips()
+        return isWinner()
+    }
+
+    func pressResetButton() {
+        enemy.state = .waiting
+        resetBoard()
+    }
+
+    func pressContinueButton() {
+        guard state != .thinking else { return }
+
+        if !currentChips.isEmpty {
+
+           state = .dialog
+
+           if removeSelectedChipsAndEvaluateWinner() {
+               dialogNode.state = .crying
+               enemy.state = .crying
+           } else {
+
+               var chipCount = 0
+               for box in board.boxes {
+                   for _ in box.chips {
+                       chipCount += 1
+                   }
+               }
+               if chipCount == 0 {
+                   dialogNode.state = .celebrating
+                   enemy.state = .celebrating
+               } else {
+                   dialogNode.state = .waiting
+               }
+           }
+
+           dialogNode.setRandomDialogFromState()
+           renderDialog()
+
+       }
+    }
+
+    func pressChip(chipView: ChipView) {
+        guard state == .playing else {
+            return
+        }
+        if let logic = chipView.logic {
+            self.addToCurrentSelected(coin: logic)
+        }
+    }
+
+    func pressScreen() -> Bool {
+        if self.state == .dialog {
+            switch dialogNode.state {
+            case .thinking:
+                state = .playing
+            case .waiting:
+                aiPlay()
+            case .celebrating, .crying:
+                state = .ended
+            case .instructions, .wakeUp:
+                dialogNode.nextDialogInQueue()
+                renderDialog()
+            }
+            return true
+        }
+        return false
+    }
+
+    func resetBoard() {
+        currentChips.removeAll()
+        board.reset()
+        strategist.gameModel = board.gameModel
+        state = .playing
+    }
+
+    // MARK: - AI
+
+    func aiPlay() {
+
+        state = .thinking
+
+        board.gameModel.currentPlayer = self.board.gameModel.currentPlayer.opponent
+        enemy.state = .thinking
+
+        DispatchQueue.global(qos: .default).async {
+            let aiMove : AAPLMove = self.strategist.bestMove(for: self.board.gameModel.currentPlayer) as! AAPLMove
+
+            for index in 0..<aiMove.chipsCount {
+                self.currentChips.append(self.board.boxes[aiMove.column].chips[index])
+            }
+
+            let deadlineTime = DispatchTime.now() + .seconds(2)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: DispatchWorkItem(block: {
+
+                for currentChip in self.currentChips {
+                    currentChip.isSelected = true
+                }
+
+                if self.removeSelectedChipsAndEvaluateWinner() {
+
+                    self.dialogNode.state = .celebrating
+                    self.dialogNode.setRandomDialogFromState()
+                    self.renderDialog()
+
+                    self.enemy.state = .celebrating
+
+                    self.state = .dialog
+                    return
+                }
+
+
+                self.board.gameModel.currentPlayer = self.board.gameModel.currentPlayer.opponent
+
+                self.dialogNode.state = .thinking
+                self.dialogNode.setRandomDialogFromState()
+                self.renderDialog()
+                self.state = .dialog
+                self.enemy.state = .waiting
+
+            }))
+        }
+    }
+
+    // MARK: - Update
+
+    func renderDialog() {
+        dialogNode.render()
+
+        if dialogNode.state == .wakeUp {
+            if enemy.state == .sleeping && dialogNode.currentDialogIndex > 0 {
+                enemy.wakeUp()
+            }
+            if dialogNode.currentDialogIndex == DialogState.wakeUp.texts.count - 1 {
+                dialogNode.state = .instructions
+                dialogNode.resetDialog()
+            }
+        }
+        if dialogNode.state == .instructions && dialogNode.currentDialogIndex == DialogState.instructions.texts.count - 1 {
+            state = .playing
+            dialogNode.resetDialog()
+        }
+    }
+}
+
+protocol GameSceneView: AnyObject {
+    func addEnemyView(_ enemyView: EnemyView)
+    func addBoardView(_ boardView: BoardView)
+
+    func disableContinueButton()
+    func hideContinueButton()
+    func hideButtons()
+    func showButtons()
+}
+
+class GameSceneSK: SKScene, GameSceneView {
+
+    var logic: GameScene! {
+        didSet {
+            if let dialogSKNode = self.childNode(withName: "dialog") as? SKSpriteNode,
+               let dialogNode = dialogSKNode as? (any DialogView) {
+                logic.dialogNode = DialogLogic(view: dialogNode)
+            }
+        }
+    }
 
     var continueButton: SKSpriteNode!
     var resetButton: SKSpriteNode!
-    
-    var currentChips: [any Chip] = [Chip]()
     
     var isScrollingInput = false
     private var spinnyNode : SKShapeNode?
@@ -78,33 +295,9 @@ class GameSceneSK: SKScene {
     override func sceneDidLoad() {
         
         self.lastUpdateTime = 0
-        
-        self.strategist.maxLookAheadDepth = 100
 
-        if let dialogSKNode = self.childNode(withName: "dialog") as? SKSpriteNode,
-           let dialogNode = dialogSKNode as? (any DialogView) {
-            self.dialogNode = DialogLogic(view: dialogNode)
-        }
         continueButton = self.childNode(withName: "continueButton") as? SKSpriteNode
         resetButton = self.childNode(withName: "resetButton") as? SKSpriteNode
-
-        if let enemy = enemy.view as? EnemySK {
-            enemy.position.y = self.size.height / 2.0 - enemy.size.height / 2.0 + 20
-            enemy.zPosition = 1
-            self.addChild(enemy)
-        }
-
-        if let board = board.view as? BoardSK {
-            board.position.y = -100
-            board.zPosition = 2
-            self.addChild(board)
-        }
-        
-        resetBoard()
-        
-        self.state = .dialog
-        dialogNode.resetDialog()
-        renderDialog()
     }
     
     override func didMove(to view: SKView) {
@@ -123,54 +316,6 @@ class GameSceneSK: SKScene {
         }
     }
     
-    // MARK: - Logic
-    
-    func resetBoard() {
-        currentChips.removeAll()
-        board.reset()
-        self.strategist.gameModel = board.gameModel
-        state = .playing
-    }
-    
-    func isWinner() -> Bool {
-        if board.gameModel.isWin(for: board.gameModel.currentPlayer) {
-            return true
-        }
-        return false
-    }
-    
-    func removeSelectedChips() {
-        board.remove(chips: currentChips)
-        currentChips.removeAll()
-    }
-    
-    func removeSelectedChipsAndEvaluateWinner() -> Bool {
-        removeSelectedChips()
-        return isWinner()
-    }
-    
-    func addToCurrentSelected(coin: any Chip) {
-        if enemy.state != .waiting {
-            enemy.wait()
-        }
-
-        if currentChips.contains (where: { $0.index == coin.index}) {
-            coin.isSelected = false
-            currentChips.removeAll(where: { $0.index == coin.index})
-            return
-        }
-
-        if coin.boxIndex != currentChips.first?.boxIndex {
-            for currentChip in currentChips {
-                currentChip.isSelected = false
-            }
-            currentChips.removeAll()
-        }
-        
-        coin.isSelected = true
-        currentChips.append(coin)
-    }
-    
     // MARK: - Touch Events
     
     func touchDown(atPoint pos : CGPoint) {
@@ -184,64 +329,23 @@ class GameSceneSK: SKScene {
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        if self.state == .dialog {
-            switch dialogNode.state {
-            case .thinking:
-                state = .playing
-            case .waiting:
-                aiPlay()
-            case .celebrating, .crying:
-                state = .ended
-            case .instructions, .wakeUp:
-                dialogNode.nextDialogInQueue()
-                renderDialog()
-            }
+        guard !logic.pressScreen() else {
             return
         }
         
-        continueButton.alpha = 1.0
-        resetButton.alpha = 1.0
+//        continueButton.alpha = 1.0
+//        resetButton.alpha = 1.0
         
         if let _ = self.nodes(at: pos).first(where: { $0.name == "resetButton"}) {
-            enemy.state = .waiting
-            resetBoard()
+          logic.pressResetButton()
         }
-        
-        if state == .thinking { return }
-        
-        if let _ = self.nodes(at: pos).first(where: { $0.name == "continueButton"}), !currentChips.isEmpty {
-            
-            state = .dialog
-            
-            if removeSelectedChipsAndEvaluateWinner() {
-                dialogNode.state = .crying
-                enemy.state = .crying
-            } else {
-                
-                var chipCount = 0
-                for box in board.boxes {
-                    for _ in box.chips {
-                        chipCount += 1
-                    }
-                }
-                if chipCount == 0 {
-                    dialogNode.state = .celebrating
-                    enemy.state = .celebrating
-                } else {
-                    dialogNode.state = .waiting
-                }
-            }
 
-            dialogNode.setRandomDialogFromState()
-            renderDialog()
-            
+        if let _ = self.nodes(at: pos).first(where: { $0.name == "continueButton"}) {
+            logic.pressContinueButton()
         }
-        
-        if state != .playing { return }
-        
-        if let chip = self.nodes(at: pos).first(where: { $0.name == "coin"}) as? ChipSK,
-           let logic = chip.logic {
-            self.addToCurrentSelected(coin: logic)
+
+        if let chip = self.nodes(at: pos).first(where: { $0.name == "coin"}) as? ChipSK {
+            logic.pressChip(chipView: chip)
         }
     }
     
@@ -297,74 +401,10 @@ class GameSceneSK: SKScene {
     }
     
     #endif
-    
-    // MARK: - AI
-    
-    func aiPlay() {
-        
-        state = .thinking
-        
-        board.gameModel.currentPlayer = self.board.gameModel.currentPlayer.opponent
-        enemy.state = .thinking
-        
-        DispatchQueue.global(qos: .default).async {
-            let aiMove : AAPLMove = self.strategist.bestMove(for: self.board.gameModel.currentPlayer) as! AAPLMove
-            
-            for index in 0..<aiMove.chipsCount {
-                self.currentChips.append(self.board.boxes[aiMove.column].chips[index])
-            }
-            
-            let deadlineTime = DispatchTime.now() + .seconds(2)
-            DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: DispatchWorkItem(block: {
 
-                for currentChip in self.currentChips {
-                    currentChip.isSelected = true
-                }
-                
-                if self.removeSelectedChipsAndEvaluateWinner() {
-                    
-                    self.dialogNode.state = .celebrating
-                    self.dialogNode.setRandomDialogFromState()
-                    self.renderDialog()
-                    
-                    self.enemy.state = .celebrating
-                    
-                    self.state = .dialog
-                    return
-                }
-                
-                
-                self.board.gameModel.currentPlayer = self.board.gameModel.currentPlayer.opponent
-                
-                self.dialogNode.state = .thinking
-                self.dialogNode.setRandomDialogFromState()
-                self.renderDialog()
-                self.state = .dialog
-                self.enemy.state = .waiting
-
-            }))
-        }
-    }
     
     // MARK: - Update
-    
-    func renderDialog() {
-        dialogNode.render()
 
-        if dialogNode.state == .wakeUp {
-            if enemy.state == .sleeping && dialogNode.currentDialogIndex > 0 {
-                enemy.wakeUp()
-            }
-            if dialogNode.currentDialogIndex == DialogState.wakeUp.texts.count - 1 {
-                dialogNode.state = .instructions
-                dialogNode.resetDialog()
-            }
-        }
-        if dialogNode.state == .instructions && dialogNode.currentDialogIndex == DialogState.instructions.texts.count - 1 {
-            state = .playing
-            dialogNode.resetDialog()
-        }
-    }
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
@@ -376,5 +416,46 @@ class GameSceneSK: SKScene {
 
         
         lastUpdateTime = currentTime
+    }
+
+    func addEnemyView(_ enemyView: EnemyView) {
+        if let enemy = enemyView as? EnemySK {
+            enemy.position.y = self.size.height / 2.0 - enemy.size.height / 2.0 + 20
+            enemy.zPosition = 1
+            self.addChild(enemy)
+        }
+    }
+
+    func addBoardView(_ boardView: BoardView) {
+        if let board = boardView as? BoardSK {
+            board.position.y = -100
+            board.zPosition = 2
+            self.addChild(board)
+        }
+    }
+
+    func disableContinueButton() {
+        continueButton.alpha = 0.4
+        continueButton.isHidden = false
+        resetButton.isHidden = false
+    }
+
+    func hideContinueButton() {
+        self.continueButton.alpha = 1.0
+        self.continueButton.isHidden = true
+        self.resetButton.isHidden = false
+    }
+
+    func hideButtons() {
+        self.continueButton.isHidden = true
+        self.resetButton.isHidden = true
+    }
+
+    func showButtons() {
+        self.continueButton.alpha = 1.0
+        self.resetButton.alpha = 1.0
+
+        self.continueButton.isHidden = false
+        self.resetButton.isHidden = false
     }
 }

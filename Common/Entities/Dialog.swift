@@ -19,7 +19,7 @@ enum DialogState {
                     "Win to me and I'll give you the best NOODLES!"]
         case .instructions:
             return ["The rules are simple. \nWe are going to take turns.",
-                    "We have \(GameSceneSK.config.count) boxes,\neach box have different amount of coins.",
+                    "We have \(GameSceneLogic.config.count) boxes,\neach box have different amount of coins.",
                 "In your turn, \nremove all the coins you want \nbut only from 1 box.",
                 "The player who picks\n the LAST coin from ALL boxes, loses the game.",
                 "Please, start!",
