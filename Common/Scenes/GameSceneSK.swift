@@ -67,7 +67,7 @@ class GameSceneSK: SKScene {
     var continueButton: SKSpriteNode!
     var resetButton: SKSpriteNode!
     
-    var currentChips: [any Chip] = [ChipSK]()
+    var currentChips: [any Chip] = [Chip]()
     
     var isScrollingInput = false
     private var spinnyNode : SKShapeNode?
@@ -239,8 +239,9 @@ class GameSceneSK: SKScene {
         
         if state != .playing { return }
         
-        if let chip = self.nodes(at: pos).first(where: { $0.name == "coin"}) as? ChipSK {
-            self.addToCurrentSelected(coin: chip)
+        if let chip = self.nodes(at: pos).first(where: { $0.name == "coin"}) as? ChipSK,
+           let logic = chip.logic {
+            self.addToCurrentSelected(coin: logic)
         }
     }
     

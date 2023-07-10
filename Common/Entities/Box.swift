@@ -44,7 +44,7 @@ final class BoxLogic: Box {
     var index: Int
 
     var type: BoxType
-    var chips: [any Chip] = [ChipSK]()
+    var chips: [any Chip] = [Chip]()
 
     init(view: any BoxView, index: Int, type: BoxType = .elseB) {
         self.view = view
@@ -59,7 +59,7 @@ final class BoxLogic: Box {
             }
         }
 
-        view.remove(chips: chips)
+        view.remove(chips: chips.map { $0.view })
     }
 
     func addCoins(count: Int) {
@@ -70,15 +70,17 @@ final class BoxLogic: Box {
             let x = sin(angle) * separation + self.type.offsetX
             let y = cos(angle) * separation + 30.0
 
-            let chip = view.addChip(x: CGFloat(x), y: CGFloat(y), index: coinIndex)
+            let chipView = view.addChip(x: CGFloat(x), y: CGFloat(y), index: coinIndex)
+            let chip = ChipLogic(view: chipView, boxIndex: index, index: coinIndex)
+            chipView.logic = chip
             chips.append(chip)
         }
     }
 }
 
 protocol BoxView: AnyObject {
-    func remove(chips: [any Chip])
-    func addChip(x: CGFloat, y: CGFloat, index: Int) -> Chip
+    func remove(chips: [any ChipView])
+    func addChip(x: CGFloat, y: CGFloat, index: Int) -> ChipView
 
     /// Remove from parent to clean up the scene
     func removeFromParent()
@@ -103,7 +105,7 @@ final class BoxSK: SKSpriteNode, BoxView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func remove(chips: [any Chip]) {
+    func remove(chips: [any ChipView]) {
 
         for currentChip in (chips as? [ChipSK] ?? []) {
             let actions = [
@@ -117,7 +119,7 @@ final class BoxSK: SKSpriteNode, BoxView {
         }
     }
 
-    func addChip(x: CGFloat, y: CGFloat, index: Int) -> Chip {
+    func addChip(x: CGFloat, y: CGFloat, index: Int) -> ChipView {
         
         let coin = ChipSK(boxIndex: self.index, index: index * 10 + index )
         coin.position.x = x

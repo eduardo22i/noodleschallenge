@@ -42,7 +42,7 @@ final class BoardLogic: Board {
     func reset() {
         for box in boxes {
             box.chips.forEach({ (chip) in
-                chip.removeFromParent()
+                chip.view.removeFromParent()
             })
             box.view.removeFromParent()
         }
@@ -55,10 +55,10 @@ final class BoardLogic: Board {
             let x = index == 0 ? -160 : (index == 1 ? 200 : 0)
             let y = index == 0 ? -40 : (index == 2 ? 200 : -40)
 
-            let box = view.addBox(index: index, x: CGFloat(x), y: CGFloat(y))
+            let boxView = view.addBox(index: index, x: CGFloat(x), y: CGFloat(y))
+            let box = BoxLogic(view: boxView, index: index)
             box.addCoins(count: chipsCount)
             boxes.append(box)
-
         }
     }
 
@@ -72,13 +72,11 @@ final class BoardLogic: Board {
 }
 
 protocol BoardView: AnyObject {
-    func addBox(index: Int, x: CGFloat, y: CGFloat) -> any Box
+    func addBox(index: Int, x: CGFloat, y: CGFloat) -> any BoxView
 }
 
 final class BoardSK: SKSpriteNode, BoardView {
 
-    var gameModel: AAPLBoard!
-        
     init() {
         let texture = SKTexture(imageNamed: "Board")
         super.init(texture: texture, color: NSColor.clear, size: texture.size())
@@ -90,7 +88,7 @@ final class BoardSK: SKSpriteNode, BoardView {
     
     // MARK: Functions
     
-    func addBox(index: Int, x: CGFloat, y: CGFloat) -> any Box {
+    func addBox(index: Int, x: CGFloat, y: CGFloat) -> any BoxView {
         
         let type: BoxType = {
             switch index {
@@ -105,14 +103,14 @@ final class BoardSK: SKSpriteNode, BoardView {
             }
             
         }()
-        
+
         let box = BoxSK(index: index, type: type)
         box.position.x = x
         box.position.y = y
         box.zPosition = 2
         self.addChild(box)
         
-        return BoxLogic(view: box, index: index)
+        return box
     }
     
 }
