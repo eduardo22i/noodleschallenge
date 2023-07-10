@@ -29,7 +29,6 @@ class ViewController: NSViewController {
                     board: BoardLogic(view: BoardSK(), config: GameSceneLogic.config),
                     enemy: EnemyLogic(view: EnemySK(name: "Obinoby"))
                 )
-                sceneNode.logic = logic
                 // Set the scale mode to scale to fit the window
                 sceneNode.scaleMode = .aspectFit
                 

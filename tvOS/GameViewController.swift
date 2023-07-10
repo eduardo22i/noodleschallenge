@@ -21,7 +21,13 @@ class GameViewController: UIViewController {
             
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! GameSceneSK? {
-                
+
+                let logic = GameSceneLogic(
+                    view: sceneNode,
+                    board: BoardLogic(view: BoardSK(), config: GameSceneLogic.config),
+                    enemy: EnemyLogic(view: EnemySK(name: "Obinoby"))
+                )
+
                 sceneNode.isScrollingInput = true
                 
                 // Set the scale mode to scale to fit the window
@@ -36,6 +42,8 @@ class GameViewController: UIViewController {
                     view.showsFPS = true
                     view.showsNodeCount = true
                 }
+                
+                logic.start()
             }
         }
     }
