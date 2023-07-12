@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F902B91421D04D390076E2CD /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3621CAD6760033D560 /* GameScene.swift */; };
-		F902B91521D04E5D0076E2CD /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3A21CAD6790033D560 /* Resources.xcassets */; };
+		F902B91521D04E5D0076E2CD /* AssetsSK.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3A21CAD6790033D560 /* AssetsSK.xcassets */; };
 		F902B91621D04E640076E2CD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3421CAD6760033D560 /* Actions.sks */; };
 		F902B91721D04E750076E2CD /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E71EF21CC1FFE0037098A /* GameState.swift */; };
 		F902B91921D04ED50076E2CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F902B91821D04ED50076E2CD /* Assets.xcassets */; };
@@ -25,7 +25,7 @@
 		F92F5D3521CAD6760033D560 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3421CAD6760033D560 /* Actions.sks */; };
 		F92F5D3721CAD6760033D560 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3621CAD6760033D560 /* GameScene.swift */; };
 		F92F5D3921CAD6760033D560 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3821CAD6760033D560 /* ViewController.swift */; };
-		F92F5D3B21CAD6790033D560 /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3A21CAD6790033D560 /* Resources.xcassets */; };
+		F92F5D3B21CAD6790033D560 /* AssetsSK.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3A21CAD6790033D560 /* AssetsSK.xcassets */; };
 		F92F5D3E21CAD6790033D560 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3C21CAD6790033D560 /* Main.storyboard */; };
 		F92F5D4D21CAE00A0033D560 /* AAPLMinmaxStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4721CAE00A0033D560 /* AAPLMinmaxStrategy.m */; };
 		F92F5D4E21CAE00A0033D560 /* AAPLBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4921CAE00A0033D560 /* AAPLBoard.m */; };
@@ -70,7 +70,7 @@
 		F9CF526C21D40BE5000366E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9CF526A21D40BE5000366E7 /* Main.storyboard */; };
 		F9CF526E21D40BE9000366E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9CF526D21D40BE9000366E7 /* Assets.xcassets */; };
 		F9CF527321D40CE5000366E7 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3221CAD6760033D560 /* GameScene.sks */; };
-		F9CF527421D40CEA000366E7 /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3A21CAD6790033D560 /* Resources.xcassets */; };
+		F9CF527421D40CEA000366E7 /* AssetsSK.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3A21CAD6790033D560 /* AssetsSK.xcassets */; };
 		F9CF527521D40D04000366E7 /* AAPLBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4921CAE00A0033D560 /* AAPLBoard.m */; };
 		F9CF527621D40D04000366E7 /* AAPLPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4A21CAE00A0033D560 /* AAPLPlayer.m */; };
 		F9CF527721D40D04000366E7 /* AAPLMinmaxStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4721CAE00A0033D560 /* AAPLMinmaxStrategy.m */; };
@@ -101,7 +101,7 @@
 		F92F5D3421CAD6760033D560 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		F92F5D3621CAD6760033D560 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		F92F5D3821CAD6760033D560 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F92F5D3A21CAD6790033D560 /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
+		F92F5D3A21CAD6790033D560 /* AssetsSK.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AssetsSK.xcassets; sourceTree = "<group>"; };
 		F92F5D3D21CAD6790033D560 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F92F5D3F21CAD6790033D560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F92F5D4021CAD6790033D560 /* Noodles_Challenge_Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Noodles_Challenge_Mac.entitlements; sourceTree = "<group>"; };
@@ -225,7 +225,6 @@
 				F92F5D4A21CAE00A0033D560 /* AAPLPlayer.m */,
 				F92F5D4C21CAE00A0033D560 /* AAPLMinmaxStrategy.h */,
 				F92F5D4721CAE00A0033D560 /* AAPLMinmaxStrategy.m */,
-				F92F5D4621CAE0090033D560 /* Bridging-Header.h */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -239,12 +238,20 @@
 			path = Strings;
 			sourceTree = "<group>";
 		};
+		F960A9622A5F69CD00733450 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F92F5D3A21CAD6790033D560 /* AssetsSK.xcassets */,
+				F92F5D3221CAD6760033D560 /* GameScene.sks */,
+				F92F5D3421CAD6760033D560 /* Actions.sks */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		F96FE1582A5CBD050063AE73 /* SpriteKit */ = {
 			isa = PBXGroup;
 			children = (
-				F92F5D3A21CAD6790033D560 /* Resources.xcassets */,
-				F92F5D3221CAD6760033D560 /* GameScene.sks */,
-				F92F5D3421CAD6760033D560 /* Actions.sks */,
+				F960A9622A5F69CD00733450 /* Resources */,
 				F96FE1592A5CBD6F0063AE73 /* Entities */,
 			);
 			path = SpriteKit;
@@ -312,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				F960A9612A5F68C900733450 /* Strings */,
+				F92F5D4621CAE0090033D560 /* Bridging-Header.h */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -447,7 +455,7 @@
 				F96FE17B2A5F334D0063AE73 /* Localizable.strings in Resources */,
 				F99E71F821CC31CD0037098A /* GameScene.sks in Resources */,
 				F92F5D2321CA92B10033D560 /* LaunchScreen.storyboard in Resources */,
-				F902B91521D04E5D0076E2CD /* Resources.xcassets in Resources */,
+				F902B91521D04E5D0076E2CD /* AssetsSK.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +465,7 @@
 			files = (
 				F92F5D3321CAD6760033D560 /* GameScene.sks in Resources */,
 				F96FE17C2A5F334D0063AE73 /* Localizable.strings in Resources */,
-				F92F5D3B21CAD6790033D560 /* Resources.xcassets in Resources */,
+				F92F5D3B21CAD6790033D560 /* AssetsSK.xcassets in Resources */,
 				F92F5D3521CAD6760033D560 /* Actions.sks in Resources */,
 				F92F5D3E21CAD6790033D560 /* Main.storyboard in Resources */,
 				F902B91921D04ED50076E2CD /* Assets.xcassets in Resources */,
@@ -470,7 +478,7 @@
 			files = (
 				F96FE17D2A5F334D0063AE73 /* Localizable.strings in Resources */,
 				F9CF526C21D40BE5000366E7 /* Main.storyboard in Resources */,
-				F9CF527421D40CEA000366E7 /* Resources.xcassets in Resources */,
+				F9CF527421D40CEA000366E7 /* AssetsSK.xcassets in Resources */,
 				F9CF527321D40CE5000366E7 /* GameScene.sks in Resources */,
 				F9CF526E21D40BE9000366E7 /* Assets.xcassets in Resources */,
 			);
@@ -661,6 +669,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "Common/Shared/Resources/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -716,6 +725,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "Common/Shared/Resources/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -735,7 +745,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.estamp.challenge.NoodlesChallenge.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/Logic/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -756,7 +765,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.estamp.challenge.NoodlesChallenge.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/Logic/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -783,7 +791,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/Logic/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -809,7 +816,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/Logic/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -829,7 +835,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.estamp.Noodles-Challenge-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/Logic/Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 12.1;
@@ -851,7 +856,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.estamp.Noodles-Challenge-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/Logic/Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 12.1;
