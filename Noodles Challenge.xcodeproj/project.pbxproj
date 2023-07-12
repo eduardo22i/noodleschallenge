@@ -53,6 +53,12 @@
 		F96FE1732A5CBFEC0063AE73 /* DialogSKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1722A5CBFEC0063AE73 /* DialogSKNode.swift */; };
 		F96FE1742A5CC0050063AE73 /* DialogSKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1722A5CBFEC0063AE73 /* DialogSKNode.swift */; };
 		F96FE1752A5CC0050063AE73 /* DialogSKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1722A5CBFEC0063AE73 /* DialogSKNode.swift */; };
+		F96FE17B2A5F334D0063AE73 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F96FE17F2A5F334D0063AE73 /* Localizable.strings */; };
+		F96FE17C2A5F334D0063AE73 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F96FE17F2A5F334D0063AE73 /* Localizable.strings */; };
+		F96FE17D2A5F334D0063AE73 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F96FE17F2A5F334D0063AE73 /* Localizable.strings */; };
+		F96FE1822A5F3B280063AE73 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1812A5F3B280063AE73 /* Strings+Generated.swift */; };
+		F96FE1832A5F3B280063AE73 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1812A5F3B280063AE73 /* Strings+Generated.swift */; };
+		F96FE1842A5F3B280063AE73 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1812A5F3B280063AE73 /* Strings+Generated.swift */; };
 		F97A662A21CFDD01006FC613 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662921CFDD01006FC613 /* Board.swift */; };
 		F97A662B21CFDD36006FC613 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662921CFDD01006FC613 /* Board.swift */; };
 		F97A662D21CFDFBF006FC613 /* Chip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662C21CFDFBF006FC613 /* Chip.swift */; };
@@ -113,6 +119,8 @@
 		F96FE1682A5CBF490063AE73 /* EnemySK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemySK.swift; sourceTree = "<group>"; };
 		F96FE16E2A5CBF970063AE73 /* GameSceneSK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneSK.swift; sourceTree = "<group>"; };
 		F96FE1722A5CBFEC0063AE73 /* DialogSKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogSKNode.swift; sourceTree = "<group>"; };
+		F96FE17E2A5F334D0063AE73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F96FE1812A5F3B280063AE73 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		F97A662921CFDD01006FC613 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		F97A662C21CFDFBF006FC613 /* Chip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chip.swift; sourceTree = "<group>"; };
 		F99E71EF21CC1FFE0037098A /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -202,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				F92F5D3A21CAD6790033D560 /* Resources.xcassets */,
+				F96FE1762A5F30D20063AE73 /* Shared */,
 				F97A662821CFDCED006FC613 /* Entities */,
 				F96FE1582A5CBD050063AE73 /* SpriteKit */,
 				F92F5D4521CADFF60033D560 /* Logic */,
@@ -280,6 +289,23 @@
 				F96FE1722A5CBFEC0063AE73 /* DialogSKNode.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F96FE1762A5F30D20063AE73 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F96FE1802A5F3AA60063AE73 /* Resources */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		F96FE1802A5F3AA60063AE73 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F96FE17F2A5F334D0063AE73 /* Localizable.strings */,
+				F96FE1812A5F3B280063AE73 /* Strings+Generated.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		F97A662821CFDCED006FC613 /* Entities */ = {
@@ -410,6 +436,7 @@
 				F92F5D1E21CA92AF0033D560 /* Main.storyboard in Resources */,
 				F902B91621D04E640076E2CD /* Actions.sks in Resources */,
 				F92F5D2021CA92B10033D560 /* Assets.xcassets in Resources */,
+				F96FE17B2A5F334D0063AE73 /* Localizable.strings in Resources */,
 				F99E71F821CC31CD0037098A /* GameScene.sks in Resources */,
 				F92F5D2321CA92B10033D560 /* LaunchScreen.storyboard in Resources */,
 				F902B91521D04E5D0076E2CD /* Resources.xcassets in Resources */,
@@ -421,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F92F5D3321CAD6760033D560 /* GameScene.sks in Resources */,
+				F96FE17C2A5F334D0063AE73 /* Localizable.strings in Resources */,
 				F92F5D3B21CAD6790033D560 /* Resources.xcassets in Resources */,
 				F92F5D3521CAD6760033D560 /* Actions.sks in Resources */,
 				F92F5D3E21CAD6790033D560 /* Main.storyboard in Resources */,
@@ -432,6 +460,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F96FE17D2A5F334D0063AE73 /* Localizable.strings in Resources */,
 				F9CF526C21D40BE5000366E7 /* Main.storyboard in Resources */,
 				F9CF527421D40CEA000366E7 /* Resources.xcassets in Resources */,
 				F9CF527321D40CE5000366E7 /* GameScene.sks in Resources */,
@@ -447,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F902B91421D04D390076E2CD /* GameScene.swift in Sources */,
+				F96FE1822A5F3B280063AE73 /* Strings+Generated.swift in Sources */,
 				F915136121CFED9800697C44 /* Box.swift in Sources */,
 				F92F5D4E21CAE00A0033D560 /* AAPLBoard.m in Sources */,
 				F96FE15F2A5CBE2C0063AE73 /* ChipSK.swift in Sources */,
@@ -472,6 +502,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F99E71F121CC204D0037098A /* GameState.swift in Sources */,
+				F96FE1832A5F3B280063AE73 /* Strings+Generated.swift in Sources */,
 				F96FE1632A5CBEBC0063AE73 /* ChipSK.swift in Sources */,
 				F92F5D3921CAD6760033D560 /* ViewController.swift in Sources */,
 				F92F5D5121CAE3370033D560 /* AAPLMinmaxStrategy.m in Sources */,
@@ -497,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9CF527B21D40D0D000366E7 /* Box.swift in Sources */,
+				F96FE1842A5F3B280063AE73 /* Strings+Generated.swift in Sources */,
 				F96FE1662A5CBEBC0063AE73 /* ChipSK.swift in Sources */,
 				F9CF526921D40BE5000366E7 /* GameViewController.swift in Sources */,
 				F9CF527721D40D04000366E7 /* AAPLMinmaxStrategy.m in Sources */,
@@ -542,6 +574,14 @@
 				F92F5D3D21CAD6790033D560 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F96FE17F2A5F334D0063AE73 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F96FE17E2A5F334D0063AE73 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		F9CF526A21D40BE5000366E7 /* Main.storyboard */ = {
@@ -730,7 +770,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.estamp.challenge.NoodlesChallenge.Mac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -756,7 +796,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.estamp.challenge.NoodlesChallenge.Mac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -1,0 +1,7 @@
+strings:
+   inputs:
+     - Common/Shared/Resources/en.lproj
+   outputs:
+     - templatePath: Helpers/strings.stencil
+       output: Common/Shared/Resources/Strings+Generated.swift
+

@@ -7,38 +7,51 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum DialogState {
     case wakeUp, instructions, thinking, waiting, celebrating, crying
     
-    var texts:[String] {
+    var texts: [LocalizedString] {
         switch self {
         case .wakeUp:
-            return ["... ZZZ",
-                    "Ahh! A new challenger? \nOkay! I Always win!",
-                    "Win to me and I'll give you the best NOODLES!"]
+            return [
+                L10n.Dialog.Enemy.wakeUp1,
+                L10n.Dialog.Enemy.wakeUp2,
+                L10n.Dialog.Enemy.wakeUp3
+            ]
         case .instructions:
-            return ["The rules are simple. \nWe are going to take turns.",
-                    "We have \(GameSceneLogic.config.count) boxes,\neach box have different amount of coins.",
-                "In your turn, \nremove all the coins you want \nbut only from 1 box.",
-                "The player who picks\n the LAST coin from ALL boxes, loses the game.",
-                "Please, start!",
-            "..."]
+            return [
+                L10n.Dialog.Enemy.instructions1,
+                L10n.Dialog.Enemy.instructions2(GameSceneLogic.config.count),
+                L10n.Dialog.Enemy.instructions3,
+                L10n.Dialog.Enemy.instructions4,
+                L10n.Dialog.Enemy.instructions5,
+                L10n.Dialog.Enemy.instructions6
+            ]
         case .waiting:
-            return [ "Let me think!",
-                     "LOL! What was that move?",
-                     "I guess you enjoy making mistakes",
-                     "Thanks! I'm closer to my victory",
-                     "Let me analyze this..."]
+            return [
+                L10n.Dialog.Enemy.waiting1,
+                L10n.Dialog.Enemy.waiting2,
+                L10n.Dialog.Enemy.waiting3,
+                L10n.Dialog.Enemy.waiting4,
+                L10n.Dialog.Enemy.waiting5
+            ]
         case .thinking:
-            return ["Haha! Scared?",
-                    "Please, don't cry!",
-                    "Okay... Your turn, try harder!",
-                    "Looks like you will lose"]
+            return [
+                L10n.Dialog.Enemy.thinking1,
+                L10n.Dialog.Enemy.thinking2,
+                L10n.Dialog.Enemy.thinking3,
+                L10n.Dialog.Enemy.thinking4
+            ]
         case .celebrating:
-            return [ "Lalala! I won!"]
+            return [
+                L10n.Dialog.Enemy.celebrating
+            ]
         case .crying:
-            return [ "OMG! This is not possible! NOOO! \nYou won the NOODLES!"]
+            return [
+                L10n.Dialog.Enemy.crying
+            ]
         }
     }
 }
@@ -83,7 +96,7 @@ final class DialogLogic: Dialog {
     }
 
     func render() {
-        view.text = state.texts[currentDialogIndex]
+        view.text = state.texts[currentDialogIndex].text
     }
 
     func showDialog() {
