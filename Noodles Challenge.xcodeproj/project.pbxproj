@@ -209,11 +209,8 @@
 		F92F5D4421CAD6880033D560 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				F92F5D3A21CAD6790033D560 /* Resources.xcassets */,
 				F96FE1762A5F30D20063AE73 /* Shared */,
-				F97A662821CFDCED006FC613 /* Entities */,
 				F96FE1582A5CBD050063AE73 /* SpriteKit */,
-				F92F5D4521CADFF60033D560 /* Logic */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -233,9 +230,19 @@
 			path = Logic;
 			sourceTree = "<group>";
 		};
+		F960A9612A5F68C900733450 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				F96FE17F2A5F334D0063AE73 /* Localizable.strings */,
+				F96FE1812A5F3B280063AE73 /* Strings+Generated.swift */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
 		F96FE1582A5CBD050063AE73 /* SpriteKit */ = {
 			isa = PBXGroup;
 			children = (
+				F92F5D3A21CAD6790033D560 /* Resources.xcassets */,
 				F92F5D3221CAD6760033D560 /* GameScene.sks */,
 				F92F5D3421CAD6760033D560 /* Actions.sks */,
 				F96FE1592A5CBD6F0063AE73 /* Entities */,
@@ -294,6 +301,8 @@
 		F96FE1762A5F30D20063AE73 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				F97A662821CFDCED006FC613 /* Entities */,
+				F92F5D4521CADFF60033D560 /* Logic */,
 				F96FE1802A5F3AA60063AE73 /* Resources */,
 			);
 			path = Shared;
@@ -302,8 +311,7 @@
 		F96FE1802A5F3AA60063AE73 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F96FE17F2A5F334D0063AE73 /* Localizable.strings */,
-				F96FE1812A5F3B280063AE73 /* Strings+Generated.swift */,
+				F960A9612A5F68C900733450 /* Strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
