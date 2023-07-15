@@ -12,7 +12,7 @@ final class BoardSK: SKSpriteNode, BoardView {
 
     init() {
         let texture = SKTexture(imageNamed: "Board")
-        super.init(texture: texture, color: NSColor.clear, size: texture.size())
+        super.init(texture: texture, color: .clear, size: texture.size())
     }
 
     required init(coder aDecoder: NSCoder) {

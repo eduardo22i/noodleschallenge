@@ -12,7 +12,7 @@ final class EnemySK: SKSpriteNode, EnemyView {
 
     init(name: String) {
         let texture = Asset.Enemies.Obinoby.obinobySleeping.skTexture
-        super.init(texture: texture, color: NSColor.clear, size: texture.size())
+        super.init(texture: texture, color: .clear, size: texture.size())
 
         self.name = name
     }

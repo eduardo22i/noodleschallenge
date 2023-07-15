@@ -18,7 +18,7 @@ final class BoxSK: SKSpriteNode, BoxView {
         self.index = index
 
         let texture = SKTexture(imageNamed: type.rawValue)
-        super.init(texture: texture, color: NSColor.clear, size: texture.size())
+        super.init(texture: texture, color: .clear, size: texture.size())
 
         self.name = "box"
     }

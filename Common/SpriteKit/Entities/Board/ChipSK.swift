@@ -14,7 +14,7 @@ final class ChipSK: SKSpriteNode, ChipView {
     init() {
         let texture = SKTexture(imageNamed: "Coin")
 
-        super.init(texture: texture, color: NSColor.clear, size: texture.size())
+        super.init(texture: texture, color: .clear, size: texture.size())
 
         self.name = "coin"
 
