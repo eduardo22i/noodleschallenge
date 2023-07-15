@@ -117,6 +117,7 @@
 		F960A9692A62A57E00733450 /* ImageAsset+SpriteKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageAsset+SpriteKit.swift"; sourceTree = "<group>"; };
 		F960A9DC2A63233800733450 /* NoodlesChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoodlesChallenge.swift; sourceTree = "<group>"; };
 		F960A9DE2A63236200733450 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F960A9E02A6327A400733450 /* Noodles Challenge iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Noodles Challenge iOS.entitlements"; sourceTree = "<group>"; };
 		F96FE15A2A5CBD860063AE73 /* BoardSK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSK.swift; sourceTree = "<group>"; };
 		F96FE15C2A5CBDFA0063AE73 /* BoxSK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxSK.swift; sourceTree = "<group>"; };
 		F96FE15E2A5CBE2C0063AE73 /* ChipSK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipSK.swift; sourceTree = "<group>"; };
@@ -165,6 +166,7 @@
 		F92F5D0621CA92AF0033D560 = {
 			isa = PBXGroup;
 			children = (
+				F960A9E02A6327A400733450 /* Noodles Challenge iOS.entitlements */,
 				F9CF525921D4045E000366E7 /* README.md */,
 				F92F5D4421CAD6880033D560 /* Common */,
 				F92F5D1121CA92AF0033D560 /* iOS */,
@@ -736,6 +738,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Noodles Challenge iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KDY2FY8979;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
@@ -746,9 +749,12 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.estamp.challenge.NoodlesChallenge.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3";
 			};
 			name = Debug;
 		};
@@ -757,6 +763,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Noodles Challenge iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KDY2FY8979;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
@@ -767,8 +774,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.estamp.challenge.NoodlesChallenge.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3";
 			};
 			name = Release;
 		};

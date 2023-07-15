@@ -20,6 +20,10 @@ struct ContentView: View {
                 enemy: EnemyLogic(view: EnemySK(name: "Obinoby"))
             )
 
+            #if os(tvOS)
+            scene.isScrollingInput = true
+            #endif
+            
             logic.start()
 
         }
