@@ -35,6 +35,10 @@
 		F92F5D5221CAE33A0033D560 /* AAPLBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4921CAE00A0033D560 /* AAPLBoard.m */; };
 		F948F8FC21D02D9100B0A4A3 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948F8FB21D02D9100B0A4A3 /* Enemy.swift */; };
 		F948F8FD21D02D9100B0A4A3 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948F8FB21D02D9100B0A4A3 /* Enemy.swift */; };
+		F960A9642A5F6ACE00733450 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9632A5F6ACE00733450 /* XCAssets+Generated.swift */; };
+		F960A9662A5F6AD300733450 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9632A5F6ACE00733450 /* XCAssets+Generated.swift */; };
+		F960A9672A5F6AD300733450 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9632A5F6ACE00733450 /* XCAssets+Generated.swift */; };
+		F960A96A2A62A57E00733450 /* ImageAsset+SpriteKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9692A62A57E00733450 /* ImageAsset+SpriteKit.swift */; };
 		F96FE15B2A5CBD860063AE73 /* BoardSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE15A2A5CBD860063AE73 /* BoardSK.swift */; };
 		F96FE15D2A5CBDFA0063AE73 /* BoxSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE15C2A5CBDFA0063AE73 /* BoxSK.swift */; };
 		F96FE15F2A5CBE2C0063AE73 /* ChipSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE15E2A5CBE2C0063AE73 /* ChipSK.swift */; };
@@ -113,6 +117,8 @@
 		F92F5D4B21CAE00A0033D560 /* AAPLBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLBoard.h; sourceTree = "<group>"; };
 		F92F5D4C21CAE00A0033D560 /* AAPLMinmaxStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLMinmaxStrategy.h; sourceTree = "<group>"; };
 		F948F8FB21D02D9100B0A4A3 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		F960A9632A5F6ACE00733450 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
+		F960A9692A62A57E00733450 /* ImageAsset+SpriteKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageAsset+SpriteKit.swift"; sourceTree = "<group>"; };
 		F96FE15A2A5CBD860063AE73 /* BoardSK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSK.swift; sourceTree = "<group>"; };
 		F96FE15C2A5CBDFA0063AE73 /* BoxSK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxSK.swift; sourceTree = "<group>"; };
 		F96FE15E2A5CBE2C0063AE73 /* ChipSK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipSK.swift; sourceTree = "<group>"; };
@@ -248,9 +254,18 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		F960A9682A62A56200733450 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F960A9692A62A57E00733450 /* ImageAsset+SpriteKit.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		F96FE1582A5CBD050063AE73 /* SpriteKit */ = {
 			isa = PBXGroup;
 			children = (
+				F960A9682A62A56200733450 /* Helpers */,
 				F960A9622A5F69CD00733450 /* Resources */,
 				F96FE1592A5CBD6F0063AE73 /* Entities */,
 			);
@@ -319,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				F960A9612A5F68C900733450 /* Strings */,
+				F960A9632A5F6ACE00733450 /* XCAssets+Generated.swift */,
 				F92F5D4621CAE0090033D560 /* Bridging-Header.h */,
 			);
 			path = Resources;
@@ -493,6 +509,7 @@
 			files = (
 				F902B91421D04D390076E2CD /* GameScene.swift in Sources */,
 				F96FE1822A5F3B280063AE73 /* Strings+Generated.swift in Sources */,
+				F960A96A2A62A57E00733450 /* ImageAsset+SpriteKit.swift in Sources */,
 				F915136121CFED9800697C44 /* Box.swift in Sources */,
 				F92F5D4E21CAE00A0033D560 /* AAPLBoard.m in Sources */,
 				F96FE15F2A5CBE2C0063AE73 /* ChipSK.swift in Sources */,
@@ -506,6 +523,7 @@
 				F92F5D1B21CA92AF0033D560 /* GameViewController.swift in Sources */,
 				F948F8FC21D02D9100B0A4A3 /* Enemy.swift in Sources */,
 				F96FE1732A5CBFEC0063AE73 /* DialogSKNode.swift in Sources */,
+				F960A9642A5F6ACE00733450 /* XCAssets+Generated.swift in Sources */,
 				F97A662A21CFDD01006FC613 /* Board.swift in Sources */,
 				F92F5D4D21CAE00A0033D560 /* AAPLMinmaxStrategy.m in Sources */,
 				F92F5D1321CA92AF0033D560 /* AppDelegate.swift in Sources */,
@@ -532,6 +550,7 @@
 				F96FE1642A5CBEBC0063AE73 /* BoardSK.swift in Sources */,
 				F92F5D5021CAE3330033D560 /* AAPLPlayer.m in Sources */,
 				F96FE1742A5CC0050063AE73 /* DialogSKNode.swift in Sources */,
+				F960A9672A5F6AD300733450 /* XCAssets+Generated.swift in Sources */,
 				F92F5D5221CAE33A0033D560 /* AAPLBoard.m in Sources */,
 				F97A662B21CFDD36006FC613 /* Board.swift in Sources */,
 				F92F5D3121CAD6760033D560 /* AppDelegate.swift in Sources */,
@@ -558,6 +577,7 @@
 				F96FE1672A5CBEBC0063AE73 /* BoardSK.swift in Sources */,
 				F9CF527821D40D07000366E7 /* GameState.swift in Sources */,
 				F96FE1752A5CC0050063AE73 /* DialogSKNode.swift in Sources */,
+				F960A9662A5F6AD300733450 /* XCAssets+Generated.swift in Sources */,
 				F9CF527621D40D04000366E7 /* AAPLPlayer.m in Sources */,
 				F9CF527921D40D09000366E7 /* GameScene.swift in Sources */,
 				F9CF527A21D40D0D000366E7 /* Board.swift in Sources */,

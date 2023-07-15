@@ -1,6 +1,15 @@
-strings:
+ strings:
    inputs:
      - Common/Shared/Resources/Strings/en.lproj
    outputs:
      - templatePath: Helpers/strings.stencil
        output: Common/Shared/Resources/Strings/Strings+Generated.swift
+
+ xcassets:
+   inputs:
+     - Common/SpriteKit/Resources/AssetsSK.xcassets
+   outputs:
+     - templateName: swift5
+       params:
+         forceProvidesNamespaces: true
+       output: Common/Shared/Resources/XCAssets+Generated.swift
