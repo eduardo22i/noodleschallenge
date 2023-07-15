@@ -39,6 +39,8 @@
 		F960A9662A5F6AD300733450 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9632A5F6ACE00733450 /* XCAssets+Generated.swift */; };
 		F960A9672A5F6AD300733450 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9632A5F6ACE00733450 /* XCAssets+Generated.swift */; };
 		F960A96A2A62A57E00733450 /* ImageAsset+SpriteKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9692A62A57E00733450 /* ImageAsset+SpriteKit.swift */; };
+		F960A96B2A631E0F00733450 /* ImageAsset+SpriteKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9692A62A57E00733450 /* ImageAsset+SpriteKit.swift */; };
+		F960A96C2A631E0F00733450 /* ImageAsset+SpriteKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9692A62A57E00733450 /* ImageAsset+SpriteKit.swift */; };
 		F96FE15B2A5CBD860063AE73 /* BoardSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE15A2A5CBD860063AE73 /* BoardSK.swift */; };
 		F96FE15D2A5CBDFA0063AE73 /* BoxSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE15C2A5CBDFA0063AE73 /* BoxSK.swift */; };
 		F96FE15F2A5CBE2C0063AE73 /* ChipSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE15E2A5CBE2C0063AE73 /* ChipSK.swift */; };
@@ -265,9 +267,9 @@
 		F96FE1582A5CBD050063AE73 /* SpriteKit */ = {
 			isa = PBXGroup;
 			children = (
-				F960A9682A62A56200733450 /* Helpers */,
 				F960A9622A5F69CD00733450 /* Resources */,
 				F96FE1592A5CBD6F0063AE73 /* Entities */,
+				F960A9682A62A56200733450 /* Helpers */,
 			);
 			path = SpriteKit;
 			sourceTree = "<group>";
@@ -537,6 +539,7 @@
 			files = (
 				F99E71F121CC204D0037098A /* GameState.swift in Sources */,
 				F96FE1832A5F3B280063AE73 /* Strings+Generated.swift in Sources */,
+				F960A96B2A631E0F00733450 /* ImageAsset+SpriteKit.swift in Sources */,
 				F96FE1632A5CBEBC0063AE73 /* ChipSK.swift in Sources */,
 				F92F5D3921CAD6760033D560 /* ViewController.swift in Sources */,
 				F92F5D5121CAE3370033D560 /* AAPLMinmaxStrategy.m in Sources */,
@@ -564,6 +567,7 @@
 			files = (
 				F9CF527B21D40D0D000366E7 /* Box.swift in Sources */,
 				F96FE1842A5F3B280063AE73 /* Strings+Generated.swift in Sources */,
+				F960A96C2A631E0F00733450 /* ImageAsset+SpriteKit.swift in Sources */,
 				F96FE1662A5CBEBC0063AE73 /* ChipSK.swift in Sources */,
 				F9CF526921D40BE5000366E7 /* GameViewController.swift in Sources */,
 				F9CF527721D40D04000366E7 /* AAPLMinmaxStrategy.m in Sources */,
