@@ -23,7 +23,7 @@ struct ContentView: View {
             #if os(tvOS)
             scene.isScrollingInput = true
             #endif
-            
+
             logic.start()
 
         }

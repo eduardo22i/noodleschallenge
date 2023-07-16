@@ -11,100 +11,40 @@
 		F902B91521D04E5D0076E2CD /* AssetsSK.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3A21CAD6790033D560 /* AssetsSK.xcassets */; };
 		F902B91621D04E640076E2CD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3421CAD6760033D560 /* Actions.sks */; };
 		F902B91721D04E750076E2CD /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E71EF21CC1FFE0037098A /* GameState.swift */; };
-		F902B91921D04ED50076E2CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F902B91821D04ED50076E2CD /* Assets.xcassets */; };
-		F902B91B21D063AB0076E2CD /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B91A21D063AB0076E2CD /* Dialog.swift */; };
 		F915136121CFED9800697C44 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915136021CFED9800697C44 /* Box.swift */; };
-		F915136221CFEDCB00697C44 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915136021CFED9800697C44 /* Box.swift */; };
 		F92F5D2021CA92B10033D560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D1F21CA92B10033D560 /* Assets.xcassets */; };
-		F92F5D3121CAD6760033D560 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3021CAD6760033D560 /* AppDelegate.swift */; };
-		F92F5D3321CAD6760033D560 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3221CAD6760033D560 /* GameScene.sks */; };
-		F92F5D3521CAD6760033D560 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3421CAD6760033D560 /* Actions.sks */; };
-		F92F5D3721CAD6760033D560 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3621CAD6760033D560 /* GameScene.swift */; };
-		F92F5D3921CAD6760033D560 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3821CAD6760033D560 /* ViewController.swift */; };
-		F92F5D3B21CAD6790033D560 /* AssetsSK.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3A21CAD6790033D560 /* AssetsSK.xcassets */; };
-		F92F5D3E21CAD6790033D560 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3C21CAD6790033D560 /* Main.storyboard */; };
 		F92F5D4D21CAE00A0033D560 /* AAPLMinmaxStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4721CAE00A0033D560 /* AAPLMinmaxStrategy.m */; };
 		F92F5D4E21CAE00A0033D560 /* AAPLBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4921CAE00A0033D560 /* AAPLBoard.m */; };
 		F92F5D4F21CAE00A0033D560 /* AAPLPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4A21CAE00A0033D560 /* AAPLPlayer.m */; };
-		F92F5D5021CAE3330033D560 /* AAPLPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4A21CAE00A0033D560 /* AAPLPlayer.m */; };
-		F92F5D5121CAE3370033D560 /* AAPLMinmaxStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4721CAE00A0033D560 /* AAPLMinmaxStrategy.m */; };
-		F92F5D5221CAE33A0033D560 /* AAPLBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4921CAE00A0033D560 /* AAPLBoard.m */; };
 		F948F8FC21D02D9100B0A4A3 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948F8FB21D02D9100B0A4A3 /* Enemy.swift */; };
-		F948F8FD21D02D9100B0A4A3 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948F8FB21D02D9100B0A4A3 /* Enemy.swift */; };
 		F960A9642A5F6ACE00733450 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9632A5F6ACE00733450 /* XCAssets+Generated.swift */; };
-		F960A9662A5F6AD300733450 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9632A5F6ACE00733450 /* XCAssets+Generated.swift */; };
-		F960A9672A5F6AD300733450 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9632A5F6ACE00733450 /* XCAssets+Generated.swift */; };
 		F960A96A2A62A57E00733450 /* ImageAsset+SpriteKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9692A62A57E00733450 /* ImageAsset+SpriteKit.swift */; };
-		F960A96B2A631E0F00733450 /* ImageAsset+SpriteKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9692A62A57E00733450 /* ImageAsset+SpriteKit.swift */; };
-		F960A96C2A631E0F00733450 /* ImageAsset+SpriteKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9692A62A57E00733450 /* ImageAsset+SpriteKit.swift */; };
 		F960A9DD2A63233800733450 /* NoodlesChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9DC2A63233800733450 /* NoodlesChallenge.swift */; };
 		F960A9DF2A63236200733450 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9DE2A63236200733450 /* ContentView.swift */; };
 		F96FE15B2A5CBD860063AE73 /* BoardSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE15A2A5CBD860063AE73 /* BoardSK.swift */; };
 		F96FE15D2A5CBDFA0063AE73 /* BoxSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE15C2A5CBDFA0063AE73 /* BoxSK.swift */; };
 		F96FE15F2A5CBE2C0063AE73 /* ChipSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE15E2A5CBE2C0063AE73 /* ChipSK.swift */; };
-		F96FE1622A5CBEBC0063AE73 /* BoxSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE15C2A5CBDFA0063AE73 /* BoxSK.swift */; };
-		F96FE1632A5CBEBC0063AE73 /* ChipSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE15E2A5CBE2C0063AE73 /* ChipSK.swift */; };
-		F96FE1642A5CBEBC0063AE73 /* BoardSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE15A2A5CBD860063AE73 /* BoardSK.swift */; };
-		F96FE1652A5CBEBC0063AE73 /* BoxSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE15C2A5CBDFA0063AE73 /* BoxSK.swift */; };
-		F96FE1662A5CBEBC0063AE73 /* ChipSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE15E2A5CBE2C0063AE73 /* ChipSK.swift */; };
-		F96FE1672A5CBEBC0063AE73 /* BoardSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE15A2A5CBD860063AE73 /* BoardSK.swift */; };
 		F96FE1692A5CBF490063AE73 /* EnemySK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1682A5CBF490063AE73 /* EnemySK.swift */; };
-		F96FE16A2A5CBF660063AE73 /* EnemySK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1682A5CBF490063AE73 /* EnemySK.swift */; };
-		F96FE16B2A5CBF670063AE73 /* EnemySK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1682A5CBF490063AE73 /* EnemySK.swift */; };
 		F96FE16F2A5CBF970063AE73 /* GameSceneSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE16E2A5CBF970063AE73 /* GameSceneSK.swift */; };
-		F96FE1702A5CBFD30063AE73 /* GameSceneSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE16E2A5CBF970063AE73 /* GameSceneSK.swift */; };
-		F96FE1712A5CBFD40063AE73 /* GameSceneSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE16E2A5CBF970063AE73 /* GameSceneSK.swift */; };
 		F96FE1732A5CBFEC0063AE73 /* DialogSKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1722A5CBFEC0063AE73 /* DialogSKNode.swift */; };
-		F96FE1742A5CC0050063AE73 /* DialogSKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1722A5CBFEC0063AE73 /* DialogSKNode.swift */; };
-		F96FE1752A5CC0050063AE73 /* DialogSKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1722A5CBFEC0063AE73 /* DialogSKNode.swift */; };
 		F96FE17B2A5F334D0063AE73 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F96FE17F2A5F334D0063AE73 /* Localizable.strings */; };
-		F96FE17C2A5F334D0063AE73 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F96FE17F2A5F334D0063AE73 /* Localizable.strings */; };
-		F96FE17D2A5F334D0063AE73 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F96FE17F2A5F334D0063AE73 /* Localizable.strings */; };
 		F96FE1822A5F3B280063AE73 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1812A5F3B280063AE73 /* Strings+Generated.swift */; };
-		F96FE1832A5F3B280063AE73 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1812A5F3B280063AE73 /* Strings+Generated.swift */; };
-		F96FE1842A5F3B280063AE73 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1812A5F3B280063AE73 /* Strings+Generated.swift */; };
 		F97A662A21CFDD01006FC613 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662921CFDD01006FC613 /* Board.swift */; };
-		F97A662B21CFDD36006FC613 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662921CFDD01006FC613 /* Board.swift */; };
 		F97A662D21CFDFBF006FC613 /* Chip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662C21CFDFBF006FC613 /* Chip.swift */; };
-		F97A662E21CFDFCF006FC613 /* Chip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662C21CFDFBF006FC613 /* Chip.swift */; };
-		F99E71F121CC204D0037098A /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E71EF21CC1FFE0037098A /* GameState.swift */; };
 		F99E71F821CC31CD0037098A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3221CAD6760033D560 /* GameScene.sks */; };
-		F9CF526121D40BE5000366E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CF526021D40BE5000366E7 /* AppDelegate.swift */; };
-		F9CF526921D40BE5000366E7 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CF526821D40BE5000366E7 /* GameViewController.swift */; };
-		F9CF526C21D40BE5000366E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9CF526A21D40BE5000366E7 /* Main.storyboard */; };
-		F9CF526E21D40BE9000366E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9CF526D21D40BE9000366E7 /* Assets.xcassets */; };
-		F9CF527321D40CE5000366E7 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3221CAD6760033D560 /* GameScene.sks */; };
-		F9CF527421D40CEA000366E7 /* AssetsSK.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3A21CAD6790033D560 /* AssetsSK.xcassets */; };
-		F9CF527521D40D04000366E7 /* AAPLBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4921CAE00A0033D560 /* AAPLBoard.m */; };
-		F9CF527621D40D04000366E7 /* AAPLPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4A21CAE00A0033D560 /* AAPLPlayer.m */; };
-		F9CF527721D40D04000366E7 /* AAPLMinmaxStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D4721CAE00A0033D560 /* AAPLMinmaxStrategy.m */; };
-		F9CF527821D40D07000366E7 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E71EF21CC1FFE0037098A /* GameState.swift */; };
-		F9CF527921D40D09000366E7 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F5D3621CAD6760033D560 /* GameScene.swift */; };
-		F9CF527A21D40D0D000366E7 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662921CFDD01006FC613 /* Board.swift */; };
-		F9CF527B21D40D0D000366E7 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915136021CFED9800697C44 /* Box.swift */; };
-		F9CF527C21D40D0D000366E7 /* Chip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662C21CFDFBF006FC613 /* Chip.swift */; };
-		F9CF527D21D40D0D000366E7 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948F8FB21D02D9100B0A4A3 /* Enemy.swift */; };
-		F9CF527E21D40D0D000366E7 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B91A21D063AB0076E2CD /* Dialog.swift */; };
 		F9DCEBD021D0ECF800D266C5 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B91A21D063AB0076E2CD /* Dialog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F902B91821D04ED50076E2CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F902B91A21D063AB0076E2CD /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		F915136021CFED9800697C44 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
-		F92F5D0F21CA92AF0033D560 /* Noodles Challenge iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noodles Challenge iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F92F5D0F21CA92AF0033D560 /* Noodles Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noodles Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F92F5D1F21CA92B10033D560 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F92F5D2421CA92B10033D560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F92F5D2E21CAD6760033D560 /* Noodles Challenge macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noodles Challenge macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F92F5D3021CAD6760033D560 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F92F5D3221CAD6760033D560 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		F92F5D3421CAD6760033D560 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		F92F5D3621CAD6760033D560 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		F92F5D3821CAD6760033D560 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F92F5D3A21CAD6790033D560 /* AssetsSK.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AssetsSK.xcassets; sourceTree = "<group>"; };
-		F92F5D3D21CAD6790033D560 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F92F5D3F21CAD6790033D560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F92F5D4021CAD6790033D560 /* Noodles_Challenge_Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Noodles_Challenge_Mac.entitlements; sourceTree = "<group>"; };
 		F92F5D4621CAE0090033D560 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F92F5D4721CAE00A0033D560 /* AAPLMinmaxStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLMinmaxStrategy.m; sourceTree = "<group>"; };
 		F92F5D4821CAE00A0033D560 /* AAPLPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLPlayer.h; sourceTree = "<group>"; };
@@ -117,7 +57,7 @@
 		F960A9692A62A57E00733450 /* ImageAsset+SpriteKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageAsset+SpriteKit.swift"; sourceTree = "<group>"; };
 		F960A9DC2A63233800733450 /* NoodlesChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoodlesChallenge.swift; sourceTree = "<group>"; };
 		F960A9DE2A63236200733450 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		F960A9E02A6327A400733450 /* Noodles Challenge iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Noodles Challenge iOS.entitlements"; sourceTree = "<group>"; };
+		F960A9E02A6327A400733450 /* Noodles Challenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Noodles Challenge.entitlements"; sourceTree = "<group>"; };
 		F96FE15A2A5CBD860063AE73 /* BoardSK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSK.swift; sourceTree = "<group>"; };
 		F96FE15C2A5CBDFA0063AE73 /* BoxSK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxSK.swift; sourceTree = "<group>"; };
 		F96FE15E2A5CBE2C0063AE73 /* ChipSK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipSK.swift; sourceTree = "<group>"; };
@@ -130,30 +70,10 @@
 		F97A662C21CFDFBF006FC613 /* Chip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chip.swift; sourceTree = "<group>"; };
 		F99E71EF21CC1FFE0037098A /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		F9CF525921D4045E000366E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		F9CF525E21D40BE5000366E7 /* Noodles Challenge tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noodles Challenge tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9CF526021D40BE5000366E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F9CF526821D40BE5000366E7 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		F9CF526B21D40BE5000366E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F9CF526D21D40BE9000366E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F9CF526F21D40BE9000366E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F92F5D0C21CA92AF0033D560 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F92F5D2B21CAD6760033D560 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F9CF525B21D40BE5000366E7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -166,12 +86,9 @@
 		F92F5D0621CA92AF0033D560 = {
 			isa = PBXGroup;
 			children = (
-				F960A9E02A6327A400733450 /* Noodles Challenge iOS.entitlements */,
 				F9CF525921D4045E000366E7 /* README.md */,
 				F92F5D4421CAD6880033D560 /* Common */,
-				F92F5D1121CA92AF0033D560 /* iOS */,
-				F92F5D2F21CAD6760033D560 /* macOS */,
-				F9CF525F21D40BE5000366E7 /* tvOS */,
+				F92F5D1121CA92AF0033D560 /* Noodles Challenge */,
 				F92F5D1021CA92AF0033D560 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -179,35 +96,21 @@
 		F92F5D1021CA92AF0033D560 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F92F5D0F21CA92AF0033D560 /* Noodles Challenge iOS.app */,
-				F92F5D2E21CAD6760033D560 /* Noodles Challenge macOS.app */,
-				F9CF525E21D40BE5000366E7 /* Noodles Challenge tvOS.app */,
+				F92F5D0F21CA92AF0033D560 /* Noodles Challenge.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F92F5D1121CA92AF0033D560 /* iOS */ = {
+		F92F5D1121CA92AF0033D560 /* Noodles Challenge */ = {
 			isa = PBXGroup;
 			children = (
 				F960A9DC2A63233800733450 /* NoodlesChallenge.swift */,
 				F960A9DE2A63236200733450 /* ContentView.swift */,
 				F92F5D1F21CA92B10033D560 /* Assets.xcassets */,
 				F92F5D2421CA92B10033D560 /* Info.plist */,
+				F960A9E02A6327A400733450 /* Noodles Challenge.entitlements */,
 			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
-		F92F5D2F21CAD6760033D560 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				F92F5D3021CAD6760033D560 /* AppDelegate.swift */,
-				F92F5D3821CAD6760033D560 /* ViewController.swift */,
-				F92F5D3C21CAD6790033D560 /* Main.storyboard */,
-				F902B91821D04ED50076E2CD /* Assets.xcassets */,
-				F92F5D3F21CAD6790033D560 /* Info.plist */,
-				F92F5D4021CAD6790033D560 /* Noodles_Challenge_Mac.entitlements */,
-			);
-			path = macOS;
+			path = "Noodles Challenge";
 			sourceTree = "<group>";
 		};
 		F92F5D4421CAD6880033D560 /* Common */ = {
@@ -348,24 +251,12 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		F9CF525F21D40BE5000366E7 /* tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				F9CF526021D40BE5000366E7 /* AppDelegate.swift */,
-				F9CF526821D40BE5000366E7 /* GameViewController.swift */,
-				F9CF526A21D40BE5000366E7 /* Main.storyboard */,
-				F9CF526D21D40BE9000366E7 /* Assets.xcassets */,
-				F9CF526F21D40BE9000366E7 /* Info.plist */,
-			);
-			path = tvOS;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F92F5D0E21CA92AF0033D560 /* Noodles Challenge iOS */ = {
+		F92F5D0E21CA92AF0033D560 /* Noodles Challenge */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F92F5D2721CA92B10033D560 /* Build configuration list for PBXNativeTarget "Noodles Challenge iOS" */;
+			buildConfigurationList = F92F5D2721CA92B10033D560 /* Build configuration list for PBXNativeTarget "Noodles Challenge" */;
 			buildPhases = (
 				F92F5D0B21CA92AF0033D560 /* Sources */,
 				F92F5D0C21CA92AF0033D560 /* Frameworks */,
@@ -375,43 +266,9 @@
 			);
 			dependencies = (
 			);
-			name = "Noodles Challenge iOS";
+			name = "Noodles Challenge";
 			productName = "Tea Challenge";
-			productReference = F92F5D0F21CA92AF0033D560 /* Noodles Challenge iOS.app */;
-			productType = "com.apple.product-type.application";
-		};
-		F92F5D2D21CAD6760033D560 /* Noodles Challenge macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F92F5D4121CAD6790033D560 /* Build configuration list for PBXNativeTarget "Noodles Challenge macOS" */;
-			buildPhases = (
-				F92F5D2A21CAD6760033D560 /* Sources */,
-				F92F5D2B21CAD6760033D560 /* Frameworks */,
-				F92F5D2C21CAD6760033D560 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Noodles Challenge macOS";
-			productName = "Tea Challenge Mac";
-			productReference = F92F5D2E21CAD6760033D560 /* Noodles Challenge macOS.app */;
-			productType = "com.apple.product-type.application";
-		};
-		F9CF525D21D40BE5000366E7 /* Noodles Challenge tvOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F9CF527021D40BE9000366E7 /* Build configuration list for PBXNativeTarget "Noodles Challenge tvOS" */;
-			buildPhases = (
-				F9CF525A21D40BE5000366E7 /* Sources */,
-				F9CF525B21D40BE5000366E7 /* Frameworks */,
-				F9CF525C21D40BE5000366E7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Noodles Challenge tvOS";
-			productName = "Noodles Challenge tvOS";
-			productReference = F9CF525E21D40BE5000366E7 /* Noodles Challenge tvOS.app */;
+			productReference = F92F5D0F21CA92AF0033D560 /* Noodles Challenge.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -429,13 +286,6 @@
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
 					};
-					F92F5D2D21CAD6760033D560 = {
-						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1120;
-					};
-					F9CF525D21D40BE5000366E7 = {
-						CreatedOnToolsVersion = 10.1;
-					};
 				};
 			};
 			buildConfigurationList = F92F5D0A21CA92AF0033D560 /* Build configuration list for PBXProject "Noodles Challenge" */;
@@ -451,9 +301,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F92F5D0E21CA92AF0033D560 /* Noodles Challenge iOS */,
-				F92F5D2D21CAD6760033D560 /* Noodles Challenge macOS */,
-				F9CF525D21D40BE5000366E7 /* Noodles Challenge tvOS */,
+				F92F5D0E21CA92AF0033D560 /* Noodles Challenge */,
 			);
 		};
 /* End PBXProject section */
@@ -468,31 +316,6 @@
 				F96FE17B2A5F334D0063AE73 /* Localizable.strings in Resources */,
 				F99E71F821CC31CD0037098A /* GameScene.sks in Resources */,
 				F902B91521D04E5D0076E2CD /* AssetsSK.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F92F5D2C21CAD6760033D560 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F92F5D3321CAD6760033D560 /* GameScene.sks in Resources */,
-				F96FE17C2A5F334D0063AE73 /* Localizable.strings in Resources */,
-				F92F5D3B21CAD6790033D560 /* AssetsSK.xcassets in Resources */,
-				F92F5D3521CAD6760033D560 /* Actions.sks in Resources */,
-				F92F5D3E21CAD6790033D560 /* Main.storyboard in Resources */,
-				F902B91921D04ED50076E2CD /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F9CF525C21D40BE5000366E7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F96FE17D2A5F334D0063AE73 /* Localizable.strings in Resources */,
-				F9CF526C21D40BE5000366E7 /* Main.storyboard in Resources */,
-				F9CF527421D40CEA000366E7 /* AssetsSK.xcassets in Resources */,
-				F9CF527321D40CE5000366E7 /* GameScene.sks in Resources */,
-				F9CF526E21D40BE9000366E7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,87 +350,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F92F5D2A21CAD6760033D560 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F99E71F121CC204D0037098A /* GameState.swift in Sources */,
-				F96FE1832A5F3B280063AE73 /* Strings+Generated.swift in Sources */,
-				F960A96B2A631E0F00733450 /* ImageAsset+SpriteKit.swift in Sources */,
-				F96FE1632A5CBEBC0063AE73 /* ChipSK.swift in Sources */,
-				F92F5D3921CAD6760033D560 /* ViewController.swift in Sources */,
-				F92F5D5121CAE3370033D560 /* AAPLMinmaxStrategy.m in Sources */,
-				F96FE16A2A5CBF660063AE73 /* EnemySK.swift in Sources */,
-				F96FE1622A5CBEBC0063AE73 /* BoxSK.swift in Sources */,
-				F902B91B21D063AB0076E2CD /* Dialog.swift in Sources */,
-				F948F8FD21D02D9100B0A4A3 /* Enemy.swift in Sources */,
-				F96FE1702A5CBFD30063AE73 /* GameSceneSK.swift in Sources */,
-				F92F5D3721CAD6760033D560 /* GameScene.swift in Sources */,
-				F97A662E21CFDFCF006FC613 /* Chip.swift in Sources */,
-				F96FE1642A5CBEBC0063AE73 /* BoardSK.swift in Sources */,
-				F92F5D5021CAE3330033D560 /* AAPLPlayer.m in Sources */,
-				F96FE1742A5CC0050063AE73 /* DialogSKNode.swift in Sources */,
-				F960A9672A5F6AD300733450 /* XCAssets+Generated.swift in Sources */,
-				F92F5D5221CAE33A0033D560 /* AAPLBoard.m in Sources */,
-				F97A662B21CFDD36006FC613 /* Board.swift in Sources */,
-				F92F5D3121CAD6760033D560 /* AppDelegate.swift in Sources */,
-				F915136221CFEDCB00697C44 /* Box.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F9CF525A21D40BE5000366E7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F9CF527B21D40D0D000366E7 /* Box.swift in Sources */,
-				F96FE1842A5F3B280063AE73 /* Strings+Generated.swift in Sources */,
-				F960A96C2A631E0F00733450 /* ImageAsset+SpriteKit.swift in Sources */,
-				F96FE1662A5CBEBC0063AE73 /* ChipSK.swift in Sources */,
-				F9CF526921D40BE5000366E7 /* GameViewController.swift in Sources */,
-				F9CF527721D40D04000366E7 /* AAPLMinmaxStrategy.m in Sources */,
-				F96FE16B2A5CBF670063AE73 /* EnemySK.swift in Sources */,
-				F96FE1652A5CBEBC0063AE73 /* BoxSK.swift in Sources */,
-				F9CF527E21D40D0D000366E7 /* Dialog.swift in Sources */,
-				F9CF527D21D40D0D000366E7 /* Enemy.swift in Sources */,
-				F96FE1712A5CBFD40063AE73 /* GameSceneSK.swift in Sources */,
-				F9CF527C21D40D0D000366E7 /* Chip.swift in Sources */,
-				F9CF527521D40D04000366E7 /* AAPLBoard.m in Sources */,
-				F96FE1672A5CBEBC0063AE73 /* BoardSK.swift in Sources */,
-				F9CF527821D40D07000366E7 /* GameState.swift in Sources */,
-				F96FE1752A5CC0050063AE73 /* DialogSKNode.swift in Sources */,
-				F960A9662A5F6AD300733450 /* XCAssets+Generated.swift in Sources */,
-				F9CF527621D40D04000366E7 /* AAPLPlayer.m in Sources */,
-				F9CF527921D40D09000366E7 /* GameScene.swift in Sources */,
-				F9CF527A21D40D0D000366E7 /* Board.swift in Sources */,
-				F9CF526121D40BE5000366E7 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F92F5D3C21CAD6790033D560 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F92F5D3D21CAD6790033D560 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F96FE17F2A5F334D0063AE73 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F96FE17E2A5F334D0063AE73 /* en */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		F9CF526A21D40BE5000366E7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F9CF526B21D40BE5000366E7 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -738,15 +489,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Noodles Challenge iOS.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Noodles Challenge/Noodles Challenge.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KDY2FY8979;
-				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.estamp.challenge.NoodlesChallenge.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
@@ -763,15 +520,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Noodles Challenge iOS.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Noodles Challenge/Noodles Challenge.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KDY2FY8979;
-				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=*]" = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.estamp.challenge.NoodlesChallenge.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
@@ -779,98 +543,6 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";
-			};
-			name = Release;
-		};
-		F92F5D4221CAD6790033D560 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = macOS/Noodles_Challenge_Mac.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = KDY2FY8979;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/macOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.estamp.challenge.NoodlesChallenge.Mac;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		F92F5D4321CAD6790033D560 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = macOS/Noodles_Challenge_Mac.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = KDY2FY8979;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/macOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.estamp.challenge.NoodlesChallenge.Mac;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		F9CF527121D40BE9000366E7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KDY2FY8979;
-				INFOPLIST_FILE = "$(SRCROOT)/tvOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.estamp.Noodles-Challenge-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.1;
-			};
-			name = Debug;
-		};
-		F9CF527221D40BE9000366E7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KDY2FY8979;
-				INFOPLIST_FILE = "$(SRCROOT)/tvOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.estamp.Noodles-Challenge-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.1;
 			};
 			name = Release;
 		};
@@ -886,29 +558,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F92F5D2721CA92B10033D560 /* Build configuration list for PBXNativeTarget "Noodles Challenge iOS" */ = {
+		F92F5D2721CA92B10033D560 /* Build configuration list for PBXNativeTarget "Noodles Challenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F92F5D2821CA92B10033D560 /* Debug */,
 				F92F5D2921CA92B10033D560 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F92F5D4121CAD6790033D560 /* Build configuration list for PBXNativeTarget "Noodles Challenge macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F92F5D4221CAD6790033D560 /* Debug */,
-				F92F5D4321CAD6790033D560 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F9CF527021D40BE9000366E7 /* Build configuration list for PBXNativeTarget "Noodles Challenge tvOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F9CF527121D40BE9000366E7 /* Debug */,
-				F9CF527221D40BE9000366E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
