@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,6 +32,10 @@
 		F97A662A21CFDD01006FC613 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662921CFDD01006FC613 /* Board.swift */; };
 		F97A662D21CFDFBF006FC613 /* Chip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662C21CFDFBF006FC613 /* Chip.swift */; };
 		F99E71F821CC31CD0037098A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3221CAD6760033D560 /* GameScene.sks */; };
+		F9A31B4B2A8A941500C02CDB /* Noodles_Challenge_VRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A31B4A2A8A941500C02CDB /* Noodles_Challenge_VRApp.swift */; };
+		F9A31B4D2A8A941500C02CDB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A31B4C2A8A941500C02CDB /* ContentView.swift */; };
+		F9A31B4F2A8A941600C02CDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9A31B4E2A8A941600C02CDB /* Assets.xcassets */; };
+		F9A31B532A8A941600C02CDB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9A31B522A8A941600C02CDB /* Preview Assets.xcassets */; };
 		F9DCEBD021D0ECF800D266C5 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B91A21D063AB0076E2CD /* Dialog.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,11 +73,24 @@
 		F97A662921CFDD01006FC613 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		F97A662C21CFDFBF006FC613 /* Chip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chip.swift; sourceTree = "<group>"; };
 		F99E71EF21CC1FFE0037098A /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		F9A31B482A8A941500C02CDB /* Noodles Challenge VR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noodles Challenge VR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9A31B4A2A8A941500C02CDB /* Noodles_Challenge_VRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Noodles_Challenge_VRApp.swift; sourceTree = "<group>"; };
+		F9A31B4C2A8A941500C02CDB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F9A31B4E2A8A941600C02CDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F9A31B502A8A941600C02CDB /* Noodles_Challenge_VR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Noodles_Challenge_VR.entitlements; sourceTree = "<group>"; };
+		F9A31B522A8A941600C02CDB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F9CF525921D4045E000366E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F92F5D0C21CA92AF0033D560 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9A31B452A8A941500C02CDB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -89,6 +106,7 @@
 				F9CF525921D4045E000366E7 /* README.md */,
 				F92F5D4421CAD6880033D560 /* Common */,
 				F92F5D1121CA92AF0033D560 /* Noodles Challenge */,
+				F9A31B492A8A941500C02CDB /* Noodles Challenge VR */,
 				F92F5D1021CA92AF0033D560 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				F92F5D0F21CA92AF0033D560 /* Noodles Challenge.app */,
+				F9A31B482A8A941500C02CDB /* Noodles Challenge VR.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -251,6 +270,26 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		F9A31B492A8A941500C02CDB /* Noodles Challenge VR */ = {
+			isa = PBXGroup;
+			children = (
+				F9A31B4A2A8A941500C02CDB /* Noodles_Challenge_VRApp.swift */,
+				F9A31B4C2A8A941500C02CDB /* ContentView.swift */,
+				F9A31B4E2A8A941600C02CDB /* Assets.xcassets */,
+				F9A31B502A8A941600C02CDB /* Noodles_Challenge_VR.entitlements */,
+				F9A31B512A8A941600C02CDB /* Preview Content */,
+			);
+			path = "Noodles Challenge VR";
+			sourceTree = "<group>";
+		};
+		F9A31B512A8A941600C02CDB /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F9A31B522A8A941600C02CDB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -271,6 +310,23 @@
 			productReference = F92F5D0F21CA92AF0033D560 /* Noodles Challenge.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F9A31B472A8A941500C02CDB /* Noodles Challenge VR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9A31B562A8A941600C02CDB /* Build configuration list for PBXNativeTarget "Noodles Challenge VR" */;
+			buildPhases = (
+				F9A31B442A8A941500C02CDB /* Sources */,
+				F9A31B452A8A941500C02CDB /* Frameworks */,
+				F9A31B462A8A941500C02CDB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Noodles Challenge VR";
+			productName = "Noodles Challenge VR";
+			productReference = F9A31B482A8A941500C02CDB /* Noodles Challenge VR.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -278,13 +334,16 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = Estamp;
 				TargetAttributes = {
 					F92F5D0E21CA92AF0033D560 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
+					};
+					F9A31B472A8A941500C02CDB = {
+						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
@@ -302,6 +361,7 @@
 			projectRoot = "";
 			targets = (
 				F92F5D0E21CA92AF0033D560 /* Noodles Challenge */,
+				F9A31B472A8A941500C02CDB /* Noodles Challenge VR */,
 			);
 		};
 /* End PBXProject section */
@@ -316,6 +376,15 @@
 				F96FE17B2A5F334D0063AE73 /* Localizable.strings in Resources */,
 				F99E71F821CC31CD0037098A /* GameScene.sks in Resources */,
 				F902B91521D04E5D0076E2CD /* AssetsSK.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9A31B462A8A941500C02CDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9A31B532A8A941600C02CDB /* Preview Assets.xcassets in Resources */,
+				F9A31B4F2A8A941600C02CDB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +416,15 @@
 				F92F5D4D21CAE00A0033D560 /* AAPLMinmaxStrategy.m in Sources */,
 				F960A9DD2A63233800733450 /* NoodlesChallenge.swift in Sources */,
 				F902B91721D04E750076E2CD /* GameState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9A31B442A8A941500C02CDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9A31B4D2A8A941500C02CDB /* ContentView.swift in Sources */,
+				F9A31B4B2A8A941500C02CDB /* Noodles_Challenge_VRApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +628,89 @@
 			};
 			name = Release;
 		};
+		F9A31B542A8A941600C02CDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "Noodles Challenge VR/Noodles_Challenge_VR.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Noodles Challenge VR/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.estamp.challenge.Noodles-Challenge-VR";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F9A31B552A8A941600C02CDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "Noodles Challenge VR/Noodles_Challenge_VR.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Noodles Challenge VR/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.estamp.challenge.Noodles-Challenge-VR";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -567,6 +728,15 @@
 			buildConfigurations = (
 				F92F5D2821CA92B10033D560 /* Debug */,
 				F92F5D2921CA92B10033D560 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9A31B562A8A941600C02CDB /* Build configuration list for PBXNativeTarget "Noodles Challenge VR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9A31B542A8A941600C02CDB /* Debug */,
+				F9A31B552A8A941600C02CDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
