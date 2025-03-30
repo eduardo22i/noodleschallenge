@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F92F5D0E21CA92AF0033D560"
-               BuildableName = "Noodles Challenge.app"
-               BlueprintName = "Noodles Challenge"
+               BuildableName = "Noodles Challenge - SK.app"
+               BlueprintName = "Noodles Challenge - SK"
                ReferencedContainer = "container:Noodles Challenge.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -31,8 +31,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F92F5D0E21CA92AF0033D560"
-            BuildableName = "Noodles Challenge.app"
-            BlueprintName = "Noodles Challenge"
+            BuildableName = "Noodles Challenge - SK.app"
+            BlueprintName = "Noodles Challenge - SK"
             ReferencedContainer = "container:Noodles Challenge.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -54,8 +54,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F92F5D0E21CA92AF0033D560"
-            BuildableName = "Noodles Challenge.app"
-            BlueprintName = "Noodles Challenge"
+            BuildableName = "Noodles Challenge - SK.app"
+            BlueprintName = "Noodles Challenge - SK"
             ReferencedContainer = "container:Noodles Challenge.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -71,8 +71,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F92F5D0E21CA92AF0033D560"
-            BuildableName = "Noodles Challenge.app"
-            BlueprintName = "Noodles Challenge"
+            BuildableName = "Noodles Challenge - SK.app"
+            BlueprintName = "Noodles Challenge - SK"
             ReferencedContainer = "container:Noodles Challenge.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
