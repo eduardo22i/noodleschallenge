@@ -1,0 +1,227 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "dialog.enemy.celebrating" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lalala! I won!"
+          }
+        }
+      }
+    },
+    "dialog.enemy.crying" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OMG! This is not possible! NOOO! \nYou won the NOODLES!"
+          }
+        }
+      }
+    },
+    "dialog.enemy.instructions_1" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The rules are simple. \nWe are going to take turns."
+          }
+        }
+      }
+    },
+    "dialog.enemy.instructions_2" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We have %d boxes,\neach box have different amount of coins."
+          }
+        }
+      }
+    },
+    "dialog.enemy.instructions_3" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In your turn, \nremove all the coins you want \nbut only from 1 box."
+          }
+        }
+      }
+    },
+    "dialog.enemy.instructions_4" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The player who picks\n the LAST coin from ALL boxes, loses the game."
+          }
+        }
+      }
+    },
+    "dialog.enemy.instructions_5" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please, start!"
+          }
+        }
+      }
+    },
+    "dialog.enemy.instructions_6" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "..."
+          }
+        }
+      }
+    },
+    "dialog.enemy.thinking_1" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haha! Scared?"
+          }
+        }
+      }
+    },
+    "dialog.enemy.thinking_2" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please, don't cry!"
+          }
+        }
+      }
+    },
+    "dialog.enemy.thinking_3" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Okay... Your turn, try harder!"
+          }
+        }
+      }
+    },
+    "dialog.enemy.thinking_4" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Looks like you will lose"
+          }
+        }
+      }
+    },
+    "dialog.enemy.waiting_1" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let me think!"
+          }
+        }
+      }
+    },
+    "dialog.enemy.waiting_2" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LOL! What was that move?"
+          }
+        }
+      }
+    },
+    "dialog.enemy.waiting_3" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I guess you enjoy making mistakes"
+          }
+        }
+      }
+    },
+    "dialog.enemy.waiting_4" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thanks! I'm closer to my victory"
+          }
+        }
+      }
+    },
+    "dialog.enemy.waiting_5" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let me analyze this..."
+          }
+        }
+      }
+    },
+    "dialog.enemy.wakeUp_1" : {
+      "comment" : "Localizable.strings\n  Noodles Challenge\n\n  Created by Eduardo Irias on 7/12/23.\n  Copyright © 2023 Estamp. All rights reserved.",
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "... ZZZ"
+          }
+        }
+      }
+    },
+    "dialog.enemy.wakeUp_2" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ahh! A new challenger? \nOkay! I Always win!"
+          }
+        }
+      }
+    },
+    "dialog.enemy.wakeUp_3" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Win to me and I'll give you the best NOODLES!"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

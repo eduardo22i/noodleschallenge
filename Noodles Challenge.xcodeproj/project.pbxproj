@@ -12,6 +12,7 @@
 		F902B91621D04E640076E2CD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3421CAD6760033D560 /* Actions.sks */; };
 		F902B91721D04E750076E2CD /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E71EF21CC1FFE0037098A /* GameState.swift */; };
 		F9076DAD2D9992EB00BBFC61 /* GameModelStrategist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9076DAC2D9992EA00BBFC61 /* GameModelStrategist.swift */; };
+		F9076DAF2D999F0800BBFC61 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F9076DAE2D999F0800BBFC61 /* Localizable.xcstrings */; };
 		F915136121CFED9800697C44 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915136021CFED9800697C44 /* Box.swift */; };
 		F92F5D2021CA92B10033D560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D1F21CA92B10033D560 /* Assets.xcassets */; };
 		F948F8FC21D02D9100B0A4A3 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948F8FB21D02D9100B0A4A3 /* Enemy.swift */; };
@@ -28,7 +29,6 @@
 		F96FE1692A5CBF490063AE73 /* EnemySK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1682A5CBF490063AE73 /* EnemySK.swift */; };
 		F96FE16F2A5CBF970063AE73 /* GameSceneSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE16E2A5CBF970063AE73 /* GameSceneSK.swift */; };
 		F96FE1732A5CBFEC0063AE73 /* DialogSKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1722A5CBFEC0063AE73 /* DialogSKNode.swift */; };
-		F96FE17B2A5F334D0063AE73 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F96FE17F2A5F334D0063AE73 /* Localizable.strings */; };
 		F96FE1822A5F3B280063AE73 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1812A5F3B280063AE73 /* Strings+Generated.swift */; };
 		F97A662A21CFDD01006FC613 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662921CFDD01006FC613 /* Board.swift */; };
 		F97A662D21CFDFBF006FC613 /* Chip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662C21CFDFBF006FC613 /* Chip.swift */; };
@@ -39,6 +39,7 @@
 /* Begin PBXFileReference section */
 		F902B91A21D063AB0076E2CD /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		F9076DAC2D9992EA00BBFC61 /* GameModelStrategist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModelStrategist.swift; sourceTree = "<group>"; };
+		F9076DAE2D999F0800BBFC61 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		F915136021CFED9800697C44 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		F92F5D0F21CA92AF0033D560 /* Noodles Challenge - SK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noodles Challenge - SK.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F92F5D1F21CA92B10033D560 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,7 +63,6 @@
 		F96FE1682A5CBF490063AE73 /* EnemySK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemySK.swift; sourceTree = "<group>"; };
 		F96FE16E2A5CBF970063AE73 /* GameSceneSK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneSK.swift; sourceTree = "<group>"; };
 		F96FE1722A5CBFEC0063AE73 /* DialogSKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogSKNode.swift; sourceTree = "<group>"; };
-		F96FE17E2A5F334D0063AE73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F96FE1812A5F3B280063AE73 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		F97A662921CFDD01006FC613 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		F97A662C21CFDFBF006FC613 /* Chip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chip.swift; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 		F960A9612A5F68C900733450 /* Strings */ = {
 			isa = PBXGroup;
 			children = (
-				F96FE17F2A5F334D0063AE73 /* Localizable.strings */,
+				F9076DAE2D999F0800BBFC61 /* Localizable.xcstrings */,
 				F96FE1812A5F3B280063AE73 /* Strings+Generated.swift */,
 			);
 			path = Strings;
@@ -150,6 +150,7 @@
 				F92F5D3A21CAD6790033D560 /* Assets.xcassets */,
 				F92F5D3221CAD6760033D560 /* GameScene.sks */,
 				F92F5D3421CAD6760033D560 /* Actions.sks */,
+				F960A9632A5F6ACE00733450 /* XCAssets+Generated.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -223,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				F960A9612A5F68C900733450 /* Strings */,
-				F960A9632A5F6ACE00733450 /* XCAssets+Generated.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -300,7 +300,7 @@
 			files = (
 				F902B91621D04E640076E2CD /* Actions.sks in Resources */,
 				F92F5D2021CA92B10033D560 /* Assets.xcassets in Resources */,
-				F96FE17B2A5F334D0063AE73 /* Localizable.strings in Resources */,
+				F9076DAF2D999F0800BBFC61 /* Localizable.xcstrings in Resources */,
 				F99E71F821CC31CD0037098A /* GameScene.sks in Resources */,
 				F902B91521D04E5D0076E2CD /* Assets.xcassets in Resources */,
 			);
@@ -339,17 +339,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		F96FE17F2A5F334D0063AE73 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F96FE17E2A5F334D0063AE73 /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F92F5D2521CA92B10033D560 /* Debug */ = {
@@ -405,11 +394,13 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -461,10 +452,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
