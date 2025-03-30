@@ -11,13 +11,13 @@
 		F902B91521D04E5D0076E2CD /* AssetsSK.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3A21CAD6790033D560 /* AssetsSK.xcassets */; };
 		F902B91621D04E640076E2CD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3421CAD6760033D560 /* Actions.sks */; };
 		F902B91721D04E750076E2CD /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E71EF21CC1FFE0037098A /* GameState.swift */; };
-		F9076DAD2D9992EB00BBFC61 /* NCStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9076DAC2D9992EA00BBFC61 /* NCStrategy.swift */; };
+		F9076DAD2D9992EB00BBFC61 /* GameModelStrategist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9076DAC2D9992EA00BBFC61 /* GameModelStrategist.swift */; };
 		F915136121CFED9800697C44 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915136021CFED9800697C44 /* Box.swift */; };
 		F92F5D2021CA92B10033D560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D1F21CA92B10033D560 /* Assets.xcassets */; };
 		F948F8FC21D02D9100B0A4A3 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948F8FB21D02D9100B0A4A3 /* Enemy.swift */; };
 		F959BB162D779A4800B2EBC8 /* MinmaxStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959BB152D779A3400B2EBC8 /* MinmaxStrategy.swift */; };
-		F959BB182D77A84A00B2EBC8 /* NCBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959BB172D77A84200B2EBC8 /* NCBoard.swift */; };
-		F959BB1A2D77B35200B2EBC8 /* NCPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959BB192D77B34300B2EBC8 /* NCPlayer.swift */; };
+		F959BB182D77A84A00B2EBC8 /* BoardGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959BB172D77A84200B2EBC8 /* BoardGameModel.swift */; };
+		F959BB1A2D77B35200B2EBC8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959BB192D77B34300B2EBC8 /* Player.swift */; };
 		F960A9642A5F6ACE00733450 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9632A5F6ACE00733450 /* XCAssets+Generated.swift */; };
 		F960A96A2A62A57E00733450 /* ImageAsset+SpriteKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9692A62A57E00733450 /* ImageAsset+SpriteKit.swift */; };
 		F960A9DD2A63233800733450 /* NoodlesChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960A9DC2A63233800733450 /* NoodlesChallenge.swift */; };
@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		F902B91A21D063AB0076E2CD /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
-		F9076DAC2D9992EA00BBFC61 /* NCStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCStrategy.swift; sourceTree = "<group>"; };
+		F9076DAC2D9992EA00BBFC61 /* GameModelStrategist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModelStrategist.swift; sourceTree = "<group>"; };
 		F915136021CFED9800697C44 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		F92F5D0F21CA92AF0033D560 /* Noodles Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Noodles Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F92F5D1F21CA92B10033D560 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,8 +50,8 @@
 		F92F5D4621CAE0090033D560 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F948F8FB21D02D9100B0A4A3 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		F959BB152D779A3400B2EBC8 /* MinmaxStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinmaxStrategy.swift; sourceTree = "<group>"; };
-		F959BB172D77A84200B2EBC8 /* NCBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCBoard.swift; sourceTree = "<group>"; };
-		F959BB192D77B34300B2EBC8 /* NCPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCPlayer.swift; sourceTree = "<group>"; };
+		F959BB172D77A84200B2EBC8 /* BoardGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardGameModel.swift; sourceTree = "<group>"; };
+		F959BB192D77B34300B2EBC8 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		F960A9632A5F6ACE00733450 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		F960A9692A62A57E00733450 /* ImageAsset+SpriteKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageAsset+SpriteKit.swift"; sourceTree = "<group>"; };
 		F960A9DC2A63233800733450 /* NoodlesChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoodlesChallenge.swift; sourceTree = "<group>"; };
@@ -125,10 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				F99E71EF21CC1FFE0037098A /* GameState.swift */,
-				F959BB172D77A84200B2EBC8 /* NCBoard.swift */,
-				F959BB192D77B34300B2EBC8 /* NCPlayer.swift */,
+				F959BB172D77A84200B2EBC8 /* BoardGameModel.swift */,
 				F959BB152D779A3400B2EBC8 /* MinmaxStrategy.swift */,
-				F9076DAC2D9992EA00BBFC61 /* NCStrategy.swift */,
+				F9076DAC2D9992EA00BBFC61 /* GameModelStrategist.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -183,6 +182,7 @@
 		F96FE1602A5CBE6E0063AE73 /* Board */ = {
 			isa = PBXGroup;
 			children = (
+				F959BB192D77B34300B2EBC8 /* Player.swift */,
 				F97A662921CFDD01006FC613 /* Board.swift */,
 				F915136021CFED9800697C44 /* Box.swift */,
 				F97A662C21CFDFBF006FC613 /* Chip.swift */,
@@ -326,7 +326,7 @@
 				F959BB162D779A4800B2EBC8 /* MinmaxStrategy.swift in Sources */,
 				F902B91421D04D390076E2CD /* GameScene.swift in Sources */,
 				F96FE1822A5F3B280063AE73 /* Strings+Generated.swift in Sources */,
-				F959BB182D77A84A00B2EBC8 /* NCBoard.swift in Sources */,
+				F959BB182D77A84A00B2EBC8 /* BoardGameModel.swift in Sources */,
 				F960A96A2A62A57E00733450 /* ImageAsset+SpriteKit.swift in Sources */,
 				F915136121CFED9800697C44 /* Box.swift in Sources */,
 				F96FE15F2A5CBE2C0063AE73 /* ChipSK.swift in Sources */,
@@ -338,10 +338,10 @@
 				F96FE15D2A5CBDFA0063AE73 /* BoxSK.swift in Sources */,
 				F948F8FC21D02D9100B0A4A3 /* Enemy.swift in Sources */,
 				F96FE1732A5CBFEC0063AE73 /* DialogSKNode.swift in Sources */,
-				F9076DAD2D9992EB00BBFC61 /* NCStrategy.swift in Sources */,
+				F9076DAD2D9992EB00BBFC61 /* GameModelStrategist.swift in Sources */,
 				F960A9642A5F6ACE00733450 /* XCAssets+Generated.swift in Sources */,
 				F960A9DF2A63236200733450 /* ContentView.swift in Sources */,
-				F959BB1A2D77B35200B2EBC8 /* NCPlayer.swift in Sources */,
+				F959BB1A2D77B35200B2EBC8 /* Player.swift in Sources */,
 				F97A662A21CFDD01006FC613 /* Board.swift in Sources */,
 				F960A9DD2A63233800733450 /* NoodlesChallenge.swift in Sources */,
 				F902B91721D04E750076E2CD /* GameState.swift in Sources */,

@@ -12,10 +12,10 @@ protocol BoardProtocol {
 
     var view: any BoardView { get set }
 
-    var currentPlayer: NCPlayer { get }
+    var currentPlayer: Player { get }
     var boxes: [any Box] { get }
 
-    func set(strategist: inout NCStrategy)
+    func set(strategist: inout GameModelStrategist)
 
     func reset()
     func switchPlayer()
@@ -28,19 +28,25 @@ protocol BoardView: AnyObject {
     func addBox(index: Int) -> any BoxView
 }
 
+struct BoardSetup {
+    let width = 3
+    let height = 1
+    let countToWin = 1
+}
+
 final class Board: BoardProtocol {
 
     var view: any BoardView
 
-    var gameModel: NCBoard!
-    var currentPlayer: NCPlayer {
+    var gameModel: BoardGameModel!
+    var currentPlayer: Player {
         gameModel.currentPlayer
     }
     var boxes: [any Box] = []
 
     private var config = [Int]() {
         didSet {
-            gameModel = NCBoard(chips: config)
+            gameModel = BoardGameModel(chips: config)
         }
     }
 
@@ -48,10 +54,11 @@ final class Board: BoardProtocol {
         self.view = view
         self.config = config
     }
+}
 
-    // MARK: Functions
-
-    func set(strategist: inout NCStrategy) {
+// MARK: - BoardProtocol
+extension Board {
+    func set(strategist: inout GameModelStrategist) {
         strategist.gameModel = gameModel
     }
 
@@ -64,7 +71,7 @@ final class Board: BoardProtocol {
         }
         boxes.removeAll()
 
-        gameModel = NCBoard(chips: config)
+        gameModel = BoardGameModel(chips: config)
 
         for (index, chipsCount) in self.config.enumerated() {
 

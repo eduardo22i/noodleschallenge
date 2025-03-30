@@ -1,5 +1,5 @@
 //
-//  NCBoard.swift
+//  BoardLogic.swift
 //  Noodles Challenge
 //
 //  Created by Eduardo Irias on 3/4/25.
@@ -9,9 +9,9 @@
 import Foundation
 import GameplayKit
 
-class NCBoard: NSObject {
+class BoardGameModel: NSObject {
 
-    var currentPlayer: NCPlayer
+    var currentPlayer: Player
     static let width = 3
     static let height = 1
     static let countToWin = 1
@@ -20,10 +20,10 @@ class NCBoard: NSObject {
 
     init(chips: [Int]) {
         self.cells = chips
-        self.currentPlayer = NCPlayer.humanPlayer
+        self.currentPlayer = Player.humanPlayer
     }
 
-    func updateChips(from otherBoard: NCBoard) {
+    func updateChips(from otherBoard: BoardGameModel) {
         self.cells = otherBoard.cells
     }
 
@@ -40,7 +40,7 @@ class NCBoard: NSObject {
     }
 
     func isFull() -> Bool {
-        for column in 0..<NCBoard.width {
+        for column in 0..<BoardGameModel.width {
             if self.canRemoveChips(1, inColumn: column) {
                 return false
             }
@@ -48,15 +48,15 @@ class NCBoard: NSObject {
         return true
     }
 
-    func runCounts(for player: NCPlayer) -> [Int] {
+    func runCounts(for player: Player) -> [Int] {
         var counts: [Int] = []
         var totalRunCount = 0
 
-        for column in 0..<NCBoard.width {
+        for column in 0..<BoardGameModel.width {
             totalRunCount += chipsInColumn(column, row: 0)
         }
 
-        for column in (0..<NCBoard.width).reversed() {
+        for column in (0..<BoardGameModel.width).reversed() {
             let chipsCount = self.chipsInColumn(column, row: 0)
             for colCount in (1...chipsCount).reversed() {
                 if (totalRunCount - colCount) == 1 {

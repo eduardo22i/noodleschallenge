@@ -14,7 +14,7 @@ class NCMove: NSObject, GKGameModelUpdate {
     
     var column: Int
     var chipsCount: Int
-    var player: NCPlayer?
+    var player: Player?
 
     init(column: Int, chipsCount: Int) {
         self.column = column
@@ -26,15 +26,15 @@ class NCMove: NSObject, GKGameModelUpdate {
     }
 }
 
-extension NCPlayer: GKGameModelPlayer {
+extension Player: GKGameModelPlayer {
     var playerId: Int {
         return type.rawValue
     }
 }
 
-extension NCBoard: GKGameModel {
+extension BoardGameModel: GKGameModel {
     var players: [any GKGameModelPlayer]? {
-        NCPlayer.allPlayers
+        Player.allPlayers
     }
 
     var activePlayer: (any GKGameModelPlayer)? {
@@ -42,28 +42,28 @@ extension NCBoard: GKGameModel {
     }
 
     func copy(with zone: NSZone? = nil) -> Any {
-        let copy = NCBoard(chips: cells)
+        let copy = BoardGameModel(chips: cells)
         copy.setGameModel(self)
         return copy
     }
 
     func setGameModel(_ gameModel: any GKGameModel) {
-        guard let gameModel = gameModel as? NCBoard else { return }
+        guard let gameModel = gameModel as? BoardGameModel else { return }
         updateChips(from: gameModel)
         currentPlayer = gameModel.currentPlayer
     }
 
     func gameModelUpdates(for player: any GKGameModelPlayer) -> [any GKGameModelUpdate]? {
-        guard let player = player as? NCPlayer else { return nil }
+        guard let player = player as? Player else { return nil }
 
         var moves: [NCMove] = []
         var totalRunCount = 0
 
-        for column in 0..<NCBoard.width {
+        for column in 0..<BoardGameModel.width {
             totalRunCount += self.chipsInColumn(column, row: 0)
         }
 
-        for column in 0..<NCBoard.width {
+        for column in 0..<BoardGameModel.width {
             let currentRunCount = totalRunCount
             let chipsInColumn = self.chipsInColumn(column, row: 0)
             if chipsInColumn >= 1 {
@@ -86,48 +86,46 @@ extension NCBoard: GKGameModel {
         self.removeChips(gameModelUpdate.chipsCount, inColumn: gameModelUpdate.column)
 
         var totalRunCount = 0
-        for column in 0..<NCBoard.width {
+        for column in 0..<BoardGameModel.width {
             totalRunCount += self.chipsInColumn(column, row: 0)
         }
 
-        if totalRunCount != NCBoard.countToWin {
+        if totalRunCount != BoardGameModel.countToWin {
             let opponent = currentPlayer.opponent
             self.currentPlayer = opponent
         }
     }
 
     func isWin(for player: any GKGameModelPlayer) -> Bool {
-        guard let player = player as? NCPlayer else { return false }
+        guard let player = player as? Player else { return false }
 
         var totalRunCount = 0
-        for column in 0..<NCBoard.width {
+        for column in 0..<BoardGameModel.width {
             totalRunCount += self.chipsInColumn(column, row: 0)
         }
 
-        return totalRunCount == NCBoard.countToWin && player == self.currentPlayer
+        return totalRunCount == BoardGameModel.countToWin && player == self.currentPlayer
     }
 
     func isLoss(for player: any GKGameModelPlayer) -> Bool {
-        guard let player = player as? NCPlayer else { return false }
+        guard let player = player as? Player else { return false }
         return self.isWin(for: player.opponent)
     }
 
     func score(for player: any GKGameModelPlayer) -> Int {
-        guard let player = player as? NCPlayer else { return 0 }
+        guard let player = player as? Player else { return 0 }
 
         var totalRunCount = 0
-        for column in 0..<NCBoard.width {
+        for column in 0..<BoardGameModel.width {
             totalRunCount += self.chipsInColumn(column, row: 0)
         }
 
-        if totalRunCount == NCBoard.countToWin && self.currentPlayer == player {
+        if totalRunCount == BoardGameModel.countToWin && self.currentPlayer == player {
             return 1
-        } else if totalRunCount == NCBoard.countToWin && self.currentPlayer != player {
+        } else if totalRunCount == BoardGameModel.countToWin && self.currentPlayer != player {
             return -1
         }
 
         return 0
     }
-
-
 }

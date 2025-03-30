@@ -1,5 +1,5 @@
 //
-//  NCPlayer.swift
+//  Player.swift
 //  Noodles Challenge
 //
 //  Created by Eduardo Irias on 3/4/25.
@@ -7,14 +7,14 @@
 //
 import Foundation
 
-enum NCType: Int {
+enum PlayerType: Int {
     case none = 0
     case human
     case computer
 }
 
-class NCPlayer: NSObject {
-    var type: NCType
+class Player: NSObject {
+    var type: PlayerType
     var name: String {
         switch type {
         case .human:
@@ -37,20 +37,20 @@ class NCPlayer: NSObject {
         }
     }
 
-    private init(type: NCType) {
+    private init(type: PlayerType) {
         self.type = type
         super.init()
     }
 
-    static var humanPlayer: NCPlayer {
+    static var humanPlayer: Player {
         player(for: .human)!
     }
 
-    static var computerPlayer: NCPlayer {
+    static var computerPlayer: Player {
          player(for: .computer)!
     }
 
-    private static func player(for type: NCType) -> NCPlayer? {
+    private static func player(for type: PlayerType) -> Player? {
         switch type {
         case .none:
             nil
@@ -61,18 +61,17 @@ class NCPlayer: NSObject {
         }
     }
 
-    static let allPlayers: [NCPlayer] = [
-            NCPlayer(type: .human),
-            NCPlayer(type: .computer)
+    static let allPlayers: [Player] = [
+            Player(type: .human),
+            Player(type: .computer)
     ]
-    
 
-    var opponent: NCPlayer {
+    var opponent: Player {
         switch type {
         case .human:
-            return NCPlayer.computerPlayer
+            return Player.computerPlayer
         case .computer:
-            return NCPlayer.humanPlayer
+            return Player.humanPlayer
         default:
             fatalError("Not a valid player")
         }

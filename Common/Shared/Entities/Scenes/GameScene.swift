@@ -13,7 +13,7 @@ protocol GameScene: AnyObject {
     var view: GameSceneView { get }
 
     var state: GameState { get }
-    var strategist: any NCStrategy { get }
+    var strategist: any GameModelStrategist { get }
 
     var board: BoardProtocol { get set }
     var enemy: Enemy { get set }
@@ -54,7 +54,7 @@ final class GameSceneLogic: GameScene {
         }
     }
 
-    var strategist: any NCStrategy = GKMinmaxStrategist()
+    var strategist: any GameModelStrategist = GKMinmaxStrategist()
 
     var board: BoardProtocol
     var enemy: Enemy

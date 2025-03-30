@@ -1,5 +1,5 @@
 //
-//  NCStrategy.swift
+//  GameModelStrategist.swift
 //  Noodles Challenge
 //
 //  Created by Eduardo Irias on 3/30/25.
@@ -8,10 +8,10 @@
 
 import GameplayKit
 
-protocol NCStrategy: AnyObject {
+protocol GameModelStrategist: AnyObject {
     var maxLookAheadDepth: Int { get set }
     var gameModel: (any GKGameModel)? { get set }
     func bestMoveForActivePlayer() -> (any GKGameModelUpdate)?
 }
 
-extension GKMinmaxStrategist: NCStrategy { }
+extension GKMinmaxStrategist: GameModelStrategist { }
