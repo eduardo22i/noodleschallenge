@@ -2,6 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "dialog.enemy.celebrating" : {
+      "comment" : "Enemy's reaction when they win.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -13,6 +14,7 @@
       }
     },
     "dialog.enemy.crying" : {
+      "comment" : "Enemy's reaction when they lose.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -24,6 +26,7 @@
       }
     },
     "dialog.enemy.instructions_1" : {
+      "comment" : "First instruction explaining the rules of the game.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -35,6 +38,7 @@
       }
     },
     "dialog.enemy.instructions_2" : {
+      "comment" : "Second instruction about the boxes and coins.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -46,6 +50,7 @@
       }
     },
     "dialog.enemy.instructions_3" : {
+      "comment" : "Third instruction about the player's turn.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -57,6 +62,7 @@
       }
     },
     "dialog.enemy.instructions_4" : {
+      "comment" : "Fourth instruction explaining how to lose the game.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -68,6 +74,7 @@
       }
     },
     "dialog.enemy.instructions_5" : {
+      "comment" : "Instruction prompting the player to start.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -79,6 +86,7 @@
       }
     },
     "dialog.enemy.instructions_6" : {
+      "comment" : "Placeholder instruction with ellipsis.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -90,6 +98,7 @@
       }
     },
     "dialog.enemy.thinking_1" : {
+      "comment" : "Enemy taunting the player.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -101,6 +110,7 @@
       }
     },
     "dialog.enemy.thinking_2" : {
+      "comment" : "Enemy mocking the player.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -112,6 +122,7 @@
       }
     },
     "dialog.enemy.thinking_3" : {
+      "comment" : "Enemy encouraging the player to try harder.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -123,6 +134,7 @@
       }
     },
     "dialog.enemy.thinking_4" : {
+      "comment" : "Enemy predicting the player's loss.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -134,6 +146,7 @@
       }
     },
     "dialog.enemy.waiting_1" : {
+      "comment" : "Enemy asking for time to think.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -145,6 +158,7 @@
       }
     },
     "dialog.enemy.waiting_2" : {
+      "comment" : "Enemy mocking the player's move.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -156,6 +170,7 @@
       }
     },
     "dialog.enemy.waiting_3" : {
+      "comment" : "Enemy mocking the player's mistakes.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -167,6 +182,7 @@
       }
     },
     "dialog.enemy.waiting_4" : {
+      "comment" : "Enemy thanking the player for helping them win.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -178,6 +194,7 @@
       }
     },
     "dialog.enemy.waiting_5" : {
+      "comment" : "Enemy analyzing the situation.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -189,7 +206,7 @@
       }
     },
     "dialog.enemy.wakeUp_1" : {
-      "comment" : "Localizable.strings\n  Noodles Challenge\n\n  Created by Eduardo Irias on 7/12/23.\n  Copyright © 2023 Estamp. All rights reserved.",
+      "comment" : "Enemy waking up from sleep.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -201,6 +218,7 @@
       }
     },
     "dialog.enemy.wakeUp_2" : {
+      "comment" : "Enemy reacting to a new challenger.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -212,6 +230,7 @@
       }
     },
     "dialog.enemy.wakeUp_3" : {
+      "comment" : "Enemy promising a reward if the player wins.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
