@@ -7,14 +7,6 @@
 //
 
 import Foundation
-import GameplayKit
-
-extension GKMinmaxStrategist: NCStrategy { }
-protocol NCStrategy: AnyObject {
-    var maxLookAheadDepth: Int { get set }
-    var gameModel: (any GKGameModel)? { get set }
-    func bestMoveForActivePlayer() -> (any GKGameModelUpdate)?
-}
 
 protocol BoardProtocol {
 
@@ -30,6 +22,10 @@ protocol BoardProtocol {
     func remove(chips: [any Chip])
 
     func isWinForCurrentPlayer() -> Bool
+}
+
+protocol BoardView: AnyObject {
+    func addBox(index: Int) -> any BoxView
 }
 
 final class Board: BoardProtocol {
@@ -93,8 +89,4 @@ final class Board: BoardProtocol {
     func isWinForCurrentPlayer() -> Bool {
         gameModel.isWin(for: gameModel.currentPlayer)
     }
-}
-
-protocol BoardView: AnyObject {
-    func addBox(index: Int) -> any BoxView
 }
