@@ -22,6 +22,12 @@
             "state" : "translated",
             "value" : "Lalala! J'ai gagné!"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lalala! Ik heb gewonnen!"
+          }
         }
       }
     },
@@ -45,6 +51,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Oh mon Die! Ce n'est pas possible! NOOO! \nTu as gagné les NOUILLES!"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OMG! Dit is niet mogelijk! NOOO! \nJe hebt de NOEDELS gewonnen!"
           }
         }
       }
@@ -70,6 +82,12 @@
             "state" : "translated",
             "value" : "Les règles sont simples. \nNous allons jouer à tour de rôle."
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De regels zijn simpel. \nWe gaan om de beurt spelen."
+          }
         }
       }
     },
@@ -93,6 +111,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nous avons %d boîtes,\nchaque boîte contient un nombre différent de pièces."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We hebben %d dozen,\nelke doos heeft een verschillend aantal munten."
           }
         }
       }
@@ -118,6 +142,12 @@
             "state" : "translated",
             "value" : "À ton tour, \nretire toutes les pièces que tu veux \nmais seulement d'une boîte."
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tijdens jouw beurt, \nverwijder alle munten die je wilt \nmaar alleen uit 1 doos."
+          }
         }
       }
     },
@@ -141,6 +171,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Le joueur qui prend\n la DERNIÈRE pièce de TOUTES les boîtes, perd la partie."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De speler die de \nLAATSTE munt uit ALLE dozen pakt, verliest het spel."
           }
         }
       }
@@ -166,6 +202,12 @@
             "state" : "translated",
             "value" : "S'il te plaît, commence!"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alsjeblieft, begin!"
+          }
         }
       }
     },
@@ -186,6 +228,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "..."
+          }
+        },
+        "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "..."
@@ -214,6 +262,12 @@
             "state" : "translated",
             "value" : "Haha! Effrayé?"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haha! Bang?"
+          }
         }
       }
     },
@@ -237,6 +291,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "S'il te plaît, ne pleure pas!"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alsjeblieft, niet huilen!"
           }
         }
       }
@@ -262,6 +322,12 @@
             "state" : "translated",
             "value" : "D'accord... À ton tour, essaie plus fort!"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oké... Jouw beurt, probeer harder!"
+          }
         }
       }
     },
@@ -285,6 +351,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "On dirait que tu vas perdre"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Het lijkt erop dat je gaat verliezen"
           }
         }
       }
@@ -310,6 +382,12 @@
             "state" : "translated",
             "value" : "Laisse-moi réfléchir!"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laat me nadenken!"
+          }
         }
       }
     },
@@ -333,6 +411,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "LOL ! C'était quoi ce coup?"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LOL! Wat was die zet?"
           }
         }
       }
@@ -358,6 +442,12 @@
             "state" : "translated",
             "value" : "Je suppose que tu aimes faire des erreurs"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ik denk dat je graag fouten maakt"
+          }
         }
       }
     },
@@ -381,6 +471,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Merci! Je suis plus proche de ma victoire"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bedankt! Ik ben dichter bij mijn overwinning"
           }
         }
       }
@@ -406,6 +502,12 @@
             "state" : "translated",
             "value" : "Laisse-moi analyser ça..."
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laat me dit analyseren..."
+          }
         }
       }
     },
@@ -426,6 +528,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "... ZZZ"
+          }
+        },
+        "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "... ZZZ"
@@ -454,6 +562,12 @@
             "state" : "translated",
             "value" : "Ahh! Un nouveau challenger? \nD'accord! Je gagne toujours!"
           }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ahh! Een nieuwe uitdager? \nOké! Ik win altijd!"
+          }
         }
       }
     },
@@ -477,6 +591,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bats-moi et je te donnerai les meilleures NOUILLES!"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versla me en ik geef je de beste NOEDELS!"
           }
         }
       }
