@@ -10,6 +10,12 @@
             "state" : "translated",
             "value" : "Lalala! I won!"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Lalala! ¡He ganado!"
+          }
         }
       }
     },
@@ -21,6 +27,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "OMG! This is not possible! NOOO! \nYou won the NOODLES!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Dios mío! ¡Esto no es posible! ¡NOOO! \n¡Has ganado los FIDEOS!"
           }
         }
       }
@@ -34,6 +46,12 @@
             "state" : "translated",
             "value" : "The rules are simple. \nWe are going to take turns."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las reglas son simples. \nVamos a turnarnos."
+          }
         }
       }
     },
@@ -45,6 +63,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "We have %d boxes,\neach box have different amount of coins."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tenemos %d cajas,\ncada caja tiene una cantidad diferente de monedas."
           }
         }
       }
@@ -58,6 +82,12 @@
             "state" : "translated",
             "value" : "In your turn, \nremove all the coins you want \nbut only from 1 box."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En tu turno, \nquita todas las monedas que quieras, \npero solo de una caja."
+          }
         }
       }
     },
@@ -69,6 +99,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The player who picks\n the LAST coin from ALL boxes, loses the game."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El jugador que coja\n la ÚLTIMA moneda de TODAS las cajas, pierde el juego."
           }
         }
       }
@@ -82,6 +118,12 @@
             "state" : "translated",
             "value" : "Please, start!"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Por favor, empieza!"
+          }
         }
       }
     },
@@ -90,6 +132,12 @@
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "..."
+          }
+        },
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "..."
@@ -106,6 +154,12 @@
             "state" : "translated",
             "value" : "Haha! Scared?"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Jaja! ¿Asustado?"
+          }
         }
       }
     },
@@ -117,6 +171,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Please, don't cry!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Por favor, no llores!"
           }
         }
       }
@@ -130,6 +190,12 @@
             "state" : "translated",
             "value" : "Okay... Your turn, try harder!"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vale... Tu turno, ¡intenta más fuerte!"
+          }
         }
       }
     },
@@ -141,6 +207,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Looks like you will lose"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parece que vas a perder"
           }
         }
       }
@@ -154,6 +226,12 @@
             "state" : "translated",
             "value" : "Let me think!"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Déjame pensar!"
+          }
         }
       }
     },
@@ -165,6 +243,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "LOL! What was that move?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Jaja! ¿Qué fue ese movimiento?"
           }
         }
       }
@@ -178,6 +262,12 @@
             "state" : "translated",
             "value" : "I guess you enjoy making mistakes"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supongo que disfrutas cometiendo errores"
+          }
         }
       }
     },
@@ -189,6 +279,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Thanks! I'm closer to my victory"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Gracias! Estoy más cerca de mi victoria"
           }
         }
       }
@@ -202,6 +298,12 @@
             "state" : "translated",
             "value" : "Let me analyze this..."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Déjame analizar esto..."
+          }
         }
       }
     },
@@ -210,6 +312,12 @@
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "... ZZZ"
+          }
+        },
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "... ZZZ"
@@ -226,6 +334,12 @@
             "state" : "translated",
             "value" : "Ahh! A new challenger? \nOkay! I Always win!"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Ahh! ¿Un nuevo retador? \n¡Vale! ¡Siempre gano!"
+          }
         }
       }
     },
@@ -237,6 +351,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Win to me and I'll give you the best NOODLES!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gáname y te daré los mejores FIDEOS!"
           }
         }
       }
