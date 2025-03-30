@@ -283,6 +283,7 @@
 				en,
 				Base,
 				es,
+				fr,
 			);
 			mainGroup = F92F5D0621CA92AF0033D560;
 			productRefGroup = F92F5D1021CA92AF0033D560 /* Products */;

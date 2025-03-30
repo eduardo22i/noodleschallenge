@@ -16,6 +16,12 @@
             "state" : "translated",
             "value" : "¡Lalala! ¡He ganado!"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lalala! J'ai gagné!"
+          }
         }
       }
     },
@@ -33,6 +39,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¡Dios mío! ¡Esto no es posible! ¡NOOO! \n¡Has ganado los FIDEOS!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oh mon Die! Ce n'est pas possible! NOOO! \nTu as gagné les NOUILLES!"
           }
         }
       }
@@ -52,6 +64,12 @@
             "state" : "translated",
             "value" : "Las reglas son simples. \nVamos a turnarnos."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les règles sont simples. \nNous allons jouer à tour de rôle."
+          }
         }
       }
     },
@@ -69,6 +87,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tenemos %d cajas,\ncada caja tiene una cantidad diferente de monedas."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nous avons %d boîtes,\nchaque boîte contient un nombre différent de pièces."
           }
         }
       }
@@ -88,6 +112,12 @@
             "state" : "translated",
             "value" : "En tu turno, \nquita todas las monedas que quieras, \npero solo de una caja."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À ton tour, \nretire toutes les pièces que tu veux \nmais seulement d'une boîte."
+          }
         }
       }
     },
@@ -105,6 +135,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El jugador que coja\n la ÚLTIMA moneda de TODAS las cajas, pierde el juego."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le joueur qui prend\n la DERNIÈRE pièce de TOUTES les boîtes, perd la partie."
           }
         }
       }
@@ -124,10 +160,16 @@
             "state" : "translated",
             "value" : "¡Por favor, empieza!"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S'il te plaît, commence!"
+          }
         }
       }
     },
-    "dialog.eney.instructions_6" : {
+    "dialog.enemy.instructions_6" : {
       "comment" : "Placeholder instruction with ellipsis.",
       "extractionState" : "migrated",
       "localizations" : {
@@ -138,6 +180,12 @@
           }
         },
         "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "..."
+          }
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "..."
@@ -160,6 +208,12 @@
             "state" : "translated",
             "value" : "¡Jaja! ¿Asustado?"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haha! Effrayé?"
+          }
         }
       }
     },
@@ -177,6 +231,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¡Por favor, no llores!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S'il te plaît, ne pleure pas!"
           }
         }
       }
@@ -196,11 +256,17 @@
             "state" : "translated",
             "value" : "Vale... Tu turno, ¡intenta más fuerte!"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "D'accord... À ton tour, essaie plus fort!"
+          }
         }
       }
     },
     "dialog.enemy.thinking_4" : {
-      "comment" : "Enmy predicting the player's loss.",
+      "comment" : "Enemy predicting the player's loss.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -213,6 +279,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Parece que vas a perder"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On dirait que tu vas perdre"
           }
         }
       }
@@ -232,6 +304,12 @@
             "state" : "translated",
             "value" : "¡Déjame pensar!"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laisse-moi réfléchir!"
+          }
         }
       }
     },
@@ -249,6 +327,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¡Jaja! ¿Qué fue ese movimiento?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LOL ! C'était quoi ce coup?"
           }
         }
       }
@@ -268,6 +352,12 @@
             "state" : "translated",
             "value" : "Supongo que disfrutas cometiendo errores"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je suppose que tu aimes faire des erreurs"
+          }
         }
       }
     },
@@ -285,6 +375,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¡Gracias! Estoy más cerca de mi victoria"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Merci! Je suis plus proche de ma victoire"
           }
         }
       }
@@ -304,6 +400,12 @@
             "state" : "translated",
             "value" : "Déjame analizar esto..."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laisse-moi analyser ça..."
+          }
         }
       }
     },
@@ -318,6 +420,12 @@
           }
         },
         "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "... ZZZ"
+          }
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "... ZZZ"
@@ -340,6 +448,12 @@
             "state" : "translated",
             "value" : "¡Ahh! ¿Un nuevo retador? \n¡Vale! ¡Siempre gano!"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ahh! Un nouveau challenger? \nD'accord! Je gagne toujours!"
+          }
         }
       }
     },
@@ -357,6 +471,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gáname y te daré los mejores FIDEOS!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bats-moi et je te donnerai les meilleures NOUILLES!"
           }
         }
       }
