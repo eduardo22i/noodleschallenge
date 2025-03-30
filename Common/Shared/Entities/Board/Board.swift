@@ -12,7 +12,7 @@ protocol Board {
 
     var view: any BoardView { get set }
 
-    var gameModel: AAPLBoard! { get set }
+    var gameModel: NCBoard! { get set }
     var boxes: [any Box] { get }
 
     func reset()
@@ -23,12 +23,12 @@ final class BoardLogic: Board {
 
     var view: any BoardView
 
-    var gameModel: AAPLBoard!
+    var gameModel: NCBoard!
     var boxes: [any Box] = []
 
     private var config = [Int]() {
         didSet {
-            gameModel = AAPLBoard(chips: config as [NSNumber])
+            gameModel = NCBoard(chips: config)
         }
     }
 
@@ -48,7 +48,7 @@ final class BoardLogic: Board {
         }
         boxes.removeAll()
 
-        gameModel = AAPLBoard(chips: config as [NSNumber])
+        gameModel = NCBoard(chips: config)
 
         for (index, chipsCount) in self.config.enumerated() {
 

@@ -202,7 +202,9 @@ final class GameSceneLogic: GameScene {
         enemy.state = .thinking
 
         DispatchQueue.global(qos: .default).async {
-            let aiMove : AAPLMove = self.strategist.bestMove(for: self.board.gameModel.currentPlayer) as! AAPLMove
+            guard let aiMove: NCMove = self.strategist.bestMove(for: self.board.gameModel.currentPlayer) as? NCMove else {
+                return
+            }
 
             for index in 0..<aiMove.chipsCount {
                 self.currentChips.append(self.board.boxes[aiMove.column].chips[index])
