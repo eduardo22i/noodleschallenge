@@ -127,7 +127,7 @@
         }
       }
     },
-    "dialog.enemy.instructions_6" : {
+    "dialog.eney.instructions_6" : {
       "comment" : "Placeholder instruction with ellipsis.",
       "extractionState" : "migrated",
       "localizations" : {
@@ -200,7 +200,7 @@
       }
     },
     "dialog.enemy.thinking_4" : {
-      "comment" : "Enemy predicting the player's loss.",
+      "comment" : "Enmy predicting the player's loss.",
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
