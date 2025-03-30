@@ -16,7 +16,7 @@ struct ContentView: View {
 
             let logic = GameSceneLogic(
                 view: scene,
-                board: BoardLogic(view: BoardSK(), config: GameSceneLogic.config),
+                board: Board(view: BoardSK(), config: GameSceneLogic.config),
                 enemy: EnemyLogic(view: EnemySK(name: "Obinoby"))
             )
 

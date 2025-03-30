@@ -10,6 +10,7 @@ import Foundation
 import GameplayKit
 
 class NCBoard: NSObject {
+
     var currentPlayer: NCPlayer
     static let width = 3
     static let height = 1

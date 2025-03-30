@@ -21,7 +21,7 @@ final class BoardSK: SKSpriteNode, BoardView {
 
     // MARK: Functions
 
-    func addBox(index: Int, x: CGFloat, y: CGFloat) -> any BoxView {
+    func addBox(index: Int) -> any BoxView {
 
         let type: BoxType = {
             switch index {
@@ -36,6 +36,9 @@ final class BoardSK: SKSpriteNode, BoardView {
             }
 
         }()
+
+        let x: CGFloat = index == 0 ? -160 : (index == 1 ? 200 : 0)
+        let y: CGFloat = index == 0 ? -40 : (index == 2 ? 200 : -40)
 
         let box = BoxSK(index: index, type: type)
         box.position.x = x

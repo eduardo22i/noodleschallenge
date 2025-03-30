@@ -13,9 +13,9 @@ protocol GameScene: AnyObject {
     var view: GameSceneView { get }
 
     var state: GameState { get }
-    var strategist: GKMinmaxStrategist { get }
+    var strategist: any NCStrategy { get }
 
-    var board: Board { get set }
+    var board: BoardProtocol { get set }
     var enemy: Enemy { get set }
     var currentChips: [any Chip] { get }
 
@@ -54,16 +54,16 @@ final class GameSceneLogic: GameScene {
         }
     }
 
-    let strategist = GKMinmaxStrategist()
+    var strategist: any NCStrategy = GKMinmaxStrategist()
 
-    var board: Board
+    var board: BoardProtocol
     var enemy: Enemy
 
     var currentChips: [any Chip] = [Chip]()
 
     var dialogNode: (any Dialog)! = nil
 
-    init(view: GameSceneView, state: GameState = GameState.playing, board: Board, enemy: Enemy) {
+    init(view: GameSceneView, state: GameState = GameState.playing, board: BoardProtocol, enemy: Enemy) {
         self.view = view
         self.state = state
         self.board = board
@@ -113,10 +113,7 @@ final class GameSceneLogic: GameScene {
     }
 
     private func isWinner() -> Bool {
-        if board.gameModel.isWin(for: board.gameModel.currentPlayer) {
-            return true
-        }
-        return false
+        board.isWinForCurrentPlayer()
     }
 
     func removeSelectedChipsAndEvaluateWinner() -> Bool {
@@ -188,7 +185,7 @@ final class GameSceneLogic: GameScene {
     func resetBoard() {
         currentChips.removeAll()
         board.reset()
-        strategist.gameModel = board.gameModel
+        board.set(strategist: &strategist)
         state = .playing
     }
 
@@ -198,11 +195,11 @@ final class GameSceneLogic: GameScene {
 
         state = .thinking
 
-        board.gameModel.currentPlayer = self.board.gameModel.currentPlayer.opponent
+        board.switchPlayer()
         enemy.state = .thinking
 
         DispatchQueue.global(qos: .default).async {
-            guard let aiMove: NCMove = self.strategist.bestMove(for: self.board.gameModel.currentPlayer) as? NCMove else {
+            guard let aiMove: NCMove = self.strategist.bestMoveForActivePlayer() as? NCMove else {
                 return
             }
 
@@ -230,7 +227,7 @@ final class GameSceneLogic: GameScene {
                 }
 
 
-                self.board.gameModel.currentPlayer = self.board.gameModel.currentPlayer.opponent
+                self.board.switchPlayer()
 
                 self.dialogNode.state = .thinking
                 self.dialogNode.setRandomDialogFromState()

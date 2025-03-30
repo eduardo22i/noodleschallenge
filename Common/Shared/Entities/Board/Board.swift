@@ -7,23 +7,39 @@
 //
 
 import Foundation
+import GameplayKit
 
-protocol Board {
+extension GKMinmaxStrategist: NCStrategy { }
+protocol NCStrategy: AnyObject {
+    var maxLookAheadDepth: Int { get set }
+    var gameModel: (any GKGameModel)? { get set }
+    func bestMoveForActivePlayer() -> (any GKGameModelUpdate)?
+}
+
+protocol BoardProtocol {
 
     var view: any BoardView { get set }
 
-    var gameModel: NCBoard! { get set }
+    var currentPlayer: NCPlayer { get }
     var boxes: [any Box] { get }
 
+    func set(strategist: inout NCStrategy)
+
     func reset()
+    func switchPlayer()
     func remove(chips: [any Chip])
+
+    func isWinForCurrentPlayer() -> Bool
 }
 
-final class BoardLogic: Board {
+final class Board: BoardProtocol {
 
     var view: any BoardView
 
     var gameModel: NCBoard!
+    var currentPlayer: NCPlayer {
+        gameModel.currentPlayer
+    }
     var boxes: [any Box] = []
 
     private var config = [Int]() {
@@ -39,6 +55,10 @@ final class BoardLogic: Board {
 
     // MARK: Functions
 
+    func set(strategist: inout NCStrategy) {
+        strategist.gameModel = gameModel
+    }
+
     func reset() {
         for box in boxes {
             box.chips.forEach({ (chip) in
@@ -52,16 +72,17 @@ final class BoardLogic: Board {
 
         for (index, chipsCount) in self.config.enumerated() {
 
-            let x = index == 0 ? -160 : (index == 1 ? 200 : 0)
-            let y = index == 0 ? -40 : (index == 2 ? 200 : -40)
-
-            let boxView = view.addBox(index: index, x: CGFloat(x), y: CGFloat(y))
+            let boxView = view.addBox(index: index)
             let box = BoxLogic(view: boxView, index: index)
             box.addCoins(count: chipsCount)
             boxes.append(box)
         }
     }
 
+    func switchPlayer() {
+        gameModel.currentPlayer = gameModel.currentPlayer.opponent
+    }
+    
     func remove(chips: [any Chip]) {
         guard let index = chips.first?.boxIndex else { return }
 
@@ -69,8 +90,11 @@ final class BoardLogic: Board {
         gameModel.removeChips(chips.count, inColumn: index)
     }
 
+    func isWinForCurrentPlayer() -> Bool {
+        gameModel.isWin(for: gameModel.currentPlayer)
+    }
 }
 
 protocol BoardView: AnyObject {
-    func addBox(index: Int, x: CGFloat, y: CGFloat) -> any BoxView
+    func addBox(index: Int) -> any BoxView
 }
