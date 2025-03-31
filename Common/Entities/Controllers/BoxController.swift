@@ -1,5 +1,5 @@
 //
-//  Box.swift
+//  BoxController.swift
 //  Tea Challenge
 //
 //  Created by Eduardo Irias on 12/23/18.
@@ -26,25 +26,25 @@ enum BoxType: String {
     }
 }
 
-protocol Box {
+protocol BoxControllable {
     var view: any BoxView { get }
 
     var index: Int { get }
     var type: BoxType { get }
-    var chips: [any Chip] { get }
+    var chips: [any ChipControllable] { get }
 
     func addCoins(count: Int)
-    func remove(chips: [any Chip])
+    func remove(chips: [any ChipControllable])
 }
 
-final class BoxLogic: Box {
+final class BoxController: BoxControllable {
 
     var view: any BoxView
 
     var index: Int
 
     var type: BoxType
-    var chips: [any Chip] = [Chip]()
+    var chips: [any ChipControllable] = [ChipControllable]()
 
     init(view: any BoxView, index: Int, type: BoxType = .elseB) {
         self.view = view
@@ -52,7 +52,7 @@ final class BoxLogic: Box {
         self.index = index
     }
 
-    func remove(chips: [any  Chip]) {
+    func remove(chips: [any  ChipControllable]) {
         self.chips.removeAll { chip -> Bool in
             return chips.contains { removeChip in
                 chip.index == removeChip.index
@@ -64,24 +64,10 @@ final class BoxLogic: Box {
 
     func addCoins(count: Int) {
         for coinIndex in 0..<count {
-            let separation = 52.0
-            let offset = Double(coinIndex) / Double(count)
-            let angle =  offset * Double.pi * 2.0
-            let x = sin(angle) * separation + self.type.offsetX
-            let y = cos(angle) * separation + 30.0
-
-            let chipView = view.addChip(x: CGFloat(x), y: CGFloat(y), index: coinIndex)
-            let chip = ChipLogic(view: chipView, boxIndex: index, index: coinIndex)
-            chipView.logic = chip
+            let chipView = view.addChip(index: coinIndex, total: count)
+            let chip = ChipController(view: chipView, boxIndex: index, index: coinIndex)
+            chipView.chip = chip
             chips.append(chip)
         }
     }
-}
-
-protocol BoxView: AnyObject {
-    func remove(chips: [any ChipView])
-    func addChip(x: CGFloat, y: CGFloat, index: Int) -> ChipView
-
-    /// Remove from parent to clean up the scene
-    func removeFromParent()
 }

@@ -1,5 +1,5 @@
 //
-//  Board.swift
+//  BoardController.swift
 //  Tea Challenge
 //
 //  Created by Eduardo Irias on 12/23/18.
@@ -8,41 +8,27 @@
 
 import Foundation
 
-protocol BoardProtocol {
+protocol BoardControllable {
 
     var view: any BoardView { get set }
 
-    var currentPlayer: Player { get }
-    var boxes: [any Box] { get }
+    var boxes: [any BoxControllable] { get }
 
     func set(strategist: inout GameModelStrategist)
 
     func reset()
     func switchPlayer()
-    func remove(chips: [any Chip])
+    func remove(chips: [any ChipControllable])
 
     func isWinForCurrentPlayer() -> Bool
 }
 
-protocol BoardView: AnyObject {
-    func addBox(index: Int) -> any BoxView
-}
-
-struct BoardSetup {
-    let width = 3
-    let height = 1
-    let countToWin = 1
-}
-
-final class Board: BoardProtocol {
+final class BoardController: BoardControllable {
 
     var view: any BoardView
 
     var gameModel: BoardGameModel!
-    var currentPlayer: Player {
-        gameModel.currentPlayer
-    }
-    var boxes: [any Box] = []
+    var boxes: [any BoxControllable] = []
 
     private var config = [Int]() {
         didSet {
@@ -56,8 +42,8 @@ final class Board: BoardProtocol {
     }
 }
 
-// MARK: - BoardProtocol
-extension Board {
+// MARK: - BoardControllable
+extension BoardController {
     func set(strategist: inout GameModelStrategist) {
         strategist.gameModel = gameModel
     }
@@ -76,7 +62,7 @@ extension Board {
         for (index, chipsCount) in self.config.enumerated() {
 
             let boxView = view.addBox(index: index)
-            let box = BoxLogic(view: boxView, index: index)
+            let box = BoxController(view: boxView, index: index)
             box.addCoins(count: chipsCount)
             boxes.append(box)
         }
@@ -86,7 +72,7 @@ extension Board {
         gameModel.currentPlayer = gameModel.currentPlayer.opponent
     }
     
-    func remove(chips: [any Chip]) {
+    func remove(chips: [any ChipControllable]) {
         guard let index = chips.first?.boxIndex else { return }
 
         boxes[index].remove(chips: chips)

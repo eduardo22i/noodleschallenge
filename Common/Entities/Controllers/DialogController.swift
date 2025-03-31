@@ -1,5 +1,5 @@
 //
-//  Dialog.swift
+//  DialogController.swift
 //  Noodles Challenge Mac
 //
 //  Created by Eduardo Irias on 12/24/18.
@@ -23,7 +23,7 @@ enum DialogState {
         case .instructions:
             return [
                 L10n.Dialog.Enemy.instructions1,
-                L10n.Dialog.Enemy.instructions2(GameSceneLogic.config.count),
+                L10n.Dialog.Enemy.instructions2(GameSceneController.config.count),
                 L10n.Dialog.Enemy.instructions3,
                 L10n.Dialog.Enemy.instructions4,
                 L10n.Dialog.Enemy.instructions5,
@@ -56,7 +56,7 @@ enum DialogState {
     }
 }
 
-protocol Dialog {
+protocol DialogControllable {
     var view: any DialogView { get set }
 
     var state: DialogState { get set }
@@ -70,7 +70,7 @@ protocol Dialog {
     func hideDialog()
 }
 
-final class DialogLogic: Dialog {
+final class DialogController: DialogControllable {
     internal init(view: any DialogView, state: DialogState = .wakeUp, currentDialogIndex: Int = 0) {
         self.view = view
         self.state = state
@@ -106,12 +106,4 @@ final class DialogLogic: Dialog {
     func hideDialog() {
         view.isHidden = true
     }
-}
-
-protocol DialogView: AnyObject {
-    associatedtype Image
-
-    var image: Image! { get }
-    var text: String { get set }
-    var isHidden: Bool { get set }
 }

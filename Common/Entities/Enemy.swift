@@ -62,12 +62,3 @@ final class EnemyLogic: Enemy {
     }
 }
 
-protocol EnemyView {
-    func stopAnimations()
-
-    func wakeUp()
-    func think()
-    func wait()
-    func celebrate()
-    func cry()
-}

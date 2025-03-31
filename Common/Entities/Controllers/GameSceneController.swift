@@ -1,5 +1,5 @@
 //
-//  GameScene.swift
+//  GameSceneController.swift
 //  Tea Challenge Mac
 //
 //  Created by Eduardo Irias on 12/19/18.
@@ -15,22 +15,22 @@ protocol GameScene: AnyObject {
     var state: GameState { get }
     var strategist: any GameModelStrategist { get }
 
-    var board: BoardProtocol { get set }
+    var board: BoardControllable { get set }
     var enemy: Enemy { get set }
-    var currentChips: [any Chip] { get }
+    var currentChips: [any ChipControllable] { get }
 
-    var dialogNode: (any Dialog)! { get set }
+    var dialogNode: (any DialogControllable)! { get set }
 
     func start()
-    func addToCurrentSelected(coin: Chip)
+    func addToCurrentSelected(coin: ChipControllable)
 
     func pressResetButton()
     func pressContinueButton()
-    func pressChip(chipView: ChipView)
+    func press(chip: ChipControllable)
     func pressScreen() -> Bool
 }
 
-final class GameSceneLogic: GameScene {
+final class GameSceneController: GameScene {
     static let config = [4,3,2]
 
     var view: GameSceneView
@@ -56,14 +56,14 @@ final class GameSceneLogic: GameScene {
 
     var strategist: any GameModelStrategist = GKMinmaxStrategist()
 
-    var board: BoardProtocol
+    var board: BoardControllable
     var enemy: Enemy
 
-    var currentChips: [any Chip] = [Chip]()
+    var currentChips: [any ChipControllable] = [ChipControllable]()
 
-    var dialogNode: (any Dialog)! = nil
+    var dialogNode: (any DialogControllable)! = nil
 
-    init(view: GameSceneView, state: GameState = GameState.playing, board: BoardProtocol, enemy: Enemy) {
+    init(view: GameSceneView, state: GameState = GameState.playing, board: BoardControllable, enemy: Enemy) {
         self.view = view
         self.state = state
         self.board = board
@@ -85,7 +85,7 @@ final class GameSceneLogic: GameScene {
         renderDialog()
     }
 
-    func addToCurrentSelected(coin: any Chip) {
+    func addToCurrentSelected(coin: any ChipControllable) {
         if enemy.state != .waiting {
             enemy.wait()
         }
@@ -155,13 +155,11 @@ final class GameSceneLogic: GameScene {
         renderDialog()
     }
 
-    func pressChip(chipView: ChipView) {
+    func press(chip: ChipControllable) {
         guard state == .playing else {
             return
         }
-        if let logic = chipView.logic {
-            self.addToCurrentSelected(coin: logic)
-        }
+        self.addToCurrentSelected(coin: chip)
     }
 
     func pressScreen() -> Bool {
@@ -258,16 +256,4 @@ final class GameSceneLogic: GameScene {
             dialogNode.resetDialog()
         }
     }
-}
-
-protocol GameSceneView: AnyObject {
-    var logic: GameScene? { get set }
-
-    func addEnemyView(_ enemyView: EnemyView)
-    func addBoardView(_ boardView: BoardView)
-
-    func disableContinueButton()
-    func hideContinueButton()
-    func hideButtons()
-    func showButtons()
 }

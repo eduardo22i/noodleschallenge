@@ -14,7 +14,7 @@ final class GameSceneSK: SKScene, GameSceneView {
         didSet {
             if let dialogSKNode = self.childNode(withName: "dialog") as? SKSpriteNode,
                let dialogNode = dialogSKNode as? (any DialogView) {
-                logic?.dialogNode = DialogLogic(view: dialogNode)
+                logic?.dialogNode = DialogController(view: dialogNode)
             }
         }
     }
@@ -80,8 +80,9 @@ final class GameSceneSK: SKScene, GameSceneView {
             logic?.pressContinueButton()
         }
 
-        if let chip = self.nodes(at: pos).first(where: { $0.name == "coin"}) as? ChipSK {
-            logic?.pressChip(chipView: chip)
+        if let chipView = self.nodes(at: pos).first(where: { $0.name == "coin"}) as? ChipSK,
+           let chip = chipView.chip {
+            logic?.press(chip: chip)
         }
     }
 

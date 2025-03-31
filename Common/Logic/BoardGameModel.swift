@@ -13,7 +13,6 @@ class BoardGameModel: NSObject {
 
     var currentPlayer: Player
     static let width = 3
-    static let height = 1
     static let countToWin = 1
 
     private(set) var cells: [Int]

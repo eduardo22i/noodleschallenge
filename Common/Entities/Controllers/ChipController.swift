@@ -1,5 +1,5 @@
 //
-//  Chip.swift
+//  ChipController.swift
 //  Tea Challenge
 //
 //  Created by Eduardo Irias on 12/23/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Chip: AnyObject {
+protocol ChipControllable: AnyObject {
     var view: any ChipView { get }
     var index: UUID { get }
     var boxIndex: Int { get }
@@ -17,7 +17,7 @@ protocol Chip: AnyObject {
     var isSelected: Bool { get set }
 }
 
-final class ChipLogic: Chip {
+final class ChipController: ChipControllable {
     var view: any ChipView
 
     var index = UUID()
@@ -37,10 +37,6 @@ final class ChipLogic: Chip {
     }
 }
 
-protocol ChipView: AnyObject {
-    var logic: Chip? { get set }
-
-    func setSelected(status: Bool)
-    /// Remove from parent to clean up the scene
-    func removeFromParent()
+extension ChipController: ChipViewDelegate {
+    
 }

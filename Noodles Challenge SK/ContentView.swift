@@ -14,9 +14,9 @@ struct ContentView: View {
         let scene = SKScene(fileNamed: "GameScene")!
         if let scene = scene as? GameSceneSK {
 
-            let logic = GameSceneLogic(
+            let logic = GameSceneController(
                 view: scene,
-                board: Board(view: BoardSK(), config: GameSceneLogic.config),
+                board: BoardController(view: BoardSK(), config: GameSceneController.config),
                 enemy: EnemyLogic(view: EnemySK(name: "Obinoby"))
             )
 
