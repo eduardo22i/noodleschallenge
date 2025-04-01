@@ -15,6 +15,8 @@
 		F9076DAF2D999F0800BBFC61 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F9076DAE2D999F0800BBFC61 /* Localizable.xcstrings */; };
 		F915136121CFED9800697C44 /* BoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915136021CFED9800697C44 /* BoxController.swift */; };
 		F92F5D2021CA92B10033D560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D1F21CA92B10033D560 /* Assets.xcassets */; };
+		F933FCB42D9CAABC00DB8C4D /* DialogRenderableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933FCB32D9CAABA00DB8C4D /* DialogRenderableComponent.swift */; };
+		F933FCB72D9CAB5100DB8C4D /* GameplayKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933FCB62D9CAB4C00DB8C4D /* GameplayKit+Extensions.swift */; };
 		F93A3B502D99F7F20030DEA2 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93A3B4F2D99F7F00030DEA2 /* BoardView.swift */; };
 		F93A3B522D99F8180030DEA2 /* BoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93A3B512D99F8160030DEA2 /* BoxView.swift */; };
 		F93A3B542D99FDAF0030DEA2 /* ChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93A3B532D99FDAF0030DEA2 /* ChipView.swift */; };
@@ -54,6 +56,8 @@
 		F92F5D3421CAD6760033D560 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		F92F5D3621CAD6760033D560 /* GameSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneController.swift; sourceTree = "<group>"; };
 		F92F5D3A21CAD6790033D560 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F933FCB32D9CAABA00DB8C4D /* DialogRenderableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogRenderableComponent.swift; sourceTree = "<group>"; };
+		F933FCB62D9CAB4C00DB8C4D /* GameplayKit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameplayKit+Extensions.swift"; sourceTree = "<group>"; };
 		F93A3B4F2D99F7F00030DEA2 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		F93A3B512D99F8160030DEA2 /* BoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxView.swift; sourceTree = "<group>"; };
 		F93A3B532D99FDAF0030DEA2 /* ChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipView.swift; sourceTree = "<group>"; };
@@ -129,7 +133,9 @@
 			isa = PBXGroup;
 			children = (
 				F97A662821CFDCED006FC613 /* Entities */,
+				F933FCB22D9CAAAB00DB8C4D /* Components */,
 				F92F5D4521CADFF60033D560 /* Logic */,
+				F933FCB52D9CAB3300DB8C4D /* Helpers */,
 				F96FE1802A5F3AA60063AE73 /* Resources */,
 				F96FE1762A5F30D20063AE73 /* Shared */,
 			);
@@ -146,6 +152,22 @@
 				F9076DAC2D9992EA00BBFC61 /* GameModelStrategist.swift */,
 			);
 			path = Logic;
+			sourceTree = "<group>";
+		};
+		F933FCB22D9CAAAB00DB8C4D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F933FCB32D9CAABA00DB8C4D /* DialogRenderableComponent.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F933FCB52D9CAB3300DB8C4D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F933FCB62D9CAB4C00DB8C4D /* GameplayKit+Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F93A3B4E2D99F6F80030DEA2 /* Views */ = {
@@ -203,7 +225,6 @@
 			isa = PBXGroup;
 			children = (
 				F92F5D3621CAD6760033D560 /* GameSceneController.swift */,
-				F902B91A21D063AB0076E2CD /* DialogController.swift */,
 				F97A662921CFDD01006FC613 /* BoardController.swift */,
 				F915136021CFED9800697C44 /* BoxController.swift */,
 				F97A662C21CFDFBF006FC613 /* ChipController.swift */,
@@ -249,6 +270,7 @@
 		F97A662821CFDCED006FC613 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				F902B91A21D063AB0076E2CD /* DialogController.swift */,
 				F96FE1602A5CBE6E0063AE73 /* Controllers */,
 				F948F8FB21D02D9100B0A4A3 /* Enemy.swift */,
 				F93A3B4E2D99F6F80030DEA2 /* Views */,
@@ -338,6 +360,7 @@
 				F902B91421D04D390076E2CD /* GameSceneController.swift in Sources */,
 				F93A3B502D99F7F20030DEA2 /* BoardView.swift in Sources */,
 				F93A3B562D9B3D8A0030DEA2 /* GameSceneView.swift in Sources */,
+				F933FCB72D9CAB5100DB8C4D /* GameplayKit+Extensions.swift in Sources */,
 				F96FE1822A5F3B280063AE73 /* Strings+Generated.swift in Sources */,
 				F959BB182D77A84A00B2EBC8 /* BoardGameModel.swift in Sources */,
 				F960A96A2A62A57E00733450 /* ImageAsset+SpriteKit.swift in Sources */,
@@ -353,6 +376,7 @@
 				F96FE15B2A5CBD860063AE73 /* BoardSK.swift in Sources */,
 				F96FE15D2A5CBDFA0063AE73 /* BoxSK.swift in Sources */,
 				F948F8FC21D02D9100B0A4A3 /* Enemy.swift in Sources */,
+				F933FCB42D9CAABC00DB8C4D /* DialogRenderableComponent.swift in Sources */,
 				F96FE1732A5CBFEC0063AE73 /* DialogSKNode.swift in Sources */,
 				F9076DAD2D9992EB00BBFC61 /* GameModelStrategist.swift in Sources */,
 				F960A9642A5F6ACE00733450 /* XCAssets+Generated.swift in Sources */,

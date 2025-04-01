@@ -12,9 +12,8 @@ final class GameSceneSK: SKScene, GameSceneView {
 
     var logic: GameScene? {
         didSet {
-            if let dialogSKNode = self.childNode(withName: "dialog") as? SKSpriteNode,
-               let dialogNode = dialogSKNode as? (any DialogView) {
-                logic?.dialogNode = DialogController(view: dialogNode)
+            if let dialogSKNode = self.childNode(withName: "dialog") as? DialogSKNode {
+                logic?.dialogNode.addComponent(DialogRenderableComponent(renderable: dialogSKNode))
             }
         }
     }

@@ -19,7 +19,7 @@ protocol GameScene: AnyObject {
     var enemy: Enemy { get set }
     var currentChips: [any ChipControllable] { get }
 
-    var dialogNode: (any DialogControllable)! { get set }
+    var dialogNode: Dialog { get set }
 
     func start()
     func addToCurrentSelected(coin: ChipControllable)
@@ -40,16 +40,16 @@ final class GameSceneController: GameScene {
             switch state {
             case .thinking:
                 view.disableContinueButton()
-                dialogNode?.hideDialog()
+                dialogNode.dialogComponent.hideDialog()
             case .playing:
                 view.showButtons()
-                dialogNode?.hideDialog()
+                dialogNode.dialogComponent.hideDialog()
             case .ended:
                 view.hideContinueButton()
-                dialogNode?.hideDialog()
+                dialogNode.dialogComponent.hideDialog()
             case .dialog:
                 view.hideButtons()
-                dialogNode?.showDialog()
+                dialogNode.dialogComponent.showDialog()
             }
         }
     }
@@ -61,7 +61,7 @@ final class GameSceneController: GameScene {
 
     var currentChips: [any ChipControllable] = [ChipControllable]()
 
-    var dialogNode: (any DialogControllable)! = nil
+    var dialogNode: Dialog = Dialog()
 
     init(view: GameSceneView, state: GameState = GameState.playing, board: BoardControllable, enemy: Enemy) {
         self.view = view
@@ -81,7 +81,7 @@ final class GameSceneController: GameScene {
         resetBoard()
 
         state = .dialog
-        dialogNode.resetDialog()
+        dialogNode.dialogComponent.resetDialog()
         renderDialog()
     }
 
@@ -133,7 +133,7 @@ final class GameSceneController: GameScene {
         state = .dialog
 
         if removeSelectedChipsAndEvaluateWinner() {
-            dialogNode.state = .crying
+            dialogNode.dialogComponent.state = .crying
             enemy.state = .crying
         } else {
 
@@ -144,14 +144,14 @@ final class GameSceneController: GameScene {
                 }
             }
             if chipCount == 0 {
-                dialogNode.state = .celebrating
+                dialogNode.dialogComponent.state = .celebrating
                 enemy.state = .celebrating
             } else {
-                dialogNode.state = .waiting
+                dialogNode.dialogComponent.state = .waiting
             }
         }
 
-        dialogNode.setRandomDialogFromState()
+        dialogNode.dialogComponent.setRandomDialogFromState()
         renderDialog()
     }
 
@@ -164,7 +164,7 @@ final class GameSceneController: GameScene {
 
     func pressScreen() -> Bool {
         if self.state == .dialog {
-            switch dialogNode.state {
+            switch dialogNode.dialogComponent.state {
             case .thinking:
                 state = .playing
             case .waiting:
@@ -172,7 +172,7 @@ final class GameSceneController: GameScene {
             case .celebrating, .crying:
                 state = .ended
             case .instructions, .wakeUp:
-                dialogNode.nextDialogInQueue()
+                dialogNode.dialogComponent.nextDialogInQueue()
                 renderDialog()
             }
             return true
@@ -214,8 +214,8 @@ final class GameSceneController: GameScene {
 
                 if self.removeSelectedChipsAndEvaluateWinner() {
 
-                    self.dialogNode.state = .celebrating
-                    self.dialogNode.setRandomDialogFromState()
+                    self.dialogNode.dialogComponent.state = .celebrating
+                    self.dialogNode.dialogComponent.setRandomDialogFromState()
                     self.renderDialog()
 
                     self.enemy.state = .celebrating
@@ -227,8 +227,8 @@ final class GameSceneController: GameScene {
 
                 self.board.switchPlayer()
 
-                self.dialogNode.state = .thinking
-                self.dialogNode.setRandomDialogFromState()
+                self.dialogNode.dialogComponent.state = .thinking
+                self.dialogNode.dialogComponent.setRandomDialogFromState()
                 self.renderDialog()
                 self.state = .dialog
                 self.enemy.state = .waiting
@@ -240,20 +240,20 @@ final class GameSceneController: GameScene {
     // MARK: - Update
 
     func renderDialog() {
-        dialogNode.render()
+        dialogNode.dialogComponent.render()
 
-        if dialogNode.state == .wakeUp {
-            if enemy.state == .sleeping && dialogNode.currentDialogIndex > 0 {
+        if dialogNode.dialogComponent.state == .wakeUp {
+            if enemy.state == .sleeping && dialogNode.dialogComponent.currentDialogIndex > 0 {
                 enemy.wakeUp()
             }
-            if dialogNode.currentDialogIndex == DialogState.wakeUp.texts.count - 1 {
-                dialogNode.state = .instructions
-                dialogNode.resetDialog()
+            if dialogNode.dialogComponent.currentDialogIndex == DialogState.wakeUp.texts.count - 1 {
+                dialogNode.dialogComponent.state = .instructions
+                dialogNode.dialogComponent.resetDialog()
             }
         }
-        if dialogNode.state == .instructions && dialogNode.currentDialogIndex == DialogState.instructions.texts.count - 1 {
+        if dialogNode.dialogComponent.state == .instructions && dialogNode.dialogComponent.currentDialogIndex == DialogState.instructions.texts.count - 1 {
             state = .playing
-            dialogNode.resetDialog()
+            dialogNode.dialogComponent.resetDialog()
         }
     }
 }

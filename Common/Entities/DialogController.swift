@@ -56,32 +56,38 @@ enum DialogState {
     }
 }
 
-protocol DialogControllable {
-    var view: any DialogView { get set }
+class Dialog: Entity {
 
-    var state: DialogState { get set }
-    var currentDialogIndex: Int { get }
-    func resetDialog()
-    func nextDialogInQueue()
-    func setRandomDialogFromState()
-
-    func render()
-    func showDialog()
-    func hideDialog()
-}
-
-final class DialogController: DialogControllable {
-    internal init(view: any DialogView, state: DialogState = .wakeUp, currentDialogIndex: Int = 0) {
-        self.view = view
-        self.state = state
-        self.currentDialogIndex = currentDialogIndex
+    override init() {
+        super.init()
+        addComponent(EnemyDialogComponent())
     }
 
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
 
-    var view: any DialogView
+extension Dialog {
+    var dialogComponent: EnemyDialogComponent {
+        guard let enemyDialogComponent = component(ofType: EnemyDialogComponent.self) else {
+            fatalError()
+        }
+        return enemyDialogComponent
+    }
+
+}
+
+class EnemyDialogComponent: Component {
+    private var renderComponent: DialogRenderableComponent {
+        guard let render = entity?.component(ofType: DialogRenderableComponent.self) else {
+            fatalError()
+        }
+        return render
+    }
 
     var state: DialogState = .wakeUp
-    var currentDialogIndex = 0
+    private(set) var currentDialogIndex = 0
 
     func resetDialog() {
         currentDialogIndex = 0
@@ -96,14 +102,14 @@ final class DialogController: DialogControllable {
     }
 
     func render() {
-        view.text = state.texts[currentDialogIndex].text
+        renderComponent.renderable.text = state.texts[currentDialogIndex].text
     }
 
     func showDialog() {
-        view.isHidden = false
+        renderComponent.renderable.isHidden = false
     }
 
     func hideDialog() {
-        view.isHidden = true
+        renderComponent.renderable.isHidden = true
     }
 }
