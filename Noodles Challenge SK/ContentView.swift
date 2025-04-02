@@ -14,10 +14,13 @@ struct ContentView: View {
         let scene = SKScene(fileNamed: "GameScene")!
         if let scene = scene as? GameSceneSK {
 
+            let enemy = EnemyEntity()
+            enemy.addComponent(RenderableComponent(renderable: EnemySK(name: "Obinoby")) as RenderableComponent<any EnemyView>)
+
             let logic = GameSceneController(
                 view: scene,
                 board: BoardController(view: BoardSK(), config: GameSceneController.config),
-                enemy: EnemyLogic(view: EnemySK(name: "Obinoby"))
+                enemy: enemy
             )
 
             #if os(tvOS)

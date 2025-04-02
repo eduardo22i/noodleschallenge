@@ -1,5 +1,5 @@
 //
-//  DialogRenderableComponent.swift
+//  RenderableComponent.swift
 //  Noodles Challenge - SK
 //
 //  Created by Eduardo Irias on 4/2/25.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-class DialogRenderableComponent: Component {
-    var renderable: any DialogView
+class RenderableComponent<V>: Component {
+    var renderable: V
 
-    init(renderable: any DialogView) {
+    init(renderable: V) {
         self.renderable = renderable
         super.init()
     }

@@ -1,5 +1,5 @@
 //
-//  DialogController.swift
+//  Dialog.swift
 //  Noodles Challenge Mac
 //
 //  Created by Eduardo Irias on 12/24/18.
@@ -79,8 +79,8 @@ extension Dialog {
 }
 
 class EnemyDialogComponent: Component {
-    private var renderComponent: DialogRenderableComponent {
-        guard let render = entity?.component(ofType: DialogRenderableComponent.self) else {
+    private var renderComponent: RenderableComponent<any DialogView> {
+        guard let render = entity?.component(ofType: RenderableComponent<any DialogView>.self) else {
             fatalError()
         }
         return render

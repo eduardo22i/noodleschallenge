@@ -8,57 +8,28 @@
 
 import Foundation
 
-enum EnemyState {
-    case sleeping, explaining, waiting, thinking, celebrating, crying
-}
+final class EnemyEntity: Entity {
 
-protocol Enemy {
-    var view: EnemyView { get }
-
-    var state: EnemyState { get set }
-
-    func wakeUp()
-    func wait()
-}
-
-final class EnemyLogic: Enemy {
-    var view: EnemyView
-
-    var state = EnemyState.sleeping {
-        didSet {
-            if oldValue == .sleeping && state == .explaining {
-                view.wakeUp()
-            }
-
-            if state == .thinking {
-                view.think()
-            }
-
-            if state == .waiting {
-                view.wait()
-            }
-
-            if state == .celebrating {
-                view.celebrate()
-            }
-
-            if state == .crying {
-                view.cry()
-            }
+    var renderableComponent: any EnemyView {
+        guard let render = component(ofType: RenderableComponent<any EnemyView>.self) else {
+            fatalError()
         }
+        return render.renderable
     }
 
-    init(view: EnemyView, state: EnemyState = EnemyState.sleeping) {
-        self.view = view
-        self.state = state
+    var enemyComponent: EnemyComponent {
+        guard let enemyComponent = component(ofType: EnemyComponent.self) else {
+            fatalError()
+        }
+        return enemyComponent
     }
 
-    func wakeUp() {
-         state = .explaining
+    override init() {
+        super.init()
+        addComponent(EnemyComponent())
     }
-
-    func wait() {
-        state = .waiting
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
-

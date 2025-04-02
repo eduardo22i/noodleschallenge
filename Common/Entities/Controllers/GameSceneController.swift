@@ -16,7 +16,7 @@ protocol GameScene: AnyObject {
     var strategist: any GameModelStrategist { get }
 
     var board: BoardControllable { get set }
-    var enemy: Enemy { get set }
+    var enemy: EnemyEntity { get set }
     var currentChips: [any ChipControllable] { get }
 
     var dialogNode: Dialog { get set }
@@ -57,20 +57,20 @@ final class GameSceneController: GameScene {
     var strategist: any GameModelStrategist = GKMinmaxStrategist()
 
     var board: BoardControllable
-    var enemy: Enemy
+    var enemy: EnemyEntity
 
     var currentChips: [any ChipControllable] = [ChipControllable]()
 
     var dialogNode: Dialog = Dialog()
 
-    init(view: GameSceneView, state: GameState = GameState.playing, board: BoardControllable, enemy: Enemy) {
+    init(view: GameSceneView, state: GameState = GameState.playing, board: BoardControllable, enemy: EnemyEntity) {
         self.view = view
         self.state = state
         self.board = board
         self.enemy = enemy
 
         self.view.addBoardView(board.view)
-        self.view.addEnemyView(enemy.view)
+        self.view.addEnemyView(enemy.renderableComponent)
 
         view.logic = self
 
@@ -86,8 +86,8 @@ final class GameSceneController: GameScene {
     }
 
     func addToCurrentSelected(coin: any ChipControllable) {
-        if enemy.state != .waiting {
-            enemy.wait()
+        if enemy.enemyComponent.state != .waiting {
+            enemy.enemyComponent.wait()
         }
 
         if currentChips.contains (where: { $0.index == coin.index}) {
@@ -122,7 +122,7 @@ final class GameSceneController: GameScene {
     }
 
     func pressResetButton() {
-        enemy.state = .waiting
+        enemy.enemyComponent.state = .waiting
         resetBoard()
     }
 
@@ -134,7 +134,7 @@ final class GameSceneController: GameScene {
 
         if removeSelectedChipsAndEvaluateWinner() {
             dialogNode.dialogComponent.state = .crying
-            enemy.state = .crying
+            enemy.enemyComponent.state = .crying
         } else {
 
             var chipCount = 0
@@ -145,7 +145,7 @@ final class GameSceneController: GameScene {
             }
             if chipCount == 0 {
                 dialogNode.dialogComponent.state = .celebrating
-                enemy.state = .celebrating
+                enemy.enemyComponent.state = .celebrating
             } else {
                 dialogNode.dialogComponent.state = .waiting
             }
@@ -194,7 +194,7 @@ final class GameSceneController: GameScene {
         state = .thinking
 
         board.switchPlayer()
-        enemy.state = .thinking
+        enemy.enemyComponent.state = .thinking
 
         DispatchQueue.global(qos: .default).async {
             guard let aiMove: NCMove = self.strategist.bestMoveForActivePlayer() as? NCMove else {
@@ -218,7 +218,7 @@ final class GameSceneController: GameScene {
                     self.dialogNode.dialogComponent.setRandomDialogFromState()
                     self.renderDialog()
 
-                    self.enemy.state = .celebrating
+                    self.enemy.enemyComponent.state = .celebrating
 
                     self.state = .dialog
                     return
@@ -231,7 +231,7 @@ final class GameSceneController: GameScene {
                 self.dialogNode.dialogComponent.setRandomDialogFromState()
                 self.renderDialog()
                 self.state = .dialog
-                self.enemy.state = .waiting
+                self.enemy.enemyComponent.state = .waiting
 
             }))
         }
@@ -243,8 +243,8 @@ final class GameSceneController: GameScene {
         dialogNode.dialogComponent.render()
 
         if dialogNode.dialogComponent.state == .wakeUp {
-            if enemy.state == .sleeping && dialogNode.dialogComponent.currentDialogIndex > 0 {
-                enemy.wakeUp()
+            if enemy.enemyComponent.state == .sleeping && dialogNode.dialogComponent.currentDialogIndex > 0 {
+                enemy.enemyComponent.wakeUp()
             }
             if dialogNode.dialogComponent.currentDialogIndex == DialogState.wakeUp.texts.count - 1 {
                 dialogNode.dialogComponent.state = .instructions

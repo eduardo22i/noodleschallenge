@@ -13,7 +13,7 @@ final class GameSceneSK: SKScene, GameSceneView {
     var logic: GameScene? {
         didSet {
             if let dialogSKNode = self.childNode(withName: "dialog") as? DialogSKNode {
-                logic?.dialogNode.addComponent(DialogRenderableComponent(renderable: dialogSKNode))
+                logic?.dialogNode.addComponent(RenderableComponent(renderable: dialogSKNode) as RenderableComponent<any DialogView>)
             }
         }
     }
