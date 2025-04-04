@@ -17,9 +17,14 @@ struct ContentView: View {
             let enemy = EnemyEntity()
             enemy.addComponent(RenderableComponent(renderable: EnemySK(name: "Obinoby")) as RenderableComponent<any EnemyView>)
 
+            let board = Board()
+            let boardRenderableComponent: RenderableComponent<any BoardView> = RenderableComponent(renderable: BoardSK())
+            board.addComponent(boardRenderableComponent)
+            board.addComponent(BoardComponent(config: GameSceneController.config))
+
             let logic = GameSceneController(
                 view: scene,
-                board: BoardController(view: BoardSK(), config: GameSceneController.config),
+                board:board,
                 enemy: enemy
             )
 

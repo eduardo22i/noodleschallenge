@@ -15,7 +15,7 @@ protocol GameScene: AnyObject {
     var state: GameState { get }
     var strategist: any GameModelStrategist { get }
 
-    var board: BoardControllable { get set }
+    var board: Board { get set }
     var enemy: EnemyEntity { get set }
     var currentChips: [any ChipControllable] { get }
 
@@ -56,20 +56,20 @@ final class GameSceneController: GameScene {
 
     var strategist: any GameModelStrategist = GKMinmaxStrategist()
 
-    var board: BoardControllable
+    var board: Board
     var enemy: EnemyEntity
 
     var currentChips: [any ChipControllable] = [ChipControllable]()
 
     var dialogNode: Dialog = Dialog()
 
-    init(view: GameSceneView, state: GameState = GameState.playing, board: BoardControllable, enemy: EnemyEntity) {
+    init(view: GameSceneView, state: GameState = GameState.playing, board: Board, enemy: EnemyEntity) {
         self.view = view
         self.state = state
         self.board = board
         self.enemy = enemy
 
-        self.view.addBoardView(board.view)
+        self.view.addBoardView(board.renderableComponent)
         self.view.addEnemyView(enemy.renderableComponent)
 
         view.logic = self
@@ -108,12 +108,12 @@ final class GameSceneController: GameScene {
     }
 
     func removeSelectedChips() {
-        board.remove(chips: currentChips)
+        board.gameModel.remove(chips: currentChips)
         currentChips.removeAll()
     }
 
     private func isWinner() -> Bool {
-        board.isWinForCurrentPlayer()
+        board.gameModel.isWinForCurrentPlayer()
     }
 
     func removeSelectedChipsAndEvaluateWinner() -> Bool {
@@ -138,7 +138,7 @@ final class GameSceneController: GameScene {
         } else {
 
             var chipCount = 0
-            for box in board.boxes {
+            for box in board.gameModel.boxes {
                 for _ in box.chips {
                     chipCount += 1
                 }
@@ -182,8 +182,8 @@ final class GameSceneController: GameScene {
 
     func resetBoard() {
         currentChips.removeAll()
-        board.reset()
-        board.set(strategist: &strategist)
+        board.gameModel.reset()
+        board.gameModel.set(strategist: &strategist)
         state = .playing
     }
 
@@ -193,7 +193,7 @@ final class GameSceneController: GameScene {
 
         state = .thinking
 
-        board.switchPlayer()
+        board.gameModel.switchPlayer()
         enemy.enemyComponent.state = .thinking
 
         DispatchQueue.global(qos: .default).async {
@@ -202,7 +202,7 @@ final class GameSceneController: GameScene {
             }
 
             for index in 0..<aiMove.chipsCount {
-                self.currentChips.append(self.board.boxes[aiMove.column].chips[index])
+                self.currentChips.append(self.board.gameModel.boxes[aiMove.column].chips[index])
             }
 
             let deadlineTime = DispatchTime.now() + .seconds(2)
@@ -225,7 +225,7 @@ final class GameSceneController: GameScene {
                 }
 
 
-                self.board.switchPlayer()
+                self.board.gameModel.switchPlayer()
 
                 self.dialogNode.dialogComponent.state = .thinking
                 self.dialogNode.dialogComponent.setRandomDialogFromState()

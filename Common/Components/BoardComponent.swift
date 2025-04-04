@@ -1,31 +1,14 @@
 //
-//  BoardController.swift
-//  Tea Challenge
+//  BoardComponent.swift
+//  Noodles Challenge - SK
 //
-//  Created by Eduardo Irias on 12/23/18.
-//  Copyright © 2018 Estamp. All rights reserved.
+//  Created by Eduardo Irias on 4/5/25.
+//  Copyright © 2025 Estamp. All rights reserved.
 //
 
 import Foundation
 
-protocol BoardControllable {
-
-    var view: any BoardView { get set }
-
-    var boxes: [any BoxControllable] { get }
-
-    func set(strategist: inout GameModelStrategist)
-
-    func reset()
-    func switchPlayer()
-    func remove(chips: [any ChipControllable])
-
-    func isWinForCurrentPlayer() -> Bool
-}
-
-final class BoardController: BoardControllable {
-
-    var view: any BoardView
+final class BoardComponent: Component {
 
     var gameModel: BoardGameModel!
     var boxes: [any BoxControllable] = []
@@ -36,14 +19,15 @@ final class BoardController: BoardControllable {
         }
     }
 
-    init(view: any BoardView, config: [Int]) {
-        self.view = view
+    init(config: [Int]) {
         self.config = config
+        super.init()
     }
-}
 
-// MARK: - BoardControllable
-extension BoardController {
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     func set(strategist: inout GameModelStrategist) {
         strategist.gameModel = gameModel
     }
@@ -61,7 +45,9 @@ extension BoardController {
 
         for (index, chipsCount) in self.config.enumerated() {
 
-            let boxView = view.addBox(index: index)
+            guard let boxView = entity?.component(ofType: RenderableComponent<any BoardView>.self)?.renderable.addBox(index: index) else {
+                continue
+            }
             let box = BoxController(view: boxView, index: index)
             box.addCoins(count: chipsCount)
             boxes.append(box)
@@ -71,7 +57,7 @@ extension BoardController {
     func switchPlayer() {
         gameModel.currentPlayer = gameModel.currentPlayer.opponent
     }
-    
+
     func remove(chips: [any ChipControllable]) {
         guard let index = chips.first?.boxIndex else { return }
 
