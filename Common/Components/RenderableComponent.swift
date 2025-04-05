@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol Renderable {
+
+}
+
 class RenderableComponent<V>: Component {
     var renderable: V
 

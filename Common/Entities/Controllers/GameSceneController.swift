@@ -139,7 +139,7 @@ final class GameSceneController: GameScene {
 
             var chipCount = 0
             for box in board.gameModel.boxes {
-                for _ in box.chips {
+                for _ in box.boxComponent.chips {
                     chipCount += 1
                 }
             }
@@ -202,7 +202,7 @@ final class GameSceneController: GameScene {
             }
 
             for index in 0..<aiMove.chipsCount {
-                self.currentChips.append(self.board.gameModel.boxes[aiMove.column].chips[index])
+                self.currentChips.append(self.board.gameModel.boxes[aiMove.column].boxComponent.chips[index])
             }
 
             let deadlineTime = DispatchTime.now() + .seconds(2)

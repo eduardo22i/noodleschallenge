@@ -11,16 +11,13 @@ import Foundation
 final class BoardComponent: Component {
 
     var gameModel: BoardGameModel!
-    var boxes: [any BoxControllable] = []
+    var boxes: [any BoxEntity] = []
 
-    private var config = [Int]() {
-        didSet {
-            gameModel = BoardGameModel(chips: config)
-        }
-    }
+    private var config = [Int]()
 
     init(config: [Int]) {
         self.config = config
+        gameModel = BoardGameModel(chips: config)
         super.init()
     }
 
@@ -34,10 +31,10 @@ final class BoardComponent: Component {
 
     func reset() {
         for box in boxes {
-            box.chips.forEach({ (chip) in
+            box.boxComponent.chips.forEach({ (chip) in
                 chip.view.removeFromParent()
             })
-            box.view.removeFromParent()
+            box.renderableComponent.renderable.removeFromParent()
         }
         boxes.removeAll()
 
@@ -48,8 +45,10 @@ final class BoardComponent: Component {
             guard let boxView = entity?.component(ofType: RenderableComponent<any BoardView>.self)?.renderable.addBox(index: index) else {
                 continue
             }
-            let box = BoxController(view: boxView, index: index)
-            box.addCoins(count: chipsCount)
+            let box = Box()
+            box.addComponent(BoxComponent(index: index))
+            box.addComponent(RenderableComponent<any BoxView>(renderable: boxView))
+            box.boxComponent.addCoins(count: chipsCount)
             boxes.append(box)
         }
     }
@@ -61,7 +60,7 @@ final class BoardComponent: Component {
     func remove(chips: [any ChipControllable]) {
         guard let index = chips.first?.boxIndex else { return }
 
-        boxes[index].remove(chips: chips)
+        boxes[index].boxComponent.remove(chips: chips)
         gameModel.removeChips(chips.count, inColumn: index)
     }
 
