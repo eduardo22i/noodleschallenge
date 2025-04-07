@@ -141,8 +141,9 @@
 			isa = PBXGroup;
 			children = (
 				F97A662821CFDCED006FC613 /* Entities */,
-				F933FCB22D9CAAAB00DB8C4D /* Components */,
 				F92F5D4521CADFF60033D560 /* Logic */,
+				F93A3B4E2D99F6F80030DEA2 /* Views */,
+				F933FCB22D9CAAAB00DB8C4D /* Components */,
 				F933FCB52D9CAB3300DB8C4D /* Helpers */,
 				F96FE1802A5F3AA60063AE73 /* Resources */,
 				F96FE1762A5F30D20063AE73 /* Shared */,
@@ -285,7 +286,6 @@
 				F933FCBE2DA1EBB500DB8C4D /* Box.swift */,
 				F97A662C21CFDFBF006FC613 /* Chip.swift */,
 				F96FE1602A5CBE6E0063AE73 /* Controllers */,
-				F93A3B4E2D99F6F80030DEA2 /* Views */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
