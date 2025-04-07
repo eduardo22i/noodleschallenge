@@ -31,7 +31,7 @@ final class BoxComponent: Component {
     var index: Int
 
     var type: BoxType
-    var chips: [any ChipControllable] = [ChipControllable]()
+    var chips: [any ChipEntity] = [ChipEntity]()
 
     init(index: Int, type: BoxType = .elseB) {
         self.type = type
@@ -43,20 +43,29 @@ final class BoxComponent: Component {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func remove(chips: [any  ChipControllable]) {
-        self.chips.removeAll { chip -> Bool in
-            return chips.contains { removeChip in
-                chip.index == removeChip.index
+    func remove(chips: [any  ChipEntity]) {
+        self.chips
+            .removeAll { chip -> Bool in
+                return chips.contains { removeChip in
+                    chip.chipComponent.index == removeChip.chipComponent.index
+                }
             }
-        }
-        (entity as? BoxEntity)?.renderableComponent.renderable.remove(chips: chips.map { $0.view })
+        (entity as? BoxEntity)?.renderableComponent.renderable.remove(chips: chips.map { $0.renderableComponent.renderable })
     }
 
     func addCoins(count: Int) {
         for coinIndex in 0..<count {
-            let chipView = (entity as? BoxEntity)?.renderableComponent.renderable.addChip(index: coinIndex, total: count)
-            let chip = ChipController(view: chipView!, boxIndex: index, index: coinIndex)
-            chipView!.chip = chip
+            let chip = Chip()
+            guard let chipView = (entity as? BoxEntity)?.renderableComponent.renderable.addChip(index: coinIndex, total: count) else {
+                continue
+            }
+            let renderableComponent = RenderableComponent<any ChipView>(renderable: chipView)
+            let chipComponent = ChipComponent(boxIndex: index, index: coinIndex)
+
+            chipView.component = renderableComponent
+            
+            chip.addComponent(renderableComponent)
+            chip.addComponent(chipComponent)
             chips.append(chip)
         }
     }

@@ -9,7 +9,7 @@
 import SpriteKit
 
 final class ChipSK: SKSpriteNode, ChipView {
-    weak var chip: (any ChipControllable)?
+    weak var component: RenderableComponent<ChipView>?
 
     init() {
         let texture = SKTexture(imageNamed: "Coin")

@@ -32,7 +32,7 @@ final class BoardComponent: Component {
     func reset() {
         for box in boxes {
             box.boxComponent.chips.forEach({ (chip) in
-                chip.view.removeFromParent()
+                chip.renderableComponent.renderable.removeFromParent()
             })
             box.renderableComponent.renderable.removeFromParent()
         }
@@ -57,8 +57,8 @@ final class BoardComponent: Component {
         gameModel.currentPlayer = gameModel.currentPlayer.opponent
     }
 
-    func remove(chips: [any ChipControllable]) {
-        guard let index = chips.first?.boxIndex else { return }
+    func remove(chips: [any ChipEntity]) {
+        guard let index = chips.first?.chipComponent.boxIndex else { return }
 
         boxes[index].boxComponent.remove(chips: chips)
         gameModel.removeChips(chips.count, inColumn: index)

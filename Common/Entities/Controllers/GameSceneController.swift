@@ -17,16 +17,16 @@ protocol GameScene: AnyObject {
 
     var board: Board { get set }
     var enemy: EnemyEntity { get set }
-    var currentChips: [any ChipControllable] { get }
+    var currentChips: [any ChipEntity] { get }
 
     var dialogNode: Dialog { get set }
 
     func start()
-    func addToCurrentSelected(coin: ChipControllable)
+    func addToCurrentSelected(coin: ChipEntity)
 
     func pressResetButton()
     func pressContinueButton()
-    func press(chip: ChipControllable)
+    func press(chip: ChipEntity)
     func pressScreen() -> Bool
 }
 
@@ -59,7 +59,7 @@ final class GameSceneController: GameScene {
     var board: Board
     var enemy: EnemyEntity
 
-    var currentChips: [any ChipControllable] = [ChipControllable]()
+    var currentChips: [any ChipEntity] = [ChipEntity]()
 
     var dialogNode: Dialog = Dialog()
 
@@ -85,25 +85,29 @@ final class GameSceneController: GameScene {
         renderDialog()
     }
 
-    func addToCurrentSelected(coin: any ChipControllable) {
+    func addToCurrentSelected(coin: any ChipEntity) {
         if enemy.enemyComponent.state != .waiting {
             enemy.enemyComponent.wait()
         }
 
-        if currentChips.contains (where: { $0.index == coin.index}) {
-            coin.isSelected = false
-            currentChips.removeAll(where: { $0.index == coin.index})
+        if currentChips.contains (where: { $0.chipComponent.index == coin.chipComponent.index}) {
+            coin.chipComponent.isSelected = false
+            coin.renderableComponent.renderable.setSelected(status: false)
+
+            currentChips.removeAll(where: { $0.chipComponent.index == coin.chipComponent.index})
             return
         }
 
-        if coin.boxIndex != currentChips.first?.boxIndex {
+        if coin.chipComponent.boxIndex != currentChips.first?.chipComponent.boxIndex {
             for currentChip in currentChips {
-                currentChip.isSelected = false
+                currentChip.chipComponent.isSelected = false
+                currentChip.renderableComponent.renderable.setSelected(status: false)
             }
             currentChips.removeAll()
         }
 
-        coin.isSelected = true
+        coin.chipComponent.isSelected = true
+        coin.renderableComponent.renderable.setSelected(status: true)
         currentChips.append(coin)
     }
 
@@ -155,7 +159,7 @@ final class GameSceneController: GameScene {
         renderDialog()
     }
 
-    func press(chip: ChipControllable) {
+    func press(chip: ChipEntity) {
         guard state == .playing else {
             return
         }
@@ -209,7 +213,8 @@ final class GameSceneController: GameScene {
             DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: DispatchWorkItem(block: {
 
                 for currentChip in self.currentChips {
-                    currentChip.isSelected = true
+                    currentChip.chipComponent.isSelected = true
+                    currentChip.renderableComponent.renderable.setSelected(status: true)
                 }
 
                 if self.removeSelectedChipsAndEvaluateWinner() {

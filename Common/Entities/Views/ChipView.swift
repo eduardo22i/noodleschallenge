@@ -8,12 +8,8 @@
 
 import Foundation
 
-protocol ChipViewDelegate {
-
-}
-
 protocol ChipView: AnyObject {
-    var chip: ChipControllable? { get set }
+    var component: RenderableComponent<ChipView>? { get set }
 
     func setSelected(status: Bool)
     /// Remove from parent to clean up the scene

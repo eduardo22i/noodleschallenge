@@ -80,7 +80,7 @@ final class GameSceneSK: SKScene, GameSceneView {
         }
 
         if let chipView = self.nodes(at: pos).first(where: { $0.name == "coin"}) as? ChipSK,
-           let chip = chipView.chip {
+           let chip = chipView.component?.entity as? ChipEntity {
             logic?.press(chip: chip)
         }
     }

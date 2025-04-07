@@ -20,6 +20,7 @@
 		F933FCB92D9CAD6100DB8C4D /* EnemyComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933FCB82D9CAD5200DB8C4D /* EnemyComponent.swift */; };
 		F933FCBD2DA0A08E00DB8C4D /* BoardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933FCBC2DA0A08700DB8C4D /* BoardComponent.swift */; };
 		F933FCBF2DA1EBB900DB8C4D /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933FCBE2DA1EBB500DB8C4D /* Box.swift */; };
+		F933FCC12DA487BC00DB8C4D /* ChipComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933FCC02DA487B500DB8C4D /* ChipComponent.swift */; };
 		F93A3B502D99F7F20030DEA2 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93A3B4F2D99F7F00030DEA2 /* BoardView.swift */; };
 		F93A3B522D99F8180030DEA2 /* BoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93A3B512D99F8160030DEA2 /* BoxView.swift */; };
 		F93A3B542D99FDAF0030DEA2 /* ChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93A3B532D99FDAF0030DEA2 /* ChipView.swift */; };
@@ -42,7 +43,7 @@
 		F96FE1732A5CBFEC0063AE73 /* DialogSKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1722A5CBFEC0063AE73 /* DialogSKNode.swift */; };
 		F96FE1822A5F3B280063AE73 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96FE1812A5F3B280063AE73 /* Strings+Generated.swift */; };
 		F97A662A21CFDD01006FC613 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662921CFDD01006FC613 /* Board.swift */; };
-		F97A662D21CFDFBF006FC613 /* ChipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662C21CFDFBF006FC613 /* ChipController.swift */; };
+		F97A662D21CFDFBF006FC613 /* Chip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A662C21CFDFBF006FC613 /* Chip.swift */; };
 		F99E71F821CC31CD0037098A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F92F5D3221CAD6760033D560 /* GameScene.sks */; };
 		F9DCEBD021D0ECF800D266C5 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B91A21D063AB0076E2CD /* Dialog.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		F933FCB82D9CAD5200DB8C4D /* EnemyComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyComponent.swift; sourceTree = "<group>"; };
 		F933FCBC2DA0A08700DB8C4D /* BoardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardComponent.swift; sourceTree = "<group>"; };
 		F933FCBE2DA1EBB500DB8C4D /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		F933FCC02DA487B500DB8C4D /* ChipComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipComponent.swift; sourceTree = "<group>"; };
 		F93A3B4F2D99F7F00030DEA2 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		F93A3B512D99F8160030DEA2 /* BoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxView.swift; sourceTree = "<group>"; };
 		F93A3B532D99FDAF0030DEA2 /* ChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipView.swift; sourceTree = "<group>"; };
@@ -87,7 +89,7 @@
 		F96FE1722A5CBFEC0063AE73 /* DialogSKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogSKNode.swift; sourceTree = "<group>"; };
 		F96FE1812A5F3B280063AE73 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		F97A662921CFDD01006FC613 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
-		F97A662C21CFDFBF006FC613 /* ChipController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipController.swift; sourceTree = "<group>"; };
+		F97A662C21CFDFBF006FC613 /* Chip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chip.swift; sourceTree = "<group>"; };
 		F99E71EF21CC1FFE0037098A /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		F9CF525921D4045E000366E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +169,7 @@
 				F933FCB82D9CAD5200DB8C4D /* EnemyComponent.swift */,
 				F933FCBC2DA0A08700DB8C4D /* BoardComponent.swift */,
 				F915136021CFED9800697C44 /* BoxComponent.swift */,
+				F933FCC02DA487B500DB8C4D /* ChipComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -234,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				F92F5D3621CAD6760033D560 /* GameSceneController.swift */,
-				F97A662C21CFDFBF006FC613 /* ChipController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -281,6 +283,7 @@
 				F948F8FB21D02D9100B0A4A3 /* Enemy.swift */,
 				F97A662921CFDD01006FC613 /* Board.swift */,
 				F933FCBE2DA1EBB500DB8C4D /* Box.swift */,
+				F97A662C21CFDFBF006FC613 /* Chip.swift */,
 				F96FE1602A5CBE6E0063AE73 /* Controllers */,
 				F93A3B4E2D99F6F80030DEA2 /* Views */,
 			);
@@ -378,12 +381,13 @@
 				F933FCBD2DA0A08E00DB8C4D /* BoardComponent.swift in Sources */,
 				F96FE1692A5CBF490063AE73 /* EnemySK.swift in Sources */,
 				F9DCEBD021D0ECF800D266C5 /* Dialog.swift in Sources */,
-				F97A662D21CFDFBF006FC613 /* ChipController.swift in Sources */,
+				F97A662D21CFDFBF006FC613 /* Chip.swift in Sources */,
 				F96FE16F2A5CBF970063AE73 /* GameSceneSK.swift in Sources */,
 				F93A3B582D9B3E5A0030DEA2 /* DialogView.swift in Sources */,
 				F93A3B542D99FDAF0030DEA2 /* ChipView.swift in Sources */,
 				F93A3B5A2D9B3E800030DEA2 /* EnemyView.swift in Sources */,
 				F96FE15B2A5CBD860063AE73 /* BoardSK.swift in Sources */,
+				F933FCC12DA487BC00DB8C4D /* ChipComponent.swift in Sources */,
 				F96FE15D2A5CBDFA0063AE73 /* BoxSK.swift in Sources */,
 				F948F8FC21D02D9100B0A4A3 /* Enemy.swift in Sources */,
 				F933FCB42D9CAABC00DB8C4D /* RenderableComponent.swift in Sources */,
