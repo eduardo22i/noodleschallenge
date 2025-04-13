@@ -10,7 +10,7 @@ import Foundation
 
 protocol ChipEntity: Entity {
     var renderableComponent: RenderableComponent<any ChipView> { get }
-    var chipComponent: ChipController { get }
+    var chipComponent: ChipComponent { get }
 }
 
 final class Chip: Entity, ChipEntity {
@@ -22,8 +22,8 @@ final class Chip: Entity, ChipEntity {
         return render
     }
 
-    var chipComponent: ChipController {
-        guard let component = component(ofType: ChipController.self) else {
+    var chipComponent: ChipComponent {
+        guard let component = component(ofType: ChipComponent.self) else {
             fatalError()
         }
         return component
