@@ -11,7 +11,7 @@ import GameplayKit
 
 class BoardGameModel: NSObject {
 
-    var currentPlayer: Player
+    var currentPlayer: PlayerComponent
     static let width = 3
     static let countToWin = 1
 
@@ -19,7 +19,7 @@ class BoardGameModel: NSObject {
 
     init(chips: [Int]) {
         self.cells = chips
-        self.currentPlayer = Player.humanPlayer
+        self.currentPlayer = PlayerComponent.humanPlayer
     }
 
     func updateChips(from otherBoard: BoardGameModel) {
@@ -47,7 +47,7 @@ class BoardGameModel: NSObject {
         return true
     }
 
-    func runCounts(for player: Player) -> [Int] {
+    func runCounts(for player: PlayerComponent) -> [Int] {
         var counts: [Int] = []
         var totalRunCount = 0
 

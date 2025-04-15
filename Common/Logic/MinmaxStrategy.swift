@@ -14,7 +14,7 @@ class NCMove: NSObject, GKGameModelUpdate {
     
     var column: Int
     var chipsCount: Int
-    var player: Player?
+    var player: PlayerComponent?
 
     init(column: Int, chipsCount: Int) {
         self.column = column
@@ -26,7 +26,7 @@ class NCMove: NSObject, GKGameModelUpdate {
     }
 }
 
-extension Player: GKGameModelPlayer {
+extension PlayerComponent: GKGameModelPlayer {
     var playerId: Int {
         return type.rawValue
     }
@@ -34,7 +34,7 @@ extension Player: GKGameModelPlayer {
 
 extension BoardGameModel: GKGameModel {
     var players: [any GKGameModelPlayer]? {
-        Player.allPlayers
+        PlayerComponent.allPlayers
     }
 
     var activePlayer: (any GKGameModelPlayer)? {
@@ -54,7 +54,7 @@ extension BoardGameModel: GKGameModel {
     }
 
     func gameModelUpdates(for player: any GKGameModelPlayer) -> [any GKGameModelUpdate]? {
-        guard let player = player as? Player else { return nil }
+        guard let player = player as? PlayerComponent else { return nil }
 
         var moves: [NCMove] = []
         var totalRunCount = 0
@@ -97,7 +97,7 @@ extension BoardGameModel: GKGameModel {
     }
 
     func isWin(for player: any GKGameModelPlayer) -> Bool {
-        guard let player = player as? Player else { return false }
+        guard let player = player as? PlayerComponent else { return false }
 
         var totalRunCount = 0
         for column in 0..<BoardGameModel.width {
@@ -108,12 +108,12 @@ extension BoardGameModel: GKGameModel {
     }
 
     func isLoss(for player: any GKGameModelPlayer) -> Bool {
-        guard let player = player as? Player else { return false }
+        guard let player = player as? PlayerComponent else { return false }
         return self.isWin(for: player.opponent)
     }
 
     func score(for player: any GKGameModelPlayer) -> Int {
-        guard let player = player as? Player else { return 0 }
+        guard let player = player as? PlayerComponent else { return 0 }
 
         var totalRunCount = 0
         for column in 0..<BoardGameModel.width {

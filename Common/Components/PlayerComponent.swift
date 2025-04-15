@@ -1,19 +1,14 @@
 //
-//  Player.swift
-//  Noodles Challenge
+//  PlayerComponent.swift
+//  Noodles Challenge - SK
 //
-//  Created by Eduardo Irias on 3/4/25.
+//  Created by Eduardo Irias on 4/15/25.
 //  Copyright © 2025 Estamp. All rights reserved.
 //
+
 import Foundation
 
-enum PlayerType: Int {
-    case none = 0
-    case human
-    case computer
-}
-
-class Player: NSObject {
+final class PlayerComponent: Component {
     var type: PlayerType
     var name: String {
         switch type {
@@ -42,15 +37,19 @@ class Player: NSObject {
         super.init()
     }
 
-    static var humanPlayer: Player {
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    static var humanPlayer: PlayerComponent {
         player(for: .human)!
     }
 
-    static var computerPlayer: Player {
+    static var computerPlayer: PlayerComponent {
          player(for: .computer)!
     }
 
-    private static func player(for type: PlayerType) -> Player? {
+    private static func player(for type: PlayerType) -> PlayerComponent? {
         switch type {
         case .none:
             nil
@@ -61,17 +60,17 @@ class Player: NSObject {
         }
     }
 
-    static let allPlayers: [Player] = [
-            Player(type: .human),
-            Player(type: .computer)
+    static let allPlayers: [PlayerComponent] = [
+        PlayerComponent(type: .human),
+        PlayerComponent(type: .computer)
     ]
 
-    var opponent: Player {
+    var opponent: PlayerComponent {
         switch type {
         case .human:
-            return Player.computerPlayer
+            return PlayerComponent.computerPlayer
         case .computer:
-            return Player.humanPlayer
+            return PlayerComponent.humanPlayer
         default:
             fatalError("Not a valid player")
         }
