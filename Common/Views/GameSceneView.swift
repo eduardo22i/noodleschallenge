@@ -9,7 +9,7 @@
 import Foundation
 
 protocol GameSceneView: AnyObject {
-    var logic: GameScene? { get set }
+    var logic: GameScene? { get }
 
     func addEnemyView(_ enemyView: EnemyView)
     func addBoardView(_ boardView: BoardView)

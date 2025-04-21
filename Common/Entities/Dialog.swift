@@ -23,7 +23,7 @@ enum DialogState {
         case .instructions:
             return [
                 L10n.Dialog.Enemy.instructions1,
-                L10n.Dialog.Enemy.instructions2(GameSceneController.config.count),
+                L10n.Dialog.Enemy.instructions2(GameSceneComponent.config.count),
                 L10n.Dialog.Enemy.instructions3,
                 L10n.Dialog.Enemy.instructions4,
                 L10n.Dialog.Enemy.instructions5,

@@ -1,5 +1,5 @@
 //
-//  GameSceneController.swift
+//  GameSceneComponent.swift
 //  Tea Challenge Mac
 //
 //  Created by Eduardo Irias on 12/19/18.
@@ -8,6 +8,10 @@
 
 import Foundation
 import GameplayKit
+
+protocol GameSceneEntity: Entity {
+    var renderableComponent: RenderableComponent<any GameSceneView> { get }
+}
 
 protocol GameScene: AnyObject {
     var view: GameSceneView { get }
@@ -19,7 +23,7 @@ protocol GameScene: AnyObject {
     var enemy: EnemyEntity { get set }
     var currentChips: [any ChipEntity] { get }
 
-    var dialogNode: Dialog { get set }
+    var dialog: Dialog { get set }
 
     func start()
     func addToCurrentSelected(coin: ChipEntity)
@@ -30,58 +34,62 @@ protocol GameScene: AnyObject {
     func pressScreen() -> Bool
 }
 
-final class GameSceneController: GameScene {
+final class GameSceneComponent: Component, GameScene {
     static let config = [4,3,2]
 
-    var view: GameSceneView
+    var view: GameSceneView {
+        guard let component = entity?.component(ofType: RenderableComponent<any GameSceneView>.self) else {
+            fatalError()
+        }
+        return component.renderable
+    }
 
     var state = GameState.playing {
         didSet {
             switch state {
             case .thinking:
                 view.disableContinueButton()
-                dialogNode.dialogComponent.hideDialog()
+                dialog.dialogComponent.hideDialog()
             case .playing:
                 view.showButtons()
-                dialogNode.dialogComponent.hideDialog()
+                dialog.dialogComponent.hideDialog()
             case .ended:
                 view.hideContinueButton()
-                dialogNode.dialogComponent.hideDialog()
+                dialog.dialogComponent.hideDialog()
             case .dialog:
                 view.hideButtons()
-                dialogNode.dialogComponent.showDialog()
+                dialog.dialogComponent.showDialog()
             }
         }
     }
 
     var strategist: any GameModelStrategist = GKMinmaxStrategist()
 
+    var dialog: Dialog
     var board: Board
     var enemy: EnemyEntity
 
     var currentChips: [any ChipEntity] = [ChipEntity]()
 
-    var dialogNode: Dialog = Dialog()
-
-    init(view: GameSceneView, state: GameState = GameState.playing, board: Board, enemy: EnemyEntity) {
-        self.view = view
+    init(state: GameState = GameState.playing, dialog: Dialog, board: Board, enemy: EnemyEntity) {
         self.state = state
+        self.dialog = dialog
         self.board = board
         self.enemy = enemy
 
-        self.view.addBoardView(board.renderableComponent)
-        self.view.addEnemyView(enemy.renderableComponent)
-
-        view.logic = self
-
         self.strategist.maxLookAheadDepth = 100
+        super.init()
     }
-
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func start() {
         resetBoard()
 
         state = .dialog
-        dialogNode.dialogComponent.resetDialog()
+        dialog.dialogComponent.resetDialog()
         renderDialog()
     }
 
@@ -137,7 +145,7 @@ final class GameSceneController: GameScene {
         state = .dialog
 
         if removeSelectedChipsAndEvaluateWinner() {
-            dialogNode.dialogComponent.state = .crying
+            dialog.dialogComponent.state = .crying
             enemy.enemyComponent.state = .crying
         } else {
 
@@ -148,14 +156,14 @@ final class GameSceneController: GameScene {
                 }
             }
             if chipCount == 0 {
-                dialogNode.dialogComponent.state = .celebrating
+                dialog.dialogComponent.state = .celebrating
                 enemy.enemyComponent.state = .celebrating
             } else {
-                dialogNode.dialogComponent.state = .waiting
+                dialog.dialogComponent.state = .waiting
             }
         }
 
-        dialogNode.dialogComponent.setRandomDialogFromState()
+        dialog.dialogComponent.setRandomDialogFromState()
         renderDialog()
     }
 
@@ -168,7 +176,7 @@ final class GameSceneController: GameScene {
 
     func pressScreen() -> Bool {
         if self.state == .dialog {
-            switch dialogNode.dialogComponent.state {
+            switch dialog.dialogComponent.state {
             case .thinking:
                 state = .playing
             case .waiting:
@@ -176,7 +184,7 @@ final class GameSceneController: GameScene {
             case .celebrating, .crying:
                 state = .ended
             case .instructions, .wakeUp:
-                dialogNode.dialogComponent.nextDialogInQueue()
+                dialog.dialogComponent.nextDialogInQueue()
                 renderDialog()
             }
             return true
@@ -219,8 +227,8 @@ final class GameSceneController: GameScene {
 
                 if self.removeSelectedChipsAndEvaluateWinner() {
 
-                    self.dialogNode.dialogComponent.state = .celebrating
-                    self.dialogNode.dialogComponent.setRandomDialogFromState()
+                    self.dialog.dialogComponent.state = .celebrating
+                    self.dialog.dialogComponent.setRandomDialogFromState()
                     self.renderDialog()
 
                     self.enemy.enemyComponent.state = .celebrating
@@ -232,8 +240,8 @@ final class GameSceneController: GameScene {
 
                 self.board.gameModel.switchPlayer()
 
-                self.dialogNode.dialogComponent.state = .thinking
-                self.dialogNode.dialogComponent.setRandomDialogFromState()
+                self.dialog.dialogComponent.state = .thinking
+                self.dialog.dialogComponent.setRandomDialogFromState()
                 self.renderDialog()
                 self.state = .dialog
                 self.enemy.enemyComponent.state = .waiting
@@ -245,20 +253,20 @@ final class GameSceneController: GameScene {
     // MARK: - Update
 
     func renderDialog() {
-        dialogNode.dialogComponent.render()
+        dialog.dialogComponent.render()
 
-        if dialogNode.dialogComponent.state == .wakeUp {
-            if enemy.enemyComponent.state == .sleeping && dialogNode.dialogComponent.currentDialogIndex > 0 {
+        if dialog.dialogComponent.state == .wakeUp {
+            if enemy.enemyComponent.state == .sleeping && dialog.dialogComponent.currentDialogIndex > 0 {
                 enemy.enemyComponent.wakeUp()
             }
-            if dialogNode.dialogComponent.currentDialogIndex == DialogState.wakeUp.texts.count - 1 {
-                dialogNode.dialogComponent.state = .instructions
-                dialogNode.dialogComponent.resetDialog()
+            if dialog.dialogComponent.currentDialogIndex == DialogState.wakeUp.texts.count - 1 {
+                dialog.dialogComponent.state = .instructions
+                dialog.dialogComponent.resetDialog()
             }
         }
-        if dialogNode.dialogComponent.state == .instructions && dialogNode.dialogComponent.currentDialogIndex == DialogState.instructions.texts.count - 1 {
+        if dialog.dialogComponent.state == .instructions && dialog.dialogComponent.currentDialogIndex == DialogState.instructions.texts.count - 1 {
             state = .playing
-            dialogNode.dialogComponent.resetDialog()
+            dialog.dialogComponent.resetDialog()
         }
     }
 }

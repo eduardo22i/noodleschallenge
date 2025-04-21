@@ -10,12 +10,10 @@ import SpriteKit
 
 final class GameSceneSK: SKScene, GameSceneView {
 
-    var logic: GameScene? {
-        didSet {
-            if let dialogSKNode = self.childNode(withName: "dialog") as? DialogSKNode {
-                logic?.dialogNode.addComponent(RenderableComponent(renderable: dialogSKNode) as RenderableComponent<any DialogView>)
-            }
-        }
+    weak var component: RenderableComponent<GameSceneView>?
+
+    var logic: (any GameScene)? {
+        component?.entity?.component(ofType: GameSceneComponent.self)
     }
 
     var continueButton: SKSpriteNode!
@@ -152,6 +150,13 @@ final class GameSceneSK: SKScene, GameSceneView {
 
 
         lastUpdateTime = currentTime
+    }
+
+    func addDialogView() -> any DialogView {
+        guard let dialogSKNode = self.childNode(withName: "dialog") as? DialogSKNode else {
+            fatalError()
+        }
+        return dialogSKNode
     }
 
     func addEnemyView(_ enemyView: EnemyView) {

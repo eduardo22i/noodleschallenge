@@ -10,6 +10,8 @@ import SwiftUI
 import SpriteKit
 
 struct ContentView: View {
+    let gameScene = Entity()
+
     var scene: SKScene {
         let scene = SKScene(fileNamed: "GameScene")!
         if let scene = scene as? GameSceneSK {
@@ -20,20 +22,30 @@ struct ContentView: View {
             let board = Board()
             let boardRenderableComponent: RenderableComponent<any BoardView> = RenderableComponent(renderable: BoardSK())
             board.addComponent(boardRenderableComponent)
-            board.addComponent(BoardComponent(config: GameSceneController.config))
+            board.addComponent(BoardComponent(config: GameSceneComponent.config))
 
-            let logic = GameSceneController(
-                view: scene,
+            let dialog = Dialog()
+            let dialogView = scene.addDialogView()
+            dialog.addComponent(RenderableComponent(renderable: dialogView) as RenderableComponent<any DialogView>)
+
+            let gameSceneComponent = GameSceneComponent(
+                dialog: dialog,
                 board:board,
                 enemy: enemy
             )
+            gameScene.addComponent(gameSceneComponent)
+            let gameSceneRenderableComponent: RenderableComponent<any GameSceneView> = RenderableComponent(renderable: scene)
+            scene.component = gameSceneRenderableComponent
+            gameScene.addComponent(gameSceneRenderableComponent)
+
+            scene.addBoardView(board.renderableComponent)
+            scene.addEnemyView(enemy.renderableComponent)
 
             #if os(tvOS)
             scene.isScrollingInput = true
             #endif
 
-            logic.start()
-
+            gameSceneComponent.start()
         }
 
         scene.scaleMode = .aspectFit
